@@ -1,0 +1,213 @@
+{
+  "configName": "cascade_verylongrange",
+  "description": "AWR2243-2X-CAS-EVM Very Long Range Configuration (2-chip cascade, 6TX TDM MIMO)",
+  "platform": {
+    "evm": "AWR2243-2X-CAS-EVM",
+    "processor": "AM2732R",
+    "frontEnd": "AWR2243",
+    "numDevices": 2,
+    "cascadeMode": "2-chip"
+  },
+  "performance": {
+    "maxRange_m": 151,
+    "rangeResolution_m": 0.87,
+    "maxVelocity_mps": 19.48,
+    "velocityResolution_mps": 0.1522
+  },
+  "dfeDataOutputMode": 1,
+  "channelCfg": {
+    "device0": {
+      "rxChannelEn": 15,
+      "txChannelEn": 7,
+      "cascading": 1
+    },
+    "device1": {
+      "rxChannelEn": 15,
+      "txChannelEn": 7,
+      "cascading": 2
+    }
+  },
+  "adcCfg": {
+    "numAdcBits": 2,
+    "adcOutFmt": 1
+  },
+  "adcbufCfg": {
+    "subFrameIdx": -1,
+    "adcOutputFmt": 0,
+    "sampleSwap": 1,
+    "chanInterleave": 0,
+    "chirpThreshold": 1
+  },
+  "lowPower": {
+    "dontCare": 0,
+    "lpAdcMode": 0
+  },
+  "dataPathClkCfg": {
+    "laneClk": 1,
+    "dataRate": 1
+  },
+  "profileCfg": {
+    "profileId": 0,
+    "startFreq_GHz": 76,
+    "idleTime_us": 4,
+    "adcStartTime_us": 3,
+    "rampEndTime_us": 43,
+    "txOutPowerBackoff": 0,
+    "txPhaseShift": 0,
+    "freqSlope_MHz_per_us": 5.23,
+    "txStartTime_us": 0,
+    "numAdcSamples": 192,
+    "digOutSampleRate_ksps": 5000,
+    "hpfCornerFreq1": 2,
+    "hpfCornerFreq2": 2,
+    "rxGain_dB": 42
+  },
+  "dataPathConfig": {
+    "intfSel": 0,
+    "transferFmtPkt0": 1,
+    "transferFmtPkt1": 0,
+    "cqConfig": 2,
+    "cq0TransSize": 64,
+    "cq1TransSize": 64,
+    "cq2TransSize": 64,
+    "reserved": 0
+  },
+  "hsiClockConfig": {
+    "hsiClk": 9,
+    "reserved": 0
+  },
+  "dataFormatConfig": {
+    "rxChanInterleave": 0,
+    "adcFmt": 1
+  },
+  "chirpCfg": [
+    {"startIdx": 0, "endIdx": 0, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 1},
+    {"startIdx": 1, "endIdx": 1, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 2},
+    {"startIdx": 2, "endIdx": 2, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 4},
+    {"startIdx": 3, "endIdx": 3, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 1},
+    {"startIdx": 4, "endIdx": 4, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 2},
+    {"startIdx": 5, "endIdx": 5, "profileId": 0, "startFreqVar": 0, "freqSlopeVar": 0, "idleTimeVar": 0, "adcStartTimeVar": 0, "txChannelEn": 4}
+  ],
+  "frameCfg": {
+    "chirpStartIdx": 0,
+    "chirpEndIdx": 5,
+    "numLoops": 32,
+    "numFrames": 0,
+    "numAdcSamples": 192,
+    "framePeriodicity_ms": 250,
+    "triggerSelect": 1,
+    "frameTrigDelay": 0,
+    "numDevices": 2
+  },
+  "guiMonitor": {
+    "subFrameIdx": -1,
+    "detectedObjects": 3,
+    "logMagRange": 0,
+    "noiseProfile": 0,
+    "rangeAzimuthHeatMap": 0,
+    "rangeDopplerHeatMap": 0,
+    "statsInfo": 0,
+    "detectedObjectsSideInfo": 1,
+    "azimuthStaticHeatMap": 1
+  },
+  "cfarCfg": [
+    {"subFrameIdx": -1, "procDirection": 1, "mode": 3, "noiseWin": 16, "guardLen": 0, "divShift": 0, "cyclicMode": 1, "thresholdScale_dB": 17.0, "peakGroupingEn": 1, "maxAllowed": 7, "param1": 0, "param2": 1},
+    {"subFrameIdx": -1, "procDirection": 0, "mode": 3, "noiseWin": 16, "guardLen": 0, "divShift": 0, "cyclicMode": 1, "thresholdScale_dB": 10.0, "peakGroupingEn": 0, "maxAllowed": 7, "param1": 0, "param2": 1}
+  ],
+  "compressionCfg": {
+    "subFrameIdx": -1,
+    "enable": 1,
+    "mode": 0,
+    "ratio": 0.5,
+    "roundMode": 8
+  },
+  "intfMitigCfg": {
+    "subFrameIdx": -1,
+    "param1": 25,
+    "param2": 28
+  },
+  "localMaxCfg": {
+    "subFrameIdx": -1,
+    "param1": 7,
+    "param2": 25
+  },
+  "antennaCalibParams": {
+    "params1": [-0.44086, -0.37671, -0.27167, -0.61047, -0.13922, -0.62286, 0.02533, -0.60785, -0.38330, 0.56158, -0.59875, 0.36621, -0.73328, 0.08215, -0.64923, 0.01227, -0.01538, -0.58875, 0.27704, -0.62524, 0.38312, -0.52728, 0.47943, -0.37726, -0.66345, 0.09552, -0.67474, -0.19995, -0.54498, -0.49585, -0.42108, -0.48193],
+    "params2": [0.52539, -0.28143, 0.69080, -0.06561, 0.65625, 0.08118, 0.57855, 0.26385, -0.37817, -0.53223, -0.14532, -0.67084, 0.16516, -0.73163, 0.23608, -0.61774, 0.58875, 0.13110, 0.56549, 0.39886, 0.45013, 0.48950, 0.27313, 0.57507, 0.06879, -0.65051, 0.32404, -0.59290, 0.58905, -0.44318, 0.57373, -0.32166],
+    "params3": [-0.02155, 0.61859, -0.30334, 0.63727, -0.40479, 0.53766, -0.51367, 0.38599, 0.66302, -0.05438, 0.63898, 0.22076, 0.54443, 0.48260, 1.00000, 0.00140, -0.38184, -0.48633, -0.18005, -0.69617, -0.04089, -0.68475, 0.15771, -0.64050, -0.48895, 0.48785, -0.66699, 0.26941, -0.77966, -0.04065, -0.69421, -0.13177]
+  },
+  "analogMonitor": {
+    "rxSaturation": 0,
+    "sigImgBand": 0
+  },
+  "aoaFovCfg": {
+    "subFrameIdx": -1,
+    "minAzimuth_deg": -85,
+    "maxAzimuth_deg": 85,
+    "minElevation_deg": -5,
+    "maxElevation_deg": 5
+  },
+  "calibData": {
+    "saveEnable": 0,
+    "restoreEnable": 0,
+    "flashOffset": 0
+  },
+  "appSceneryParams": {
+    "sensorPosX_m": 0.0,
+    "sensorPosY_m": 0.0,
+    "sensorPosZ_m": 1.0,
+    "sensorOrientX_deg": 0.0,
+    "sensorOrientY_deg": 0.0,
+    "boundaryBoxLeft_m": -24.0,
+    "boundaryBoxRight_m": 24.0,
+    "boundaryBoxNear_m": 1.0,
+    "boundaryBoxFar_m": 260.0,
+    "boundaryBoxBottom_m": -5.0,
+    "boundaryBoxTop_m": 5.0
+  },
+  "appGatingParams": {
+    "gainRangeLimit_m": 8.0,
+    "gainDopplerLimit_mps": 10.0,
+    "gainWidthLimit_m": 8.0,
+    "gainDepthLimit_m": 4.0,
+    "gainSNRLimit_dB": 40.0
+  },
+  "appStateParams": {
+    "det2actThreshold": 2,
+    "det2freeThreshold": 2,
+    "active2freeThreshold": 10,
+    "maxAge": 100,
+    "maxCoast": 10,
+    "unused": 0
+  },
+  "appAllocParams": {
+    "maxDistRange_m": 20.0,
+    "maxVelRange_mps": 20.0,
+    "maxSNRRange": 1.0,
+    "maxPoints": 6,
+    "maxDistVel_m": 4.0,
+    "maxVelVel_mps": 20.0
+  },
+  "gtrack": {
+    "enable": 1,
+    "maxPoints": 800,
+    "maxTracks": 30,
+    "minVelocity_mps": 0.0,
+    "maxVelocity_mps": 19.48,
+    "velocityResolution_mps": 0.1522,
+    "initRange_m": 2.0,
+    "initVelocity_mps": 10.0,
+    "initAngle_rad": 0.0,
+    "dt_s": 0.250
+  },
+  "ransac": {
+    "enable": 1,
+    "maxIterations": 200,
+    "distanceThreshold_m": 1.0
+  },
+  "measureRangeBiasAndRxChanPhase": {
+    "enable": 0,
+    "targetRange_m": 3.0,
+    "searchWin_m": 0.5
+  }
+}

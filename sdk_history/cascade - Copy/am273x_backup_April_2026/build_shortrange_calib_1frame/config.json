@@ -1,0 +1,52 @@
+{
+  "configName": "shortrange_calib_1frame",
+  "description": "Short-range calibration cascade profile, single frame capture.",
+  "variant": "1frame",
+  "platform": {
+    "evm": "AWR2243-2X-CAS-EVM",
+    "processor": "AM2732R",
+    "frontEnd": "AWR2243",
+    "numDevices": 2,
+    "cascadeMode": "2-chip"
+  },
+  "compiledSettings": {
+    "TEST_NUM_ADC_SAMPLES": 256,
+    "TEST_NUM_LOOPS": 64,
+    "TEST_NUM_FRAMES": 1,
+    "TEST_NUM_RX": 4,
+    "TEST_NUM_TX": 3,
+    "TEST_BYTES_PER_ADC_SAMPLE": 4,
+    "TEST_NUM_CHIRPS": 6
+  },
+  "profileCfg": {
+    "profileId": 0,
+    "startFreq_GHz": 77,
+    "idleTime_us": 104,
+    "adcStartTime_us": 6,
+    "rampEndTime_us": 60,
+    "freqSlope_MHz_per_us": 44.41,
+    "numAdcSamples": 256,
+    "digOutSampleRate_ksps": 5000,
+    "hpfCornerFreq1": 2,
+    "hpfCornerFreq2": 2,
+    "rxGain_dB": 30
+  },
+  "chirpCfg": [
+    {"chirpIdx": 0, "txChannelEn": 1, "note": "Dev0-TX0"},
+    {"chirpIdx": 1, "txChannelEn": 2, "note": "Dev0-TX1"},
+    {"chirpIdx": 2, "txChannelEn": 4, "note": "Dev0-TX2"},
+    {"chirpIdx": 3, "txChannelEn": 1, "note": "Dev1-TX0"},
+    {"chirpIdx": 4, "txChannelEn": 2, "note": "Dev1-TX1"},
+    {"chirpIdx": 5, "txChannelEn": 4, "note": "Dev1-TX2"}
+  ],
+  "frameCfg": {
+    "chirpStartIdx": 0,
+    "chirpEndIdx": 5,
+    "numLoops": 64,
+    "numFrames": 1,
+    "numAdcSamples": 256,
+    "framePeriodicity_ms": 1000,
+    "triggerSelect_master": 1,
+    "triggerSelect_slave": 2
+  }
+}
