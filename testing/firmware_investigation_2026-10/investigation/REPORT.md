@@ -4,7 +4,7 @@ Windows build station, 2026-10-10. Nothing has been flashed.
 
 Source paths below are relative to these roots:
 
-- `FW/` = `C:\ti\mmwave_mcuplus_sdk_04_04_00_01\mmwave_mcuplus_sdk_04_04_00_01\ti\utils\test\cascade - Copy\am273x\` at the time of writing. **Since 2026-10-12:** `firmware/am273x_cascade/am273x/` in this repo (reached from the SDK through the `cascade_radar` junction). The old folder is archived in `C:\ti\_archive_cascade_sdk_folders_20261012\`.
+- `FW/` = `C:\ti\mmwave_mcuplus_sdk_04_04_00_01\mmwave_mcuplus_sdk_04_04_00_01\ti\utils\test\cascade - Copy\am273x\` at the time of writing. **Since 2026-10-12:** `firmware/am273x_cascade/am273x/` in this repo (reached from the SDK through the `cascade_radar` junction). The old folder was removed; its history is on the `archive/history-before-2026-10-12` branch.
 - `MCU/` = `C:\ti\mmwave_mcuplus_sdk_04_04_00_01\mcu_plus_sdk_am273x_08_05_00_24\`
 - `W/` = `...\mmwave_mcuplus_sdk_04_04_00_01\ti\`
 

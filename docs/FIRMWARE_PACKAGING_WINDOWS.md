@@ -1,6 +1,6 @@
 # Firmware Packaging — Windows Build Station
 
-*Rewritten 2026-10-12. The previous version described a manual, one-variant-at-a-time procedure with output in `config\build_*_inf\` and the source in the SDK's `cascade - Copy` folder. Both are obsolete: the source now lives in this repository, and one script builds and packages any set of variants. That version is in git history and in `C:\Users\RadarDemo\Documents\_git_backups\`.*
+*Rewritten 2026-10-12. The previous version described a manual, one-variant-at-a-time procedure with output in `config\build_*_inf\` and the source in the SDK's `cascade - Copy` folder. Both are obsolete: the source now lives in this repository, and one script builds and packages any set of variants. That version was never committed, so it is not in git history. Its commands (`elf2rprc.js`, `multicoreImageGen.js --devID 55 … @0`) and its overwrite hazard are carried into §3 and §4 below.*
 
 **Audience:** an engineer producing a flash package without having done it before. For what the folders are and why, read `firmware/README.md` first.
 

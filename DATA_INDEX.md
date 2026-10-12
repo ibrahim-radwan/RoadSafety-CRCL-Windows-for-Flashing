@@ -35,6 +35,17 @@ The `.bin` files are DCA1000 recordings, either raw (`data/am273x_capture_Raw_*.
 
 These sessions predate QSPI boot. The firmware was loaded through CCS, whose GEL script runs DSS L3 MEMINIT, so they are **not** affected by the stale-data defect. Their range values carry the documented 0.56% slope-label error (`docs/RANGE_EQUATION_LEDGER.md` §2). It is fixed by re-processing with a corrected `.cfg`.
 
+### 1b. Capture from the original repository commit
+
+Location: `testing/legacy_capture_5d9982b/capture/` (git-ignored). Manifest: `data_manifests/legacy_capture_5d9982b.md5` (32 files, 1.2 GB).
+
+| Path | Files | Size | Content |
+|---|---|---|---|
+| `testing/legacy_capture_5d9982b/capture/data/` | `am273x_capture_Raw_0.bin`, `am273x_capture_Raw_1.bin` | 1.17 GB | Raw DCA1000 recording committed in the original local repository (commit `5d9982b`, "Initial project state") |
+| `testing/legacy_capture_5d9982b/capture/frames/` | `frame_000000.bin` … `frame_000029.bin` | 94 MB | 30 frames split from it |
+
+This capture existed only inside the old repository history. It was extracted byte-exact (git blob ids verified) on 2026-10-12, before that history was deleted. Its capture log CSV and the code that recorded it are on the `archive/history-before-2026-10-12` branch (`old_repo_snapshot_5d9982b/capture/`). Like §1, it was recorded with CCS-loaded shortrange firmware.
+
 ## 2. Jetson sessions from the firmware investigation (handover folder)
 
 Location: `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\sessions\`. Manifest: `data_manifests/handover_sessions_raw.md5` (368 files, 1.90 GB). Metadata for both sessions is in git under `testing/firmware_investigation_2026-10/sessions/`.
@@ -46,13 +57,28 @@ Location: `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmw
 
 These two sessions are the evidence for the root cause (`testing/firmware_investigation_2026-10/investigation/REPORT.md` §2, §4). Keep them.
 
-## 3. Archives and backups on this machine (not data, but not in git either)
+## 3. History and archives
+
+**In git:** the orphan branch **`archive/history-before-2026-10-12`** (not part of `main`) holds three things that used to exist only on this machine:
+
+- the text content of the original repository commit `5d9982b`;
+- the unique source and config history of the four TI SDK cascade folders (`cascade`, `cascade - Copy` including its April 2026 backup, `cascade - Copy (2)`, `cascade - Copy (3)`);
+- the Jetson's pre-rebuild firmware map and `.cfg` files.
+
+Its `README.md` describes each folder. All 104 files were verified byte-identical to their originals.
+
+**Deleted on 2026-10-12, after that branch and §1b were verified:**
+
+- `C:\Users\RadarDemo\Documents\_git_backups\` (the pre-GitHub `.git`, 1 GB);
+- `C:\ti\_archive_cascade_sdk_folders_20261012\` (46 MB).
+
+What they held beyond the branch was reproducible build output only: object files and old `.xer5f`/`.map`.
+
+**Still on this machine:**
 
 | Location | What it is | Why kept |
 |---|---|---|
-| `C:\Users\RadarDemo\Documents\_git_backups\cascaded_radar_win_dev_pre-github_20261012\.git` | The repository's history before the GitHub reset: one commit, `5d9982b`, "Initial project state" (1 GB, containing `capture/data/*.bin`) | Original history; could not be pushed (a 1 GB file exceeds GitHub's limit) |
-| `C:\ti\_archive_cascade_sdk_folders_20261012\` | The four firmware folders formerly in the SDK: `cascade - Copy` (source of `firmware/am273x_cascade/`, with old build outputs and the April 2026 backup), `cascade` (Ethernet experiment, source also in `firmware/archive/`), `cascade - Copy (2)`, `cascade - Copy (3)` (March 2026 snapshots) | Provenance of the pre-junction builds |
-| `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\` | The original handover folder from the Jetson. Its documents, code and firmware are now in git (`testing/firmware_investigation_2026-10/`, `firmware/releases/`); only `sessions/` raw data is unique | Raw sessions in §2 |
+| `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\` | The original handover folder from the Jetson. Its documents, code and firmware are in git (`testing/firmware_investigation_2026-10/`, `firmware/releases/`, the archive branch); only `sessions/` raw data is unique | Raw sessions in §2 |
 
 ## 4. Third-party documents kept locally (copyright)
 

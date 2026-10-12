@@ -32,7 +32,7 @@ powershell -ExecutionPolicy Bypass -File firmware\am273x_cascade\tools\setup_sdk
 
 **Verified 2026-10-12:** all 13 v2 images, built from this repo through the junction, reproduce the deployed `.rprc` and `.appimage` md5s exactly.
 
-The four folders that used to live in the SDK (`cascade`, `cascade - Copy`, `cascade - Copy (2)`, `cascade - Copy (3)`) were moved to `C:\ti\_archive_cascade_sdk_folders_20261012\`. `cascade - Copy` is the folder this source was taken from. Nothing builds from the archive.
+The four folders that used to live in the SDK (`cascade`, `cascade - Copy`, `cascade - Copy (2)`, `cascade - Copy (3)`) were removed on 2026-10-12. `cascade - Copy` is the folder this source was taken from. Their source and config history is on the `archive/history-before-2026-10-12` branch (`sdk_history/`); the build outputs were not kept.
 
 ## 2. Toolchain (what the released images were built with)
 
