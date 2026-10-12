@@ -1,0 +1,9 @@
+# Byte-exact trees: git must never convert line endings in these, whatever a
+# clone's core.autocrlf says. Their md5s are recorded (release manifests,
+# firmware_map.json, data manifests) and must verify after a checkout on any
+# OS. The firmware source is included so a checkout builds exactly what was
+# released.
+firmware/releases/**                          -text
+firmware/am273x_cascade/**                    -text
+data_manifests/**                             -text
+testing/firmware_investigation_2026-10/**/MANIFEST.txt -text
