@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Raw recordings: never committed. Catalogued in DATA_INDEX.md and kept on
+# the Windows build station until a team data store is agreed.
+# ---------------------------------------------------------------------------
+*.bin
+*.pcap
+*.pcapng
+*.svo
+*.svo2
+*.mp4
+*.npz
+*.npy
+
+# ---------------------------------------------------------------------------
+# Firmware build outputs. The source is firmware/am273x_cascade/ (reached from
+# the TI SDK through a junction, see firmware/README.md). Released images are
+# committed deliberately under firmware/releases/, which these rules do not
+# touch.
+# ---------------------------------------------------------------------------
+firmware/am273x_cascade/obj_am273x/
+firmware/am273x_cascade/am273x/build_*_inf/
+firmware/am273x_cascade/am273x/*.xer5f
+firmware/am273x_cascade/am273x/*.map
+firmware/am273x_cascade/am273x/*.bin
+firmware/am273x_cascade/**/*.rprc
+firmware/am273x_cascade/**/*.appimage
+
+# ---------------------------------------------------------------------------
+# Python, editors, agent tools
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.aider*
+.ipynb_checkpoints/
+
+# Derived index of the Wireshark .pcapng (73 MB), regenerable from the pcap;
+# catalogued in DATA_INDEX.md
+testing/wireshark_packet_analysis/out/radar_capture_analysis/06_udp_packet_index.csv
+
+# Third-party paper under IEEE copyright (redistribution needs permission);
+# kept locally, cited in DATA_INDEX.md §4
+testing/live_capture_validation/03_indoor_moving_subject_within_3m/logs/A_Hybrid_TDMA_DDMA_Approach_for_High_Resolution_Cascaded_Automotive_Radar_Systems_04-2025.pdf
