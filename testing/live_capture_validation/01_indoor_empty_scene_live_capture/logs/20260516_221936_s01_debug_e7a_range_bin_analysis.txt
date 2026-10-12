@@ -1,0 +1,25 @@
+python .\E7_A_python_snippet.py
+Top 10 range bins (bin : power dB):
+   26 :  92.85 dB
+   27 :  92.18 dB
+   47 :  91.63 dB
+   25 :  90.46 dB
+   21 :  84.54 dB
+   57 :  83.46 dB
+   18 :  83.32 dB
+   24 :  83.04 dB
+   28 :  82.63 dB
+   60 :  82.39 dB
+
+Range bins around expected bin 45:
+   40 :  70.85 dB
+   41 :  69.99 dB
+   42 :  71.32 dB
+   43 :  72.19 dB
+   44 :  70.35 dB
+   45 :  71.46 dB
+   46 :  78.07 dB
+   47 :  91.63 dB
+   48 :  81.24 dB
+   49 :  72.64 dB
+   50 :  74.68 dB

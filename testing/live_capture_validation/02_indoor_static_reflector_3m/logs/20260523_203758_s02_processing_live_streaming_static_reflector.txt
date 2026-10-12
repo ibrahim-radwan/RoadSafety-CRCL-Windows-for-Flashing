@@ -1,0 +1,316 @@
+python .\live_streaming_test.py
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[CFG-PARSE] cfarCfg:
+  range  : method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=15.0 dB
+  doppler: method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=18.0 dB
+  pipeline: method='os'  guard=[4, 6]  train=[8, 16]  fa_rate=3e-05  margin_db=10.0
+  NOTE: firmware uses fixed threshold_dB; pipeline uses FA-rate thresholding + margin_db — semantics differ, no auto-override applied
+[CFG-PARSE] compressionCfg:
+  disabled (enabled=0)  — ADC data is uncompressed  [OK]
+[CFG-PARSE] channelCfg:
+  rxEn=0b1111(15)  txEn=0b111(7)  cascade=1
+  → 4 RX/device × 2 device(s) = 8 RX total
+  → 3 TX/device × 2 device(s) = 6 TX total
+  TX count consistent with frameCfg num_tx=6  [OK]
+[CFG-PARSE] chirpCfg: 6 chirp definition(s) found
+  chirp count matches num_tx=6  [OK]
+[CFG-PARSE] 3 pipeline/firmware mismatch(es):
+  [1] cfarCfg range method=caso but pipeline cfar_method='os' — pass --cfar caso to match firmware
+  [2] cfarCfg guardLen: range=0, doppler=0 but pipeline cfar_guard=[4, 6] — pass --cfar-guard 0 0 to match firmware
+  [3] cfarCfg noiseWin: range=16, doppler=16 but pipeline cfar_train=[8, 16] — pass --cfar-train 16 16 to match firmware
+[CALIB] Loaded from: cascade_shortrange.cfg  (3/3 antennaCalibParams blocks found)
+[CALIB] Format: [Re, Im] rectangular complex  (confirmed — negative Re values rule out [magnitude, phase_deg])
+[CALIB] Channels: 48  Re=[-0.5174, 1.0000]  Im=[-0.5101, 0.3851]  |corr|=[0.3382, 1.0000]
+[CALIB] Component bounds check: OK  (all Re and Im values in [-5.0, 5.0])
+[CALIB] Correction magnitude check: OK  (all 48 channels |corr| in [0.05, 5.0])
+[STREAM] IQ order: 'i-first' applied  (iq_swap=False)
+[PROC] C7 RD-CFAR margin | peak=(dop=27, range=34) CUT=107.1 dB  noise_thr=70.0 dB  margin_db=10.0  eff_thr=80.0 dB  margin=+27.1 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=34, az=124, src=survived) CUT=128.3 dB  noise_thr=102.2 dB  margin_db=10.0  eff_thr=112.2 dB  margin=+16.1 dB  [DETECTED]
+[STREAM] auto_rate: process_frame latency=2543ms  → feed rate capped at 0.31 fps (headroom=80%)
+[FOLDER_FEEDER] Feeding 70 frames at 0.3 fps from capture\frames\moving_person_3-4m_frames_Truth
+[PROC] C7 RD-CFAR margin | peak=(dop=27, range=34) CUT=107.1 dB  noise_thr=70.0 dB  margin_db=10.0  eff_thr=80.0 dB  margin=+27.1 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=34, az=124, src=survived) CUT=128.3 dB  noise_thr=102.2 dB  margin_db=10.0  eff_thr=112.2 dB  margin=+16.1 dB  [DETECTED]
+[STREAM] frame=   1  RD-CFAR:2  RA-CFAR:4  cloud:4  proc=2679ms  avg=2679ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=28, range=31) CUT=106.1 dB  noise_thr=73.1 dB  margin_db=10.0  eff_thr=83.1 dB  margin=+23.0 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=4, RA before=10, RA after=9 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=31, az=123, src=map-peak (no survivors)) CUT=122.4 dB  noise_thr=102.1 dB  margin_db=10.0  eff_thr=112.1 dB  margin=+10.2 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=   2  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2612ms  avg=2645ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=15, range=25) CUT=100.3 dB  noise_thr=66.0 dB  margin_db=10.0  eff_thr=76.0 dB  margin=+24.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=33, az=116, src=map-peak (no survivors)) CUT=118.6 dB  noise_thr=107.4 dB  margin_db=10.0  eff_thr=117.4 dB  margin=+1.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=   3  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2621ms  avg=2637ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=36, range=31) CUT=97.7 dB  noise_thr=67.8 dB  margin_db=10.0  eff_thr=77.8 dB  margin=+19.9 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=31, az=121, src=map-peak (no survivors)) CUT=116.9 dB  noise_thr=106.3 dB  margin_db=10.0  eff_thr=116.3 dB  margin=+0.6 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=   4  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2596ms  avg=2627ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=38, range=32) CUT=105.4 dB  noise_thr=70.8 dB  margin_db=10.0  eff_thr=80.8 dB  margin=+24.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 2 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=31, az=137, src=survived) CUT=122.2 dB  noise_thr=106.3 dB  margin_db=10.0  eff_thr=116.3 dB  margin=+5.8 dB  [DETECTED]
+[STREAM] frame=   5  RD-CFAR:3  RA-CFAR:4  cloud:4  proc=2580ms  avg=2618ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=36, range=36) CUT=96.0 dB  noise_thr=70.3 dB  margin_db=10.0  eff_thr=80.3 dB  margin=+15.7 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=14, RA after=12 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 3 range bins in → 1 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=86, az=27, src=survived) CUT=98.0 dB  noise_thr=80.3 dB  margin_db=10.0  eff_thr=90.3 dB  margin=+7.7 dB  [DETECTED]
+[STREAM] frame=   6  RD-CFAR:6  RA-CFAR:4  cloud:4  proc=2589ms  avg=2613ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=41, range=39) CUT=98.7 dB  noise_thr=71.4 dB  margin_db=10.0  eff_thr=81.4 dB  margin=+17.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=39, az=156, src=map-peak (no survivors)) CUT=119.6 dB  noise_thr=103.7 dB  margin_db=10.0  eff_thr=113.7 dB  margin=+5.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=   7  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2590ms  avg=2610ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=44, range=42) CUT=102.6 dB  noise_thr=74.2 dB  margin_db=10.0  eff_thr=84.2 dB  margin=+18.4 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=42, az=123, src=map-peak (no survivors)) CUT=123.5 dB  noise_thr=99.6 dB  margin_db=10.0  eff_thr=109.6 dB  margin=+13.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=   8  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2607ms  avg=2609ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=42, range=46) CUT=109.4 dB  noise_thr=70.2 dB  margin_db=10.0  eff_thr=80.2 dB  margin=+29.2 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=7, RA before=6, RA after=5 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=86, az=34, src=survived) CUT=100.4 dB  noise_thr=85.1 dB  margin_db=10.0  eff_thr=95.1 dB  margin=+5.4 dB  [DETECTED]
+[STREAM] frame=   9  RD-CFAR:7  RA-CFAR:2  cloud:2  proc=2585ms  avg=2607ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=45, range=52) CUT=96.2 dB  noise_thr=72.2 dB  margin_db=10.0  eff_thr=82.2 dB  margin=+13.9 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=7, RA before=28, RA after=26 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 5 range bins in → 1 kept, 4 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=84, az=33, src=survived) CUT=96.3 dB  noise_thr=81.1 dB  margin_db=10.0  eff_thr=91.1 dB  margin=+5.2 dB  [DETECTED]
+[STREAM] frame=  10  RD-CFAR:7  RA-CFAR:1  cloud:1  proc=2596ms  avg=2605ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=42, range=55) CUT=104.0 dB  noise_thr=68.3 dB  margin_db=10.0  eff_thr=78.3 dB  margin=+25.7 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=20, RA after=7 (13 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=55, az=158, src=map-peak (no survivors)) CUT=124.1 dB  noise_thr=99.7 dB  margin_db=10.0  eff_thr=109.7 dB  margin=+14.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  11  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2591ms  avg=2597ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=49, range=58) CUT=99.2 dB  noise_thr=68.6 dB  margin_db=10.0  eff_thr=78.6 dB  margin=+20.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=58, az=124, src=map-peak (no survivors)) CUT=116.3 dB  noise_thr=99.4 dB  margin_db=10.0  eff_thr=109.4 dB  margin=+6.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  12  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2622ms  avg=2598ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=44, range=62) CUT=95.7 dB  noise_thr=65.7 dB  margin_db=10.0  eff_thr=75.7 dB  margin=+20.0 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=10, RA after=8 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=62, az=121, src=map-peak (no survivors)) CUT=114.7 dB  noise_thr=97.7 dB  margin_db=10.0  eff_thr=107.7 dB  margin=+7.0 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  13  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2594ms  avg=2595ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=52, range=67) CUT=103.5 dB  noise_thr=65.1 dB  margin_db=10.0  eff_thr=75.1 dB  margin=+28.4 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=3, RA before=4, RA after=2 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=67, az=147, src=map-peak (no survivors)) CUT=123.3 dB  noise_thr=103.8 dB  margin_db=10.0  eff_thr=113.8 dB  margin=+9.5 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  14  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=2594ms  avg=2595ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=43, range=72) CUT=94.1 dB  noise_thr=64.6 dB  margin_db=10.0  eff_thr=74.6 dB  margin=+19.5 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=72, az=111, src=map-peak (no survivors)) CUT=113.4 dB  noise_thr=94.7 dB  margin_db=10.0  eff_thr=104.7 dB  margin=+8.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  15  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2618ms  avg=2599ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=48, range=75) CUT=100.2 dB  noise_thr=65.2 dB  margin_db=10.0  eff_thr=75.2 dB  margin=+25.0 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=2, RA before=14, RA after=9 (5 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=75, az=118, src=map-peak (no survivors)) CUT=121.8 dB  noise_thr=96.1 dB  margin_db=10.0  eff_thr=106.1 dB  margin=+15.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  16  RD-CFAR:2  RA-CFAR:0  cloud:0  proc=2589ms  avg=2599ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=45, range=79) CUT=96.8 dB  noise_thr=63.0 dB  margin_db=10.0  eff_thr=73.0 dB  margin=+23.8 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=79, az=121, src=map-peak (no survivors)) CUT=117.1 dB  noise_thr=96.8 dB  margin_db=10.0  eff_thr=106.8 dB  margin=+10.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  17  RD-CFAR:8  RA-CFAR:0  cloud:0  proc=2601ms  avg=2600ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=47, range=83) CUT=94.8 dB  noise_thr=63.2 dB  margin_db=10.0  eff_thr=73.2 dB  margin=+21.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=83, az=122, src=map-peak (no survivors)) CUT=113.3 dB  noise_thr=93.4 dB  margin_db=10.0  eff_thr=103.4 dB  margin=+9.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  18  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2634ms  avg=2603ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=41, range=86) CUT=89.1 dB  noise_thr=59.8 dB  margin_db=10.0  eff_thr=69.8 dB  margin=+19.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=86, az=123, src=map-peak (no survivors)) CUT=106.3 dB  noise_thr=89.4 dB  margin_db=10.0  eff_thr=99.4 dB  margin=+6.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  19  RD-CFAR:8  RA-CFAR:0  cloud:0  proc=2677ms  avg=2612ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=40, range=89) CUT=88.7 dB  noise_thr=60.1 dB  margin_db=10.0  eff_thr=70.1 dB  margin=+18.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=92, az=116, src=survived) CUT=102.0 dB  noise_thr=91.9 dB  margin_db=10.0  eff_thr=101.9 dB  margin=+0.1 dB  [DETECTED]
+[STREAM] frame=  20  RD-CFAR:4  RA-CFAR:2  cloud:2  proc=2633ms  avg=2615ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=90) CUT=82.8 dB  noise_thr=59.4 dB  margin_db=10.0  eff_thr=69.4 dB  margin=+13.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=90, az=123, src=map-peak (no survivors)) CUT=98.7 dB  noise_thr=88.0 dB  margin_db=10.0  eff_thr=98.0 dB  margin=+0.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  21  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2612ms  avg=2618ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=91) CUT=89.3 dB  noise_thr=59.7 dB  margin_db=10.0  eff_thr=69.7 dB  margin=+19.5 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=91, az=119, src=map-peak (no survivors)) CUT=107.4 dB  noise_thr=92.1 dB  margin_db=10.0  eff_thr=102.1 dB  margin=+5.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  22  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2624ms  avg=2618ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=25, range=89) CUT=87.6 dB  noise_thr=59.5 dB  margin_db=10.0  eff_thr=69.5 dB  margin=+18.1 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=89, az=121, src=map-peak (no survivors)) CUT=106.4 dB  noise_thr=93.1 dB  margin_db=10.0  eff_thr=103.1 dB  margin=+3.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  23  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2614ms  avg=2620ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=26, range=88) CUT=90.6 dB  noise_thr=59.8 dB  margin_db=10.0  eff_thr=69.8 dB  margin=+20.8 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=88, az=118, src=map-peak (no survivors)) CUT=109.4 dB  noise_thr=96.0 dB  margin_db=10.0  eff_thr=106.0 dB  margin=+3.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  24  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2613ms  avg=2622ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=86) CUT=89.3 dB  noise_thr=60.0 dB  margin_db=10.0  eff_thr=70.0 dB  margin=+19.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=86, az=126, src=map-peak (no survivors)) CUT=105.4 dB  noise_thr=93.0 dB  margin_db=10.0  eff_thr=103.0 dB  margin=+2.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  25  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2684ms  avg=2628ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=81) CUT=90.9 dB  noise_thr=61.7 dB  margin_db=10.0  eff_thr=71.7 dB  margin=+19.2 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=81, az=164, src=map-peak (no survivors)) CUT=108.6 dB  noise_thr=102.6 dB  margin_db=10.0  eff_thr=112.6 dB  margin=-4.0 dB  [BELOW by 4.0 dB]
+[STREAM] frame=  26  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2597ms  avg=2629ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=18, range=78) CUT=95.3 dB  noise_thr=62.5 dB  margin_db=10.0  eff_thr=72.5 dB  margin=+22.9 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=78, az=147, src=map-peak (no survivors)) CUT=113.0 dB  noise_thr=104.3 dB  margin_db=10.0  eff_thr=114.3 dB  margin=-1.3 dB  [BELOW by 1.3 dB]
+[STREAM] frame=  27  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2608ms  avg=2630ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=73) CUT=93.1 dB  noise_thr=62.8 dB  margin_db=10.0  eff_thr=72.8 dB  margin=+20.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=73, az=119, src=map-peak (no survivors)) CUT=111.3 dB  noise_thr=101.9 dB  margin_db=10.0  eff_thr=111.9 dB  margin=-0.6 dB  [BELOW by 0.6 dB]
+[STREAM] frame=  28  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2660ms  avg=2632ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=17, range=69) CUT=95.9 dB  noise_thr=63.6 dB  margin_db=10.0  eff_thr=73.6 dB  margin=+22.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=69, az=161, src=map-peak (no survivors)) CUT=114.6 dB  noise_thr=96.7 dB  margin_db=10.0  eff_thr=106.7 dB  margin=+7.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  29  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=3011ms  avg=2666ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=65) CUT=98.1 dB  noise_thr=65.3 dB  margin_db=10.0  eff_thr=75.3 dB  margin=+22.8 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=5, RA after=4 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=65, az=165, src=map-peak (no survivors)) CUT=115.3 dB  noise_thr=93.9 dB  margin_db=10.0  eff_thr=103.9 dB  margin=+11.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  30  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=3370ms  avg=2739ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=16, range=60) CUT=98.3 dB  noise_thr=63.9 dB  margin_db=10.0  eff_thr=73.9 dB  margin=+24.4 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=64, az=127, src=map-peak (no survivors)) CUT=115.3 dB  noise_thr=106.0 dB  margin_db=10.0  eff_thr=116.0 dB  margin=-0.7 dB  [BELOW by 0.7 dB]
+[STREAM] frame=  31  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=2618ms  avg=2740ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=26, range=57) CUT=98.8 dB  noise_thr=66.6 dB  margin_db=10.0  eff_thr=76.6 dB  margin=+22.1 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=60, az=126, src=map-peak (no survivors)) CUT=117.4 dB  noise_thr=100.0 dB  margin_db=10.0  eff_thr=110.0 dB  margin=+7.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  32  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2631ms  avg=2741ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=20, range=53) CUT=101.2 dB  noise_thr=64.7 dB  margin_db=10.0  eff_thr=74.7 dB  margin=+26.5 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=2, RA before=9, RA after=8 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=53, az=109, src=map-peak (no survivors)) CUT=118.5 dB  noise_thr=99.8 dB  margin_db=10.0  eff_thr=109.8 dB  margin=+8.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  33  RD-CFAR:2  RA-CFAR:0  cloud:0  proc=2590ms  avg=2738ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=51) CUT=101.5 dB  noise_thr=67.0 dB  margin_db=10.0  eff_thr=77.0 dB  margin=+24.5 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=51, az=143, src=survived) CUT=121.0 dB  noise_thr=102.4 dB  margin_db=10.0  eff_thr=112.4 dB  margin=+8.6 dB  [DETECTED]
+[STREAM] frame=  34  RD-CFAR:5  RA-CFAR:4  cloud:4  proc=2594ms  avg=2736ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=49) CUT=100.6 dB  noise_thr=58.3 dB  margin_db=10.0  eff_thr=68.3 dB  margin=+32.2 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=49, az=142, src=map-peak (no survivors)) CUT=120.6 dB  noise_thr=104.1 dB  margin_db=10.0  eff_thr=114.1 dB  margin=+6.5 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  35  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2608ms  avg=2729ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=47) CUT=96.4 dB  noise_thr=64.5 dB  margin_db=10.0  eff_thr=74.5 dB  margin=+21.8 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=47, az=124, src=map-peak (no survivors)) CUT=112.4 dB  noise_thr=94.4 dB  margin_db=10.0  eff_thr=104.4 dB  margin=+8.0 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  36  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2638ms  avg=2733ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=43, range=46) CUT=100.3 dB  noise_thr=58.1 dB  margin_db=10.0  eff_thr=68.1 dB  margin=+32.2 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=46, az=157, src=map-peak (no survivors)) CUT=118.6 dB  noise_thr=100.7 dB  margin_db=10.0  eff_thr=110.7 dB  margin=+7.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  37  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2619ms  avg=2734ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=38, range=48) CUT=100.2 dB  noise_thr=69.7 dB  margin_db=10.0  eff_thr=79.7 dB  margin=+20.5 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=50, az=123, src=map-peak (no survivors)) CUT=116.8 dB  noise_thr=104.1 dB  margin_db=10.0  eff_thr=114.1 dB  margin=+2.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  38  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2594ms  avg=2727ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=51) CUT=91.7 dB  noise_thr=67.7 dB  margin_db=10.0  eff_thr=77.7 dB  margin=+14.0 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=51, az=157, src=map-peak (no survivors)) CUT=110.7 dB  noise_thr=103.0 dB  margin_db=10.0  eff_thr=113.0 dB  margin=-2.2 dB  [BELOW by 2.2 dB]
+[STREAM] frame=  39  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2586ms  avg=2685ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=43, range=52) CUT=97.8 dB  noise_thr=67.7 dB  margin_db=10.0  eff_thr=77.7 dB  margin=+20.1 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=7, RA before=13, RA after=10 (3 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=50, az=121, src=map-peak (no survivors)) CUT=116.9 dB  noise_thr=98.6 dB  margin_db=10.0  eff_thr=108.6 dB  margin=+8.2 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  40  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2604ms  avg=2608ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=43, range=55) CUT=96.3 dB  noise_thr=68.7 dB  margin_db=10.0  eff_thr=78.7 dB  margin=+17.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=55, az=154, src=map-peak (no survivors)) CUT=113.2 dB  noise_thr=99.4 dB  margin_db=10.0  eff_thr=109.4 dB  margin=+3.8 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  41  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2595ms  avg=2606ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=44, range=59) CUT=99.5 dB  noise_thr=63.4 dB  margin_db=10.0  eff_thr=73.4 dB  margin=+26.2 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=59, az=123, src=map-peak (no survivors)) CUT=118.7 dB  noise_thr=100.5 dB  margin_db=10.0  eff_thr=110.5 dB  margin=+8.1 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  42  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2618ms  avg=2605ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=44, range=62) CUT=96.4 dB  noise_thr=65.1 dB  margin_db=10.0  eff_thr=75.1 dB  margin=+21.4 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=62, az=117, src=map-peak (no survivors)) CUT=116.7 dB  noise_thr=93.4 dB  margin_db=10.0  eff_thr=103.4 dB  margin=+13.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  43  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=2579ms  avg=2603ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=44, range=66) CUT=98.9 dB  noise_thr=62.9 dB  margin_db=10.0  eff_thr=72.9 dB  margin=+26.0 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=66, az=120, src=map-peak (no survivors)) CUT=120.4 dB  noise_thr=98.1 dB  margin_db=10.0  eff_thr=108.1 dB  margin=+12.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  44  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=2575ms  avg=2602ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=42, range=69) CUT=100.3 dB  noise_thr=65.7 dB  margin_db=10.0  eff_thr=75.7 dB  margin=+24.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=69, az=121, src=map-peak (no survivors)) CUT=122.4 dB  noise_thr=102.3 dB  margin_db=10.0  eff_thr=112.3 dB  margin=+10.1 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  45  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2605ms  avg=2601ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=39, range=71) CUT=95.8 dB  noise_thr=61.7 dB  margin_db=10.0  eff_thr=71.7 dB  margin=+24.1 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=71, az=122, src=map-peak (no survivors)) CUT=115.9 dB  noise_thr=106.2 dB  margin_db=10.0  eff_thr=116.2 dB  margin=-0.3 dB  [BELOW by 0.3 dB]
+[STREAM] frame=  46  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2595ms  avg=2597ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=43, range=74) CUT=95.1 dB  noise_thr=59.7 dB  margin_db=10.0  eff_thr=69.7 dB  margin=+25.4 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=74, az=121, src=map-peak (no survivors)) CUT=116.6 dB  noise_thr=96.8 dB  margin_db=10.0  eff_thr=106.8 dB  margin=+9.8 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  47  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2602ms  avg=2595ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=77) CUT=97.3 dB  noise_thr=60.2 dB  margin_db=10.0  eff_thr=70.2 dB  margin=+27.2 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=77, az=151, src=survived) CUT=114.8 dB  noise_thr=100.6 dB  margin_db=10.0  eff_thr=110.6 dB  margin=+4.3 dB  [DETECTED]
+[STREAM] frame=  48  RD-CFAR:4  RA-CFAR:4  cloud:4  proc=2597ms  avg=2596ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=76) CUT=87.0 dB  noise_thr=57.6 dB  margin_db=10.0  eff_thr=67.6 dB  margin=+19.5 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=76, az=119, src=map-peak (no survivors)) CUT=102.5 dB  noise_thr=94.6 dB  margin_db=10.0  eff_thr=104.6 dB  margin=-2.1 dB  [BELOW by 2.1 dB]
+[STREAM] frame=  49  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2599ms  avg=2597ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=77) CUT=90.7 dB  noise_thr=57.2 dB  margin_db=10.0  eff_thr=67.2 dB  margin=+23.5 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=76, az=127, src=map-peak (no survivors)) CUT=108.9 dB  noise_thr=103.5 dB  margin_db=10.0  eff_thr=113.5 dB  margin=-4.6 dB  [BELOW by 4.6 dB]
+[STREAM] frame=  50  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2599ms  avg=2596ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=21, range=78) CUT=90.6 dB  noise_thr=62.0 dB  margin_db=10.0  eff_thr=72.0 dB  margin=+18.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=78, az=110, src=map-peak (no survivors)) CUT=108.9 dB  noise_thr=98.8 dB  margin_db=10.0  eff_thr=108.8 dB  margin=+0.1 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  51  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2593ms  avg=2596ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=25, range=73) CUT=97.3 dB  noise_thr=62.0 dB  margin_db=10.0  eff_thr=72.0 dB  margin=+25.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=73, az=117, src=map-peak (no survivors)) CUT=115.7 dB  noise_thr=97.9 dB  margin_db=10.0  eff_thr=107.9 dB  margin=+7.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  52  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2601ms  avg=2595ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=25, range=69) CUT=97.5 dB  noise_thr=63.6 dB  margin_db=10.0  eff_thr=73.6 dB  margin=+23.9 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=69, az=162, src=map-peak (no survivors)) CUT=114.3 dB  noise_thr=97.2 dB  margin_db=10.0  eff_thr=107.2 dB  margin=+7.0 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  53  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2624ms  avg=2599ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=24, range=67) CUT=95.4 dB  noise_thr=62.5 dB  margin_db=10.0  eff_thr=72.5 dB  margin=+22.9 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=67, az=166, src=map-peak (no survivors)) CUT=113.1 dB  noise_thr=99.7 dB  margin_db=10.0  eff_thr=109.7 dB  margin=+3.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  54  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2615ms  avg=2603ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=63) CUT=96.5 dB  noise_thr=65.2 dB  margin_db=10.0  eff_thr=75.2 dB  margin=+21.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=67, az=126, src=map-peak (no survivors)) CUT=111.7 dB  noise_thr=98.3 dB  margin_db=10.0  eff_thr=108.3 dB  margin=+3.4 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  55  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2609ms  avg=2604ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=23, range=60) CUT=103.5 dB  noise_thr=65.2 dB  margin_db=10.0  eff_thr=75.2 dB  margin=+28.3 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=60, az=160, src=map-peak (no survivors)) CUT=122.5 dB  noise_thr=104.0 dB  margin_db=10.0  eff_thr=114.0 dB  margin=+8.5 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  56  RD-CFAR:1  RA-CFAR:0  cloud:0  proc=2597ms  avg=2604ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=19, range=56) CUT=101.4 dB  noise_thr=63.5 dB  margin_db=10.0  eff_thr=73.5 dB  margin=+27.9 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=3, RA before=11, RA after=7 (4 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] C7 RA-CFAR margin | peak=(range=56, az=173, src=survived) CUT=121.0 dB  noise_thr=103.2 dB  margin_db=10.0  eff_thr=113.2 dB  margin=+7.8 dB  [DETECTED]
+[STREAM] frame=  57  RD-CFAR:3  RA-CFAR:4  cloud:4  proc=2585ms  avg=2602ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=22, range=53) CUT=99.7 dB  noise_thr=68.7 dB  margin_db=10.0  eff_thr=78.7 dB  margin=+21.1 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=53, az=110, src=map-peak (no survivors)) CUT=118.6 dB  noise_thr=94.8 dB  margin_db=10.0  eff_thr=104.8 dB  margin=+13.8 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  58  RD-CFAR:2  RA-CFAR:0  cloud:0  proc=2637ms  avg=2606ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=19, range=49) CUT=101.4 dB  noise_thr=68.6 dB  margin_db=10.0  eff_thr=78.6 dB  margin=+22.8 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=4, RA before=11, RA after=10 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=52, az=123, src=survived) CUT=116.1 dB  noise_thr=101.8 dB  margin_db=10.0  eff_thr=111.8 dB  margin=+4.3 dB  [DETECTED]
+[STREAM] frame=  59  RD-CFAR:4  RA-CFAR:2  cloud:2  proc=2604ms  avg=2606ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=14, range=45) CUT=99.2 dB  noise_thr=70.1 dB  margin_db=10.0  eff_thr=80.1 dB  margin=+19.1 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=15, RA after=13 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=45, az=166, src=map-peak (no survivors)) CUT=117.5 dB  noise_thr=99.3 dB  margin_db=10.0  eff_thr=109.3 dB  margin=+8.2 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  60  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2584ms  avg=2605ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=25, range=44) CUT=99.9 dB  noise_thr=64.9 dB  margin_db=10.0  eff_thr=74.9 dB  margin=+24.9 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 3 range bins in → 0 kept, 3 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=44, az=126, src=map-peak (no survivors)) CUT=119.3 dB  noise_thr=104.6 dB  margin_db=10.0  eff_thr=114.6 dB  margin=+4.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  61  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2604ms  avg=2606ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=24, range=40) CUT=102.0 dB  noise_thr=70.0 dB  margin_db=10.0  eff_thr=80.0 dB  margin=+22.1 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=40, az=162, src=map-peak (no survivors)) CUT=118.9 dB  noise_thr=102.1 dB  margin_db=10.0  eff_thr=112.1 dB  margin=+6.8 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  62  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2605ms  avg=2606ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=38) CUT=101.1 dB  noise_thr=66.0 dB  margin_db=10.0  eff_thr=76.0 dB  margin=+25.1 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=38, az=122, src=map-peak (no survivors)) CUT=119.0 dB  noise_thr=102.7 dB  margin_db=10.0  eff_thr=112.7 dB  margin=+6.3 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  63  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2609ms  avg=2605ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=36, range=44) CUT=87.4 dB  noise_thr=64.4 dB  margin_db=10.0  eff_thr=74.4 dB  margin=+13.0 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=44, az=125, src=map-peak (no survivors)) CUT=105.3 dB  noise_thr=98.8 dB  margin_db=10.0  eff_thr=108.8 dB  margin=-3.5 dB  [BELOW by 3.5 dB]
+[STREAM] frame=  64  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2614ms  avg=2605ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=55, range=35) CUT=97.4 dB  noise_thr=62.6 dB  margin_db=10.0  eff_thr=72.6 dB  margin=+24.8 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=35, az=136, src=map-peak (no survivors)) CUT=117.5 dB  noise_thr=107.5 dB  margin_db=10.0  eff_thr=117.5 dB  margin=-0.0 dB  [BELOW by 0.0 dB]
+[STREAM] frame=  65  RD-CFAR:7  RA-CFAR:0  cloud:0  proc=2600ms  avg=2604ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=45, range=41) CUT=104.0 dB  noise_thr=69.6 dB  margin_db=10.0  eff_thr=79.6 dB  margin=+24.4 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=41, az=121, src=map-peak (no survivors)) CUT=125.6 dB  noise_thr=97.4 dB  margin_db=10.0  eff_thr=107.4 dB  margin=+18.1 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  66  RD-CFAR:5  RA-CFAR:0  cloud:0  proc=2570ms  avg=2601ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=38, range=43) CUT=99.7 dB  noise_thr=67.1 dB  margin_db=10.0  eff_thr=77.1 dB  margin=+22.6 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=43, az=124, src=map-peak (no survivors)) CUT=118.7 dB  noise_thr=101.8 dB  margin_db=10.0  eff_thr=111.8 dB  margin=+6.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  67  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2605ms  avg=2603ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=40, range=47) CUT=96.7 dB  noise_thr=69.7 dB  margin_db=10.0  eff_thr=79.7 dB  margin=+17.0 dB  [DETECTED]
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=46, az=134, src=survived) CUT=113.4 dB  noise_thr=99.7 dB  margin_db=10.0  eff_thr=109.7 dB  margin=+3.7 dB  [DETECTED]
+[STREAM] frame=  68  RD-CFAR:4  RA-CFAR:2  cloud:2  proc=2616ms  avg=2601ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=40, range=49) CUT=102.8 dB  noise_thr=68.8 dB  margin_db=10.0  eff_thr=78.8 dB  margin=+24.1 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=6, RA before=5, RA after=4 (1 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=49, az=118, src=map-peak (no survivors)) CUT=125.1 dB  noise_thr=103.2 dB  margin_db=10.0  eff_thr=113.2 dB  margin=+11.9 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  69  RD-CFAR:6  RA-CFAR:0  cloud:0  proc=2585ms  avg=2599ms  dropped=0
+[PROC] C7 RD-CFAR margin | peak=(dop=46, range=52) CUT=99.5 dB  noise_thr=68.4 dB  margin_db=10.0  eff_thr=78.4 dB  margin=+21.1 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=3, RA before=5, RA after=3 (2 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=52, az=114, src=map-peak (no survivors)) CUT=120.8 dB  noise_thr=96.6 dB  margin_db=10.0  eff_thr=106.6 dB  margin=+14.2 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  70  RD-CFAR:3  RA-CFAR:0  cloud:0  proc=2589ms  avg=2600ms  dropped=0
+[FOLDER_FEEDER] Done. Fed 70 frames.

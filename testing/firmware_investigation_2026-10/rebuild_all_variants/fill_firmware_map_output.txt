@@ -1,0 +1,54 @@
+============================================================================================
+  FIRMWARE TREE: .
+============================================================================================
+  variant       derived  appimage     cfg  rprc   flash  appimage_md5
+  ----------------------------------------------------------------------------------------
+  r017m              ok        ok   ok/10    ok  NOFILE  871ae3071e6636604531ea7ab8118470
+  r017m_calib        ok        ok   ok/10    ok  NOFILE  1db2106479044f03d071b39da5cfab05
+  r050m              ok        ok   ok/10    ok  NOFILE  c2c7f2980469d41831b6ce5527d50fbd
+  r075m              ok        ok   ok/10    ok  NOFILE  f0e6a73d4c7d35d92e2128305f0b1867
+  r100m              ok        ok   ok/10    ok  NOFILE  c68bd941c1d83959575eb5efd09365ae
+  r142m              ok        ok   ok/10    ok  NOFILE  47a0f48f95a267f758b99a9f7e9faeb7
+  r168m              ok        ok   ok/10    ok  NOFILE  d6792001e15e4c202232373a92fb2d2d
+  r075m_v2           ok        ok   ok/10    ok  NOFILE  b4ac5b97c468f93db27fef7915db7803
+  r075m_v2_8fps      ok        ok   ok/10    ok  NOFILE  8f5eb30afa4df1a1009d34868a3c9979
+  r017m_v2           ok        ok   ok/10    ok  NOFILE  6bfaa6a95e6813458d126ecbde5503f3
+  r017m_v2_8fps      ok        ok   ok/10    ok  NOFILE  29f8a8019260d98c2a9bf7d1a05f07cb
+  r017m_calib_v2      ok        ok   ok/10    ok  NOFILE  bb3c9c87886d7813ecaf1f88c1ea51f3
+  r050m_v2           ok        ok   ok/10    ok  NOFILE  d580a23d0369e85e9b3762956be56481
+  r050m_v2_8fps      ok        ok   ok/10    ok  NOFILE  1f5565e75e3e2e03e4aa2c59ff0c2412
+  r100m_v2           ok        ok   ok/10    ok  NOFILE  e734b66d721724e61691351f3ebe645b
+  r100m_v2_8fps      ok        ok   ok/10    ok  NOFILE  a9051ed3e3b2121780d8b9932026630a
+  r142m_v2           ok        ok   ok/10    ok  NOFILE  c50685f13e0e67a1c655c4976b495ccd
+  r142m_v2_8fps      ok        ok   ok/10    ok  NOFILE  a5f6f2268b3facc9d62cfd1967fcdca8
+  r168m_v2           ok        ok   ok/10    ok  NOFILE  edaed92930677cbd0691e198ddb8553d
+  r168m_v2_8fps      ok        ok   ok/10    ok  NOFILE  af4677d477265db9a7433a193ab426ce
+
+============================================================================================
+  PROBLEMS
+============================================================================================
+  - r017m: flash_r017m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r017m/am273x_cascade_r017m.appimage, which does not exist
+  - r017m_calib: flash_r017m_calib.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r017m_calib/am273x_cascade_r017m_calib.appimage, which does not exist
+  - r050m: flash_r050m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r050m/am273x_cascade_r050m.appimage, which does not exist
+  - r075m: flash_r075m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r075m/am273x_cascade_r075m.appimage, which does not exist
+  - r100m: flash_r100m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r100m/am273x_cascade_r100m.appimage, which does not exist
+  - r142m: flash_r142m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r142m/am273x_cascade_r142m.appimage, which does not exist
+  - r168m: flash_r168m.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r168m/am273x_cascade_r168m.appimage, which does not exist
+  - r075m_v2: flash_r075m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r075m_v2/am273x_cascade_r075m_v2.appimage, which does not exist
+  - r075m_v2_8fps: flash_r075m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r075m_v2_8fps/am273x_cascade_r075m_v2_8fps.appimage, which does not exist
+  - r017m_v2: flash_r017m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r017m_v2/am273x_cascade_r017m_v2.appimage, which does not exist
+  - r017m_v2_8fps: flash_r017m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r017m_v2_8fps/am273x_cascade_r017m_v2_8fps.appimage, which does not exist
+  - r017m_calib_v2: flash_r017m_calib_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r017m_calib_v2/am273x_cascade_r017m_calib_v2.appimage, which does not exist
+  - r050m_v2: flash_r050m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r050m_v2/am273x_cascade_r050m_v2.appimage, which does not exist
+  - r050m_v2_8fps: flash_r050m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r050m_v2_8fps/am273x_cascade_r050m_v2_8fps.appimage, which does not exist
+  - r100m_v2: flash_r100m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r100m_v2/am273x_cascade_r100m_v2.appimage, which does not exist
+  - r100m_v2_8fps: flash_r100m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r100m_v2_8fps/am273x_cascade_r100m_v2_8fps.appimage, which does not exist
+  - r142m_v2: flash_r142m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r142m_v2/am273x_cascade_r142m_v2.appimage, which does not exist
+  - r142m_v2_8fps: flash_r142m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r142m_v2_8fps/am273x_cascade_r142m_v2_8fps.appimage, which does not exist
+  - r168m_v2: flash_r168m_v2.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r168m_v2/am273x_cascade_r168m_v2.appimage, which does not exist
+  - r168m_v2_8fps: flash_r168m_v2_8fps.cfg points at /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/cascaded_radar_capture_pipeline/firmware/r168m_v2_8fps/am273x_cascade_r168m_v2_8fps.appimage, which does not exist
+
+  20/20 variants have an appimage hash
+  20/20 variants had their .rprc fingerprint VERIFIED
+
+  dry run - re-run with --write to save the hashes.

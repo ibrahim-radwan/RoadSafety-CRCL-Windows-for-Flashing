@@ -1,0 +1,334 @@
+======================================================================
+  CAPTURE SESSION
+======================================================================
+  output   : /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01
+  sensors  : lidar, camera, radar
+  radar    : 60 s
+  note     : 
+  storage  : 21.0 GB free, ~124 GB/hour -> ~8 min of recording
+  board    : [system] tj 39.4 C | cpu 39.4 C | gpu 33.4 C | board 28.0 C | fan 21% | ok
+
+  Starting in 20 s - disconnect peripherals and clear the scene now.
+
+  starting lidar ...
+
+  starting camera ...
+  [lidar] Recording RS-Fairy 192.168.34.200 -> 192.168.34.30 ports {'msop': 6699, 'difop': 7788, 'imu': 6688}
+  [lidar] Session: /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/lidar
+  lidar is recording
+  [lidar]      1s | msop  3586/s | imu 200/s | lost 0 | queue 0 |      4.7 MB
+  [camera] [2026-10-09 09:19:34 UTC][ZED][INFO] Logging level INFO
+  [lidar]      2s | msop  3584/s | imu 200/s | lost 0 | queue 0 |      9.4 MB
+  [lidar]      3s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     14.1 MB
+  [camera] [2026-10-09 09:19:36 UTC][ZED][INFO] [Init]  Depth mode: NONE
+  [lidar]      4s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     18.8 MB
+  [camera] [2026-10-09 09:19:36 UTC][ZED][INFO] [Init]  Camera successfully opened.
+  [camera] [2026-10-09 09:19:36 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+  [camera] [2026-10-09 09:19:36 UTC][ZED][INFO] [Init]  Video mode: HD1080@30
+  [camera] [2026-10-09 09:19:36 UTC][ZED][INFO] [Init]  Serial Number: S/N 37486675
+  [lidar]      5s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     23.5 MB
+  [lidar]      6s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     28.2 MB
+  [camera] [2026-10-09 09:19:39 UTC][ZED][INFO] [Init]  Notice: The recording is using SVO version 2, enabled by default starting from SDK version 4.1. To revert to the original SVO version, set the environment variable "ZED_SDK_SVO_VERSION" to 1
+  [camera] Opening in BLOCKING MODE
+  [camera] NvMMLiteOpen : Block : BlockType = 4
+  [camera] ===== NvVideo: NVENC =====
+  [camera] NvMMLiteBlockCreate : Block : BlockType = 4
+  [camera] H264: Profile = 77, Level = 50
+  [camera] NVMEDIA: Need to set EMC bandwidth : 2872000
+  [camera] Recording 1920x1080 at requested 30 FPS; SYSTEM_CLOCK
+  [camera] Session: /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/camera
+  camera is recording
+  [camera] 1 frames | observed 0.00 FPS | SDK 21.28 FPS | gaps 0
+  [camera] NvVideo: bBlitMode is set to TRUE
+  [lidar]      7s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     32.9 MB
+  [camera] 32 frames | observed 29.90 FPS | SDK 30.30 FPS | gaps 0
+  [lidar]      8s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     37.6 MB
+  [camera] 62 frames | observed 29.89 FPS | SDK 30.30 FPS | gaps 0
+  [lidar]      9s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     42.3 MB
+
+  starting radar ...
+  [system] tj 39.3 C | cpu 39.3 C | gpu 33.8 C | board 28.0 C | fan 21% | ok
+  [radar]   RESET_FPGA: OK
+  [camera] 93 frames | observed 29.90 FPS | SDK 30.49 FPS | gaps 0
+  [lidar]     10s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     47.1 MB
+  [camera] 123 frames | observed 29.90 FPS | SDK 29.67 FPS | gaps 0
+  [lidar]     11s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     51.8 MB
+  [camera] 153 frames | observed 29.90 FPS | SDK 30.21 FPS | gaps 0
+  [lidar]     12s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     56.5 MB
+  [radar]   CONFIG_FPGA: OK
+  [camera] 183 frames | observed 29.89 FPS | SDK 29.67 FPS | gaps 0
+  [lidar]     13s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     61.2 MB
+  [radar]   SYSTEM_CONNECT: OK
+  [camera] 213 frames | observed 29.89 FPS | SDK 29.67 FPS | gaps 0
+  [radar]   CONFIG_PACKET_DATA: OK
+  [lidar]     14s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     65.9 MB
+  [system] tj 39.4 C | cpu 39.4 C | gpu 33.8 C | board 28.0 C | fan 21% | ok
+  [radar]   SYSTEM_CONNECT (pre-record): OK
+  [camera] 243 frames | observed 29.89 FPS | SDK 29.94 FPS | gaps 0
+  [lidar]     15s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     70.6 MB
+  [radar]   SO_RCVBUF granted: 67,108,864 B
+  [radar]   START_RECORD: OK
+  [radar]   (per-second packet counts)
+  [camera] 273 frames | observed 29.89 FPS | SDK 29.85 FPS | gaps 0
+  [lidar]     16s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     75.3 MB
+  [radar]     t+  1s    7,515 pkt/s  #####################################
+  [camera] 302 frames | observed 29.80 FPS | SDK 29.94 FPS | gaps 1
+  [lidar]     17s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     80.0 MB
+  [radar]     t+  2s    8,666 pkt/s  ########################################
+  [camera] 332 frames | observed 29.80 FPS | SDK 29.85 FPS | gaps 1
+  [lidar]     18s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     84.7 MB
+  [radar]     t+  3s    8,660 pkt/s  ########################################
+  [camera] 362 frames | observed 29.81 FPS | SDK 29.94 FPS | gaps 1
+  [lidar]     19s | msop  3585/s | imu 200/s | lost 0 | queue 0 |     89.4 MB
+  [radar]     t+  4s    8,649 pkt/s  ########################################
+  [system] tj 39.5 C | cpu 39.7 C | gpu 33.8 C | board 28.0 C | fan 21% | ok
+  [camera] 391 frames | observed 29.74 FPS | SDK 27.32 FPS | gaps 2
+  [lidar]     20s | msop  3584/s | imu 200/s | lost 0 | queue 1 |     94.1 MB
+  [radar]     t+  5s    8,659 pkt/s  ########################################
+  [camera] 422 frames | observed 29.75 FPS | SDK 30.30 FPS | gaps 2
+  [lidar]     21s | msop  3584/s | imu 200/s | lost 0 | queue 0 |     98.8 MB
+  [radar]     t+  6s    8,658 pkt/s  ########################################
+  [camera] 452 frames | observed 29.76 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     22s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    103.5 MB
+  [radar]     t+  7s    8,667 pkt/s  ########################################
+  [camera] 482 frames | observed 29.77 FPS | SDK 29.59 FPS | gaps 2
+  [lidar]     23s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    108.2 MB
+  [radar]     t+  8s    8,659 pkt/s  ########################################
+  [camera] 512 frames | observed 29.78 FPS | SDK 29.76 FPS | gaps 2
+  [lidar]     24s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    112.9 MB
+  [radar]     t+  9s    8,658 pkt/s  ########################################
+  [system] tj 39.5 C | cpu 39.5 C | gpu 34.0 C | board 28.0 C | fan 21% | ok
+  [camera] 542 frames | observed 29.78 FPS | SDK 29.67 FPS | gaps 2
+  [lidar]     25s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    117.6 MB
+  [radar]     t+ 10s    8,660 pkt/s  ########################################
+  [camera] 572 frames | observed 29.79 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     26s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    122.3 MB
+  [radar]     t+ 11s    8,665 pkt/s  ########################################
+  [camera] 602 frames | observed 29.80 FPS | SDK 29.59 FPS | gaps 2
+  [lidar]     27s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    127.0 MB
+  [radar]     t+ 12s    8,650 pkt/s  ########################################
+  [camera] 632 frames | observed 29.80 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     28s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    131.7 MB
+  [radar]     t+ 13s    8,645 pkt/s  ########################################
+  [camera] 662 frames | observed 29.80 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     29s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    136.4 MB
+  [radar]     t+ 14s    8,661 pkt/s  ########################################
+  [system] tj 39.8 C | cpu 39.7 C | gpu 34.2 C | board 28.0 C | fan 21% | ok
+  [camera] 692 frames | observed 29.81 FPS | SDK 30.12 FPS | gaps 2
+  [lidar]     30s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    141.1 MB
+  [radar]     t+ 15s    8,650 pkt/s  ########################################
+  [camera] 722 frames | observed 29.81 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     31s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    145.8 MB
+  [radar]     t+ 16s    8,659 pkt/s  ########################################
+  [camera] 752 frames | observed 29.82 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     32s | msop  3584/s | imu 200/s | lost 0 | queue 1 |    150.6 MB
+  [radar]     t+ 17s    8,657 pkt/s  ########################################
+  [camera] 783 frames | observed 29.82 FPS | SDK 30.12 FPS | gaps 2
+  [lidar]     33s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    155.3 MB
+  [radar]     t+ 18s    8,658 pkt/s  ########################################
+  [camera] 813 frames | observed 29.82 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     34s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    160.0 MB
+  [radar]     t+ 19s    8,659 pkt/s  ########################################
+  [system] tj 39.8 C | cpu 39.6 C | gpu 34.2 C | board 28.0 C | fan 21% | ok
+  [camera] 843 frames | observed 29.82 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     35s | msop  3584/s | imu 200/s | lost 0 | queue 1 |    164.7 MB
+  [radar]     t+ 20s    8,668 pkt/s  ########################################
+  [camera] 873 frames | observed 29.83 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     36s | msop  3585/s | imu 200/s | lost 0 | queue 2 |    169.4 MB
+  [radar]     t+ 21s    8,658 pkt/s  ########################################
+  [camera] 903 frames | observed 29.83 FPS | SDK 29.76 FPS | gaps 2
+  [lidar]     37s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    174.1 MB
+  [radar]     t+ 22s    8,668 pkt/s  ########################################
+  [camera] 933 frames | observed 29.83 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     38s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    178.8 MB
+  [radar]     t+ 23s    8,641 pkt/s  ########################################
+  [camera] 964 frames | observed 29.83 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     39s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    183.5 MB
+  [radar]     t+ 24s    8,667 pkt/s  ########################################
+  [system] tj 40.3 C | cpu 40.1 C | gpu 34.1 C | board 28.0 C | fan 21% | ok
+  [camera] 994 frames | observed 29.83 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     40s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    188.2 MB
+  [radar]     t+ 25s    8,656 pkt/s  ########################################
+  [camera] 1024 frames | observed 29.84 FPS | SDK 29.67 FPS | gaps 2
+  [lidar]     41s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    192.9 MB
+  [radar]     t+ 26s    8,660 pkt/s  ########################################
+  [camera] 1054 frames | observed 29.84 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     42s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    197.6 MB
+  [radar]     t+ 27s    8,648 pkt/s  ########################################
+  [camera] 1084 frames | observed 29.84 FPS | SDK 29.33 FPS | gaps 2
+  [lidar]     43s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    202.3 MB
+  [radar]     t+ 28s    8,660 pkt/s  ########################################
+  [camera] 1114 frames | observed 29.84 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     44s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    207.0 MB
+  [radar]     t+ 29s    8,657 pkt/s  ########################################
+  [system] tj 40.0 C | cpu 39.9 C | gpu 34.2 C | board 28.0 C | fan 21% | ok
+  [camera] 1144 frames | observed 29.84 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     45s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    211.7 MB
+  [radar]     t+ 30s    8,658 pkt/s  ########################################
+  [camera] 1174 frames | observed 29.84 FPS | SDK 29.76 FPS | gaps 2
+  [lidar]     46s | msop  3584/s | imu 200/s | lost 0 | queue 2 |    216.4 MB
+  [radar]     t+ 31s    8,668 pkt/s  ########################################
+  [camera] 1204 frames | observed 29.85 FPS | SDK 29.76 FPS | gaps 2
+  [lidar]     47s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    221.1 MB
+  [radar]     t+ 32s    8,658 pkt/s  ########################################
+  [camera] 1234 frames | observed 29.85 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     48s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    225.8 MB
+  [radar]     t+ 33s    8,649 pkt/s  ########################################
+  [camera] 1264 frames | observed 29.85 FPS | SDK 29.67 FPS | gaps 2
+  [lidar]     49s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    230.5 MB
+  [radar]     t+ 34s    8,640 pkt/s  ########################################
+  [system] tj 40.1 C | cpu 40.1 C | gpu 34.2 C | board 28.0 C | fan 21% | ok
+  [camera] 1294 frames | observed 29.85 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     50s | msop  3584/s | imu 200/s | lost 0 | queue 1 |    235.2 MB
+  [radar]     t+ 35s    8,667 pkt/s  ########################################
+  [camera] 1324 frames | observed 29.85 FPS | SDK 29.76 FPS | gaps 2
+  [lidar]     51s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    239.9 MB
+  [radar]     t+ 36s    8,658 pkt/s  ########################################
+  [camera] 1354 frames | observed 29.85 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     52s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    244.6 MB
+  [radar]     t+ 37s    8,668 pkt/s  ########################################
+  [camera] 1384 frames | observed 29.85 FPS | SDK 30.03 FPS | gaps 2
+  [lidar]     53s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    249.3 MB
+  [radar]     t+ 38s    8,658 pkt/s  ########################################
+  [camera] 1414 frames | observed 29.85 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     54s | msop  3584/s | imu 200/s | lost 0 | queue 1 |    254.0 MB
+  [radar]     t+ 39s    8,659 pkt/s  ########################################
+  [system] tj 39.7 C | cpu 40.0 C | gpu 34.3 C | board 28.0 C | fan 21% | ok
+  [camera] 1444 frames | observed 29.85 FPS | SDK 29.67 FPS | gaps 2
+  [lidar]     55s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    258.8 MB
+  [radar]     t+ 40s    8,668 pkt/s  ########################################
+  [camera] 1475 frames | observed 29.85 FPS | SDK 29.85 FPS | gaps 2
+  [lidar]     56s | msop  3585/s | imu 200/s | lost 0 | queue 2 |    263.5 MB
+  [radar]     t+ 41s    8,666 pkt/s  ########################################
+  [camera] 1505 frames | observed 29.86 FPS | SDK 29.94 FPS | gaps 2
+  [lidar]     57s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    268.2 MB
+  [radar]     t+ 42s    8,668 pkt/s  ########################################
+  [camera] 1535 frames | observed 29.84 FPS | SDK 29.94 FPS | gaps 3
+  [lidar]     58s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    272.9 MB
+  [radar]     t+ 43s    8,659 pkt/s  ########################################
+  [camera] 1564 frames | observed 29.84 FPS | SDK 29.85 FPS | gaps 3
+  [lidar]     59s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    277.6 MB
+  [radar]     t+ 44s    8,666 pkt/s  ########################################
+  [system] tj 39.9 C | cpu 40.3 C | gpu 34.5 C | board 28.0 C | fan 21% | ok
+  [camera] 1595 frames | observed 29.78 FPS | SDK 29.85 FPS | gaps 6
+  [lidar]     60s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    282.3 MB
+  [radar]     t+ 45s    8,659 pkt/s  ########################################
+  [camera] 1625 frames | observed 29.78 FPS | SDK 29.94 FPS | gaps 6
+  [lidar]     61s | msop  3584/s | imu 200/s | lost 0 | queue 1 |    287.0 MB
+  [radar]     t+ 46s    8,668 pkt/s  ########################################
+  [camera] 1655 frames | observed 29.79 FPS | SDK 30.03 FPS | gaps 6
+  [lidar]     62s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    291.7 MB
+  [radar]     t+ 47s    8,658 pkt/s  ########################################
+  [camera] 1685 frames | observed 29.79 FPS | SDK 29.94 FPS | gaps 6
+  [lidar]     63s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    296.4 MB
+  [radar]     t+ 48s    8,668 pkt/s  ########################################
+  [camera] 1715 frames | observed 29.79 FPS | SDK 29.85 FPS | gaps 6
+  [lidar]     64s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    301.1 MB
+  [radar]     t+ 49s    8,657 pkt/s  ########################################
+  [system] tj 39.9 C | cpu 39.9 C | gpu 34.7 C | board 28.0 C | fan 21% | ok
+  [camera] 1744 frames | observed 29.78 FPS | SDK 29.85 FPS | gaps 7
+  [lidar]     65s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    305.8 MB
+  [radar]     t+ 50s    8,668 pkt/s  ########################################
+  [camera] 1774 frames | observed 29.78 FPS | SDK 29.76 FPS | gaps 7
+  [lidar]     66s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    310.5 MB
+  [radar]     t+ 51s    8,649 pkt/s  ########################################
+  [camera] 1804 frames | observed 29.78 FPS | SDK 29.85 FPS | gaps 7
+  [lidar]     67s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    315.2 MB
+  [radar]     t+ 52s    8,668 pkt/s  ########################################
+  [camera] 1834 frames | observed 29.78 FPS | SDK 30.12 FPS | gaps 7
+  [lidar]     68s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    319.9 MB
+  [radar]     t+ 53s    8,666 pkt/s  ########################################
+  [camera] 1864 frames | observed 29.78 FPS | SDK 29.85 FPS | gaps 7
+  [lidar]     69s | msop  3585/s | imu 200/s | lost 0 | queue 0 |    324.6 MB
+  [radar]     t+ 54s    8,659 pkt/s  ########################################
+  [system] tj 39.9 C | cpu 39.9 C | gpu 34.4 C | board 28.0 C | fan 21% | ok
+  [camera] 1893 frames | observed 29.77 FPS | SDK 29.94 FPS | gaps 8
+  [lidar]     70s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    329.3 MB
+  [radar]     t+ 55s    8,659 pkt/s  ########################################
+  [camera] 1922 frames | observed 29.76 FPS | SDK 31.25 FPS | gaps 9
+  [radar]     t+ 56s    8,667 pkt/s  ########################################
+  [lidar]     71s | msop  3585/s | imu 200/s | lost 0 | queue 3330 |    333.4 MB
+  [camera] 1931 frames | observed 29.44 FPS | SDK 9.62 FPS | gaps 30
+  [lidar]     72s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    338.7 MB
+  [radar]     t+ 57s    8,660 pkt/s  ########################################
+  [camera] 1961 frames | observed 29.44 FPS | SDK 29.59 FPS | gaps 30
+  [lidar]     73s | msop  3585/s | imu 200/s | lost 0 | queue 1 |    343.4 MB
+  [radar]     t+ 58s    8,666 pkt/s  ########################################
+  [camera] 1991 frames | observed 29.45 FPS | SDK 29.85 FPS | gaps 30
+  [lidar]     74s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    348.1 MB
+  [radar]     t+ 59s    8,657 pkt/s  ########################################
+  [system] tj 40.0 C | cpu 40.2 C | gpu 34.5 C | board 28.0 C | fan 21% | ok
+  [camera] 2009 frames | observed 29.45 FPS | SDK 29.59 FPS | gaps 30
+  [lidar]     75s | msop  3578/s | imu 199/s | lost 0 | queue 0 |    352.8 MB
+  [radar]     t+ 60s    8,669 pkt/s  ########################################
+  [radar]   STOP_RECORD: OK
+  [radar] 
+  [radar] ========================================================================
+  [radar]   LOSS MEASUREMENT
+  [radar] ========================================================================
+  [radar]   packets received   : 518,454
+  [radar]   seq range          : 1 .. 518454
+  [radar]   packets expected   : 518,454   (from sequence numbers)
+  [radar]   sequence gaps      : 0   (0 packets implied missing)
+  [radar]   out-of-order       : 0
+  [radar] 
+  [radar]   ADC bytes received : 754,869,024
+  [radar]   ADC bytes SENT     : 754,869,024   (from the DCA's byte_count)
+  [radar] 
+  [radar]   loss by byte_count :   0.00%
+  [radar]   loss by sequence   :   0.00%
+  [radar]   the two agree      : yes
+  [radar] 
+  [radar]   elapsed            : 60.1 s
+  [radar]   received rate      : 12.57 MB/s = 3.99 fps
+  [radar]   DCA send rate      : 12.57 MB/s = 3.99 fps
+  [radar]   frames written     : 239  -> /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/radar
+  [radar]   zero-filled        : 0 B   (lost packets, placed by byte_count)
+  [radar]   late/dup dropped   : 0
+  [radar]   writer             : queue peak 3 frames, overflows 0, errors 0
+  [radar]   burst alignment    : 0 of 240 bursts start > 1 packet from a frame boundary
+  [radar]   manifest           : /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/radar/frames.csv
+  [radar]   frame span         : median 250.0 ms (own burst start -> completing packet, in the next burst)
+  [radar]   frame interval     : median 250.0 ms (= 4.00 fps)
+  [radar] 
+  [radar] ========================================================================
+  [radar]   INTERPRETATION
+  [radar] ========================================================================
+  [radar]   Loss is negligible. The receiver is keeping up.
+  [radar]   The DCA itself sent only 3.99 fps worth of data, so the low
+  [radar]   throughput is the RADAR's frame rate, not a Linux problem. Compare the
+  [radar]   chirp/frame config against the Windows session that produced 4 fps.
+  [lidar]     76s | msop  3591/s | imu 201/s | lost 0 | queue 0 |    357.5 MB
+  [camera] 2040 frames | observed 29.29 FPS | SDK 30.58 FPS | gaps 42
+  radar stopped - camera/LiDAR trailing 3 s ...
+  [lidar]     77s | msop  3584/s | imu 200/s | lost 0 | queue 3236 |    361.7 MB
+  [camera] 2065 frames | observed 29.30 FPS | SDK 30.30 FPS | gaps 42
+  [lidar]     78s | msop  3585/s | imu 200/s | lost 0 | queue 3988 |    362.7 MB
+  [camera] 2093 frames | observed 28.91 FPS | SDK 29.94 FPS | gaps 71
+  [lidar]     79s | msop  3584/s | imu 200/s | lost 0 | queue 0 |    371.7 MB
+  stopping lidar ...
+  stopping camera ...
+  [lidar]     79s | msop    81/s | imu   4/s | lost 0 | queue 0 |    371.8 MB
+  [lidar] 
+  [lidar] Finalized: /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/lidar
+  [lidar]   packets {'msop': 283262, 'difop': 79, 'imu': 15804} | MSOP lost 0 (0.0) | queue drops 0 | kernel drops {6688: 0, 6699: 0, 7788: 0}
+  [lidar]   371.8 MB in 79.026 s
+  camera is verifying its SVO2 (up to ~47 s) ...
+  [camera] [2026-10-09 09:20:52 UTC][ZED][INFO] Logging level INFO
+  [camera] Opening in BLOCKING MODE
+  [camera] NvMMLiteOpen : Block : BlockType = 261
+  [camera] NvMMLiteBlockCreate : Block : BlockType = 261
+  [camera] [2026-10-09 09:20:52 UTC][ZED][INFO] [Init]  Depth mode: NONE
+  [camera] [2026-10-09 09:20:52 UTC][ZED][INFO] [Init]  Serial Number: S/N 37486675
+  [camera] Finalized 2101 frames in /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/camera
+
+======================================================================
+  SESSION SUMMARY
+======================================================================
+  stop reason : radar finished
+  board       : tj max 40.3 C, fan max 21% (14 samples)
+  lidar  : exit 0  complete=True packets={'msop': 283262, 'difop': 79, 'imu': 15804} lost=0
+  camera : exit 0  complete=True frames=2101 fps=28.92 dropped=71
+  radar  : exit 0  239 frames
+  manifest    : /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/session.json
+  log         : /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/session.log

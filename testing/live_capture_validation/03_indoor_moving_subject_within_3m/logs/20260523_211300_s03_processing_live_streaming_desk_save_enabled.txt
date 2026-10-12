@@ -1,0 +1,417 @@
+ python .\live_capture.py
+
+=== Loading radar configuration: cascade_shortrange.cfg ===
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[CFG-PARSE] cfarCfg:
+  range  : method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=15.0 dB
+  doppler: method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=18.0 dB
+  pipeline: method='os'  guard=[4, 6]  train=[8, 16]  fa_rate=3e-05  margin_db=10.0
+  NOTE: firmware uses fixed threshold_dB; pipeline uses FA-rate thresholding + margin_db — semantics differ, no auto-override applied
+[CFG-PARSE] compressionCfg:
+  disabled (enabled=0)  — ADC data is uncompressed  [OK]
+[CFG-PARSE] channelCfg:
+  rxEn=0b1111(15)  txEn=0b111(7)  cascade=1
+  → 4 RX/device × 2 device(s) = 8 RX total
+  → 3 TX/device × 2 device(s) = 6 TX total
+  TX count consistent with frameCfg num_tx=6  [OK]
+[CFG-PARSE] chirpCfg: 6 chirp definition(s) found
+  chirp count matches num_tx=6  [OK]
+[CFG-PARSE] 3 pipeline/firmware mismatch(es):
+  [1] cfarCfg range method=caso but pipeline cfar_method='os' — pass --cfar caso to match firmware
+  [2] cfarCfg guardLen: range=0, doppler=0 but pipeline cfar_guard=[4, 6] — pass --cfar-guard 0 0 to match firmware
+  [3] cfarCfg noiseWin: range=16, doppler=16 but pipeline cfar_train=[8, 16] — pass --cfar-train 16 16 to match firmware
+[CALIB] Loaded from: cascade_shortrange.cfg  (3/3 antennaCalibParams blocks found)
+[CALIB] Format: [Re, Im] rectangular complex  (confirmed — negative Re values rule out [magnitude, phase_deg])
+[CALIB] Channels: 48  Re=[-0.5174, 1.0000]  Im=[-0.5101, 0.3851]  |corr|=[0.3382, 1.0000]
+[CALIB] Component bounds check: OK  (all Re and Im values in [-5.0, 5.0])
+[CALIB] Correction magnitude check: OK  (all 48 channels |corr| in [0.05, 5.0])
+
+=== Starting live capture + display ===
+  cfg        : cascade_shortrange.cfg
+  out_dir    : C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture\frames
+  frames     : infinite
+  uart       : COM20
+  skip_load  : False
+  warmup     : 0 frame(s)
+  iq_order   : i-first
+  quiet      : False
+[STREAM] IQ order: 'i-first' applied  (iq_swap=False)
+[STREAM] Live hardware mode started.
+         Close the display window or press Ctrl-C to stop capture.
+Config   : cascade_csirx.h (header)
+Firmware : am273x_cascade_mss.xer5f
+Frame split: 3,145,728 B  (each frame_*.bin payload; FileMonitor uses this)
+  From firmware header: 8 RX x 256 samp x 384 chirps x 4 B => 3,145,728 B
+           6 chirps/loop x 64 loops x 2 device(s)
+FW frames: infinite
+Output   : C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture\frames
+Capture  : infinite (Ctrl-C or --stop to end)
+UART     : COM20 (for stop command)
+
+Cleaning up...
+
+=== Loading firmware: am273x_cascade_mss.xer5f ===
+Connecting to Cortex_R5_0...
+Cortex_R5_0: AM273x
+
+Issuing System Reset...
+Issuing CPU Reset...
+Loading Cortex_R5_0: C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\config\build_shortrange_inf\am273x_cascade_mss.xer5f
+Running Cortex_R5_0...
+*********************************************
+Debug: Launching mmwave Cascade Application.
+*********************************************
+OK: reset/load/run completed
+
+=== Configuring DCA1000 ===
+  CLI reset_fpga: Reset FPGA command : Success
+  CLI fpga: FPGA Configuration command : Success
+  CLI query_sys_status: System is connected.
+  CLI record: Configure Record command : Success
+  CLI query_sys_status: System is connected.
+
+=== Starting DCA1000 record ===
+  CLI start_record: Success
+File monitor watching C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture\data
+  Split: each frame_*.bin = exactly one radar frame (3,145,728 B payload). Raw DCA .bin bytes include FPGA/packet headers.
+
+=== Waiting up to 60s for firmware init + streaming ===
+  (firmware: MMWave_open -> config -> calibrate -> start)
+  Saved frame_000000.bin  (3,145,728 B)  [1 frames]
+  Saved frame_000001.bin  (3,145,728 B)  [2 frames]
+  Saved frame_000002.bin  (3,145,728 B)  [3 frames]
+  Saved frame_000003.bin  (3,145,728 B)  [4 frames]
+  Saved frame_000004.bin  (3,145,728 B)  [5 frames]
+  Saved frame_000005.bin  (3,145,728 B)  [6 frames]
+  Saved frame_000006.bin  (3,145,728 B)  [7 frames]
+  [5s] >> Data arriving! <<
+  Saved frame_000007.bin  (3,145,728 B)  [8 frames]
+  Saved frame_000008.bin  (3,145,728 B)  [9 frames]
+  Saved frame_000009.bin  (3,145,728 B)  [10 frames]
+  Saved frame_000010.bin  (3,145,728 B)  [11 frames]
+  Saved frame_000011.bin  (3,145,728 B)  [12 frames]
+  Saved frame_000012.bin  (3,145,728 B)  [13 frames]
+  Saved frame_000013.bin  (3,145,728 B)  [14 frames]
+  Saved frame_000014.bin  (3,145,728 B)  [15 frames]
+  Saved frame_000015.bin  (3,145,728 B)  [16 frames]
+  Saved frame_000016.bin  (3,145,728 B)  [17 frames]
+  Saved frame_000017.bin  (3,145,728 B)  [18 frames]
+  Saved frame_000018.bin  (3,145,728 B)  [19 frames]
+  Saved frame_000019.bin  (3,145,728 B)  [20 frames]
+  Saved frame_000020.bin  (3,145,728 B)  [21 frames]
+  Saved frame_000021.bin  (3,145,728 B)  [22 frames]
+  Saved frame_000022.bin  (3,145,728 B)  [23 frames]
+  [5s] frames=23  raw_stream=74,997,760 B  split_payload=72,351,744 B  overhead+partial=2,646,016 B
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=22) CUT=58.0 dB  noise_thr=58.6 dB  margin_db=10.0  eff_thr=68.6 dB  margin=-10.6 dB  [BELOW by 10.6 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=132, src=map-peak (no survivors)) CUT=76.0 dB  noise_thr=75.7 dB  margin_db=10.0  eff_thr=85.7 dB  margin=-9.7 dB  [BELOW by 9.7 dB]
+[STREAM] frame=   1  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2703ms  avg=2703ms  dropped=20
+[PROC] C7 RD-CFAR margin | peak=(dop=46, range=22) CUT=58.4 dB  noise_thr=58.7 dB  margin_db=10.0  eff_thr=68.7 dB  margin=-10.3 dB  [BELOW by 10.3 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=149, src=map-peak (no survivors)) CUT=77.5 dB  noise_thr=76.2 dB  margin_db=10.0  eff_thr=86.2 dB  margin=-8.7 dB  [BELOW by 8.7 dB]
+[STREAM] frame=   2  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2751ms  avg=2727ms  dropped=20
+  [10s] frames=23  raw_stream=74,997,760 B  split_payload=72,351,744 B  overhead+partial=2,646,016 B
+  Saved frame_000023.bin  (3,145,728 B)  [24 frames]
+  Saved frame_000024.bin  (3,145,728 B)  [25 frames]
+  Saved frame_000025.bin  (3,145,728 B)  [26 frames]
+  Saved frame_000026.bin  (3,145,728 B)  [27 frames]
+  Saved frame_000027.bin  (3,145,728 B)  [28 frames]
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=22) CUT=59.1 dB  noise_thr=58.5 dB  margin_db=10.0  eff_thr=68.5 dB  margin=-9.4 dB  [BELOW by 9.4 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  Saved frame_000028.bin  (3,145,728 B)  [29 frames]
+  Saved frame_000029.bin  (3,145,728 B)  [30 frames]
+  Saved frame_000030.bin  (3,145,728 B)  [31 frames]
+  Saved frame_000031.bin  (3,145,728 B)  [32 frames]
+  Saved frame_000032.bin  (3,145,728 B)  [33 frames]
+  Saved frame_000033.bin  (3,145,728 B)  [34 frames]
+  Saved frame_000034.bin  (3,145,728 B)  [35 frames]
+  Saved frame_000035.bin  (3,145,728 B)  [36 frames]
+  Saved frame_000036.bin  (3,145,728 B)  [37 frames]
+  Saved frame_000037.bin  (3,145,728 B)  [38 frames]
+  Saved frame_000038.bin  (3,145,728 B)  [39 frames]
+  Saved frame_000039.bin  (3,145,728 B)  [40 frames]
+  Saved frame_000040.bin  (3,145,728 B)  [41 frames]
+  Saved frame_000041.bin  (3,145,728 B)  [42 frames]
+  Saved frame_000042.bin  (3,145,728 B)  [43 frames]
+  Saved frame_000043.bin  (3,145,728 B)  [44 frames]
+  Saved frame_000044.bin  (3,145,728 B)  [45 frames]
+  Saved frame_000045.bin  (3,145,728 B)  [46 frames]
+  Saved frame_000046.bin  (3,145,728 B)  [47 frames]
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=115, src=map-peak (no survivors)) CUT=75.4 dB  noise_thr=74.9 dB  margin_db=10.0  eff_thr=84.9 dB  margin=-9.5 dB  [BELOW by 9.5 dB]
+[STREAM] frame=   3  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2782ms  avg=2745ms  dropped=42
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=22) CUT=61.5 dB  noise_thr=58.8 dB  margin_db=10.0  eff_thr=68.8 dB  margin=-7.3 dB  [BELOW by 7.3 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  [15s] frames=47  raw_stream=149,995,520 B  split_payload=147,849,216 B  overhead+partial=2,146,304 B
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=134, src=map-peak (no survivors)) CUT=75.6 dB  noise_thr=76.0 dB  margin_db=10.0  eff_thr=86.0 dB  margin=-10.4 dB  [BELOW by 10.4 dB]
+[STREAM] frame=   4  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2729ms  avg=2741ms  dropped=42
+[PROC] C7 RD-CFAR margin | peak=(dop=57, range=22) CUT=55.0 dB  noise_thr=58.3 dB  margin_db=10.0  eff_thr=68.3 dB  margin=-13.3 dB  [BELOW by 13.3 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  Saved frame_000047.bin  (3,145,728 B)  [48 frames]
+  Saved frame_000048.bin  (3,145,728 B)  [49 frames]
+  Saved frame_000049.bin  (3,145,728 B)  [50 frames]
+  Saved frame_000050.bin  (3,145,728 B)  [51 frames]
+  Saved frame_000051.bin  (3,145,728 B)  [52 frames]
+  Saved frame_000052.bin  (3,145,728 B)  [53 frames]
+  Saved frame_000053.bin  (3,145,728 B)  [54 frames]
+  Saved frame_000054.bin  (3,145,728 B)  [55 frames]
+  Saved frame_000055.bin  (3,145,728 B)  [56 frames]
+  Saved frame_000056.bin  (3,145,728 B)  [57 frames]
+  Saved frame_000057.bin  (3,145,728 B)  [58 frames]
+  Saved frame_000058.bin  (3,145,728 B)  [59 frames]
+  Saved frame_000059.bin  (3,145,728 B)  [60 frames]
+  Saved frame_000060.bin  (3,145,728 B)  [61 frames]
+  Saved frame_000061.bin  (3,145,728 B)  [62 frames]
+  Saved frame_000062.bin  (3,145,728 B)  [63 frames]
+  Saved frame_000063.bin  (3,145,728 B)  [64 frames]
+  Saved frame_000064.bin  (3,145,728 B)  [65 frames]
+  Saved frame_000065.bin  (3,145,728 B)  [66 frames]
+  Saved frame_000066.bin  (3,145,728 B)  [67 frames]
+  Saved frame_000067.bin  (3,145,728 B)  [68 frames]
+  Saved frame_000068.bin  (3,145,728 B)  [69 frames]
+  Saved frame_000069.bin  (3,145,728 B)  [70 frames]
+  Saved frame_000070.bin  (3,145,728 B)  [71 frames]
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=132, src=map-peak (no survivors)) CUT=72.0 dB  noise_thr=75.2 dB  margin_db=10.0  eff_thr=85.2 dB  margin=-13.2 dB  [BELOW by 13.2 dB]
+[STREAM] frame=   5  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2738ms  avg=2741ms  dropped=64
+[PROC] C7 RD-CFAR margin | peak=(dop=18, range=22) CUT=57.5 dB  noise_thr=58.8 dB  margin_db=10.0  eff_thr=68.8 dB  margin=-11.3 dB  [BELOW by 11.3 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  [21s] frames=71  raw_stream=224,993,280 B  split_payload=223,346,688 B  overhead+partial=1,646,592 B
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=146, src=map-peak (no survivors)) CUT=74.8 dB  noise_thr=75.8 dB  margin_db=10.0  eff_thr=85.8 dB  margin=-11.0 dB  [BELOW by 11.0 dB]
+[STREAM] frame=   6  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2726ms  avg=2738ms  dropped=64
+[PROC] C7 RD-CFAR margin | peak=(dop=18, range=22) CUT=58.8 dB  noise_thr=58.7 dB  margin_db=10.0  eff_thr=68.7 dB  margin=-9.9 dB  [BELOW by 9.9 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  Saved frame_000071.bin  (3,145,728 B)  [72 frames]
+  Saved frame_000072.bin  (3,145,728 B)  [73 frames]
+  Saved frame_000073.bin  (3,145,728 B)  [74 frames]
+  Saved frame_000074.bin  (3,145,728 B)  [75 frames]
+  Saved frame_000075.bin  (3,145,728 B)  [76 frames]
+  Saved frame_000076.bin  (3,145,728 B)  [77 frames]
+  Saved frame_000077.bin  (3,145,728 B)  [78 frames]
+  Saved frame_000078.bin  (3,145,728 B)  [79 frames]
+  Saved frame_000079.bin  (3,145,728 B)  [80 frames]
+  Saved frame_000080.bin  (3,145,728 B)  [81 frames]
+  Saved frame_000081.bin  (3,145,728 B)  [82 frames]
+  Saved frame_000082.bin  (3,145,728 B)  [83 frames]
+  Saved frame_000083.bin  (3,145,728 B)  [84 frames]
+  Saved frame_000084.bin  (3,145,728 B)  [85 frames]
+  Saved frame_000085.bin  (3,145,728 B)  [86 frames]
+  Saved frame_000086.bin  (3,145,728 B)  [87 frames]
+  Saved frame_000087.bin  (3,145,728 B)  [88 frames]
+  Saved frame_000088.bin  (3,145,728 B)  [89 frames]
+  Saved frame_000089.bin  (3,145,728 B)  [90 frames]
+  Saved frame_000090.bin  (3,145,728 B)  [91 frames]
+  Saved frame_000091.bin  (3,145,728 B)  [92 frames]
+  Saved frame_000092.bin  (3,145,728 B)  [93 frames]
+  Saved frame_000093.bin  (3,145,728 B)  [94 frames]
+  Saved frame_000094.bin  (3,145,728 B)  [95 frames]
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=133, src=map-peak (no survivors)) CUT=78.1 dB  noise_thr=76.3 dB  margin_db=10.0  eff_thr=86.3 dB  margin=-8.2 dB  [BELOW by 8.2 dB]
+[STREAM] frame=   7  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2742ms  avg=2739ms  dropped=86
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=22) CUT=59.8 dB  noise_thr=58.6 dB  margin_db=10.0  eff_thr=68.6 dB  margin=-8.8 dB  [BELOW by 8.8 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  [26s] frames=95  raw_stream=299,991,040 B  split_payload=298,844,160 B  overhead+partial=1,146,880 B
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=119, src=map-peak (no survivors)) CUT=76.1 dB  noise_thr=74.6 dB  margin_db=10.0  eff_thr=84.6 dB  margin=-8.5 dB  [BELOW by 8.5 dB]
+[STREAM] frame=   8  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2701ms  avg=2734ms  dropped=86
+[PROC] C7 RD-CFAR margin | peak=(dop=46, range=22) CUT=57.5 dB  noise_thr=58.7 dB  margin_db=10.0  eff_thr=68.7 dB  margin=-11.2 dB  [BELOW by 11.2 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  Saved frame_000095.bin  (3,145,728 B)  [96 frames]
+  Saved frame_000096.bin  (3,145,728 B)  [97 frames]
+  Saved frame_000097.bin  (3,145,728 B)  [98 frames]
+  Saved frame_000098.bin  (3,145,728 B)  [99 frames]
+  Saved frame_000099.bin  (3,145,728 B)  [100 frames]
+  Saved frame_000100.bin  (3,145,728 B)  [101 frames]
+  Saved frame_000101.bin  (3,145,728 B)  [102 frames]
+  Saved frame_000102.bin  (3,145,728 B)  [103 frames]
+  Saved frame_000103.bin  (3,145,728 B)  [104 frames]
+  Saved frame_000104.bin  (3,145,728 B)  [105 frames]
+  Saved frame_000105.bin  (3,145,728 B)  [106 frames]
+  Saved frame_000106.bin  (3,145,728 B)  [107 frames]
+  Saved frame_000107.bin  (3,145,728 B)  [108 frames]
+  Saved frame_000108.bin  (3,145,728 B)  [109 frames]
+  Saved frame_000109.bin  (3,145,728 B)  [110 frames]
+  Saved frame_000110.bin  (3,145,728 B)  [111 frames]
+  Saved frame_000111.bin  (3,145,728 B)  [112 frames]
+  Saved frame_000112.bin  (3,145,728 B)  [113 frames]
+  Saved frame_000113.bin  (3,145,728 B)  [114 frames]
+  Saved frame_000114.bin  (3,145,728 B)  [115 frames]
+  Saved frame_000115.bin  (3,145,728 B)  [116 frames]
+  Saved frame_000116.bin  (3,145,728 B)  [117 frames]
+  Saved frame_000117.bin  (3,145,728 B)  [118 frames]
+  Saved frame_000118.bin  (3,145,728 B)  [119 frames]
+[PROC] 8d. RD confirmation: RD=0, RA=1 → all RA detections SUPPRESSED (no RD backing). If this persists, check cfar_margin_db (10.0 dB) and cfar_fa_rate (3e-05) — RD threshold may be too high.
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=119, src=map-peak (no survivors)) CUT=73.7 dB  noise_thr=74.9 dB  margin_db=10.0  eff_thr=84.9 dB  margin=-11.3 dB  [BELOW by 11.3 dB]
+[STREAM] frame=   9  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2710ms  avg=2731ms  dropped=108
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=22) CUT=58.0 dB  noise_thr=58.6 dB  margin_db=10.0  eff_thr=68.6 dB  margin=-10.5 dB  [BELOW by 10.5 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  [31s] frames=119  raw_stream=374,988,800 B  split_payload=374,341,632 B  overhead+partial=647,168 B
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=149, src=map-peak (no survivors)) CUT=73.5 dB  noise_thr=75.4 dB  margin_db=10.0  eff_thr=85.4 dB  margin=-11.9 dB  [BELOW by 11.9 dB]
+[STREAM] frame=  10  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2703ms  avg=2729ms  dropped=108
+[PROC] C7 RD-CFAR margin | peak=(dop=46, range=22) CUT=58.4 dB  noise_thr=58.7 dB  margin_db=10.0  eff_thr=68.7 dB  margin=-10.3 dB  [BELOW by 10.3 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  Saved frame_000119.bin  (3,145,728 B)  [120 frames]
+  Saved frame_000120.bin  (3,145,728 B)  [121 frames]
+  Saved frame_000121.bin  (3,145,728 B)  [122 frames]
+  Saved frame_000122.bin  (3,145,728 B)  [123 frames]
+  Saved frame_000123.bin  (3,145,728 B)  [124 frames]
+  Saved frame_000124.bin  (3,145,728 B)  [125 frames]
+  Saved frame_000125.bin  (3,145,728 B)  [126 frames]
+  Saved frame_000126.bin  (3,145,728 B)  [127 frames]
+  Saved frame_000127.bin  (3,145,728 B)  [128 frames]
+  Saved frame_000128.bin  (3,145,728 B)  [129 frames]
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=148, src=map-peak (no survivors)) CUT=76.2 dB  noise_thr=75.9 dB  margin_db=10.0  eff_thr=85.9 dB  margin=-9.8 dB  [BELOW by 9.8 dB]
+  Saved frame_000129.bin  (3,145,728 B)  [130 frames]
+  Saved frame_000130.bin  (3,145,728 B)  [131 frames]
+[STREAM] frame=  11  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2738ms  avg=2732ms  dropped=117
+  Saved frame_000131.bin  (3,145,728 B)  [132 frames]
+  Saved frame_000132.bin  (3,145,728 B)  [133 frames]
+  Saved frame_000133.bin  (3,145,728 B)  [134 frames]
+  Saved frame_000134.bin  (3,145,728 B)  [135 frames]
+  Saved frame_000135.bin  (3,145,728 B)  [136 frames]
+  Saved frame_000136.bin  (3,145,728 B)  [137 frames]
+  Saved frame_000137.bin  (3,145,728 B)  [138 frames]
+  Saved frame_000138.bin  (3,145,728 B)  [139 frames]
+  Saved frame_000139.bin  (3,145,728 B)  [140 frames]
+  Saved frame_000140.bin  (3,145,728 B)  [141 frames]
+  Saved frame_000141.bin  (3,145,728 B)  [142 frames]
+  Saved frame_000142.bin  (3,145,728 B)  [143 frames]
+[PROC] C7 RD-CFAR margin | peak=(dop=46, range=22) CUT=58.5 dB  noise_thr=58.6 dB  margin_db=10.0  eff_thr=68.6 dB  margin=-10.1 dB  [BELOW by 10.1 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+  [36s] frames=143  raw_stream=449,990,656 B  split_payload=449,839,104 B  overhead+partial=151,552 B
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=118, src=map-peak (no survivors)) CUT=74.0 dB  noise_thr=75.3 dB  margin_db=10.0  eff_thr=85.3 dB  margin=-11.3 dB  [BELOW by 11.3 dB]
+[STREAM] frame=  12  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2723ms  avg=2729ms  dropped=129
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=22) CUT=66.8 dB  noise_thr=58.7 dB  margin_db=10.0  eff_thr=68.7 dB  margin=-1.9 dB  [BELOW by 1.9 dB]
+[PROC] 7. RA focus: TOTAL FALLBACK — all 256 range bins use noise-selected Doppler (RD CFAR found 0 detections). RA map is valid but Doppler weighting is arbitrary.
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=163, src=map-peak (no survivors)) CUT=78.2 dB  noise_thr=76.6 dB  margin_db=10.0  eff_thr=86.6 dB  margin=-8.4 dB  [BELOW by 8.4 dB]
+[STREAM] frame=  13  RD-CFAR:0  RA-CFAR:0  cloud:0  proc=2709ms  avg=2722ms  dropped=129
+  Saved frame_000143.bin  (3,145,728 B)  [144 frames]
+  Saved frame_000144.bin  (3,145,728 B)  [145 frames]
+  Saved frame_000145.bin  (3,145,728 B)  [146 frames]
+  Saved frame_000146.bin  (3,145,728 B)  [147 frames]
+  Saved frame_000147.bin  (3,145,728 B)  [148 frames]
+  Saved frame_000148.bin  (3,145,728 B)  [149 frames]
+  Saved frame_000149.bin  (3,145,728 B)  [150 frames]
+  Saved frame_000150.bin  (3,145,728 B)  [151 frames]
+  Saved frame_000151.bin  (3,145,728 B)  [152 frames]
+  Saved frame_000152.bin  (3,145,728 B)  [153 frames]
+  Saved frame_000153.bin  (3,145,728 B)  [154 frames]
+  Saved frame_000154.bin  (3,145,728 B)  [155 frames]
+  Saved frame_000155.bin  (3,145,728 B)  [156 frames]
+  Saved frame_000156.bin  (3,145,728 B)  [157 frames]
+  Saved frame_000157.bin  (3,145,728 B)  [158 frames]
+  Saved frame_000158.bin  (3,145,728 B)  [159 frames]
+  Saved frame_000159.bin  (3,145,728 B)  [160 frames]
+  Saved frame_000160.bin  (3,145,728 B)  [161 frames]
+  Saved frame_000161.bin  (3,145,728 B)  [162 frames]
+  Saved frame_000162.bin  (3,145,728 B)  [163 frames]
+  Saved frame_000163.bin  (3,145,728 B)  [164 frames]
+  Saved frame_000164.bin  (3,145,728 B)  [165 frames]
+  Saved frame_000165.bin  (3,145,728 B)  [166 frames]
+[PROC] C7 RD-CFAR margin | peak=(dop=35, range=53) CUT=71.1 dB  noise_thr=58.8 dB  margin_db=10.0  eff_thr=68.8 dB  margin=+2.3 dB  [DETECTED]
+  [41s] frames=166  raw_stream=524,988,416 B  split_payload=522,190,848 B  overhead+partial=2,797,568 B
+[PROC] C7 RA-CFAR margin | peak=(range=53, az=146, src=map-peak (no survivors)) CUT=88.5 dB  noise_thr=80.9 dB  margin_db=10.0  eff_thr=90.9 dB  margin=-2.4 dB  [BELOW by 2.4 dB]
+[STREAM] frame=  14  RD-CFAR:1  RA-CFAR:0  cloud:0  proc=2697ms  avg=2719ms  dropped=150
+[PROC] C7 RD-CFAR margin | peak=(dop=28, range=43) CUT=90.9 dB  noise_thr=61.9 dB  margin_db=10.0  eff_thr=71.9 dB  margin=+19.0 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=43, az=127, src=survived) CUT=111.3 dB  noise_thr=98.3 dB  margin_db=10.0  eff_thr=108.3 dB  margin=+3.1 dB  [DETECTED]
+[STREAM] frame=  15  RD-CFAR:4  RA-CFAR:2  cloud:2  proc=2656ms  avg=2711ms  dropped=150
+[PROC] C7 RD-CFAR margin | peak=(dop=22, range=39) CUT=95.0 dB  noise_thr=65.2 dB  margin_db=10.0  eff_thr=75.2 dB  margin=+19.9 dB  [DETECTED]
+  Saved frame_000166.bin  (3,145,728 B)  [167 frames]
+  Saved frame_000167.bin  (3,145,728 B)  [168 frames]
+  Saved frame_000168.bin  (3,145,728 B)  [169 frames]
+  [46s] frames=169  raw_stream=599,986,176 B  split_payload=531,628,032 B  overhead+partial=68,358,144 B
+  Saved frame_000169.bin  (3,145,728 B)  [170 frames]
+  Saved frame_000170.bin  (3,145,728 B)  [171 frames]
+  Saved frame_000171.bin  (3,145,728 B)  [172 frames]
+  Saved frame_000172.bin  (3,145,728 B)  [173 frames]
+  Saved frame_000173.bin  (3,145,728 B)  [174 frames]
+  Saved frame_000174.bin  (3,145,728 B)  [175 frames]
+  Saved frame_000175.bin  (3,145,728 B)  [176 frames]
+  Saved frame_000176.bin  (3,145,728 B)  [177 frames]
+  Saved frame_000177.bin  (3,145,728 B)  [178 frames]
+  Saved frame_000178.bin  (3,145,728 B)  [179 frames]
+  Saved frame_000179.bin  (3,145,728 B)  [180 frames]
+  Saved frame_000180.bin  (3,145,728 B)  [181 frames]
+  Saved frame_000181.bin  (3,145,728 B)  [182 frames]
+  Saved frame_000182.bin  (3,145,728 B)  [183 frames]
+  Saved frame_000183.bin  (3,145,728 B)  [184 frames]
+  Saved frame_000184.bin  (3,145,728 B)  [185 frames]
+  Saved frame_000185.bin  (3,145,728 B)  [186 frames]
+  Saved frame_000186.bin  (3,145,728 B)  [187 frames]
+  Saved frame_000187.bin  (3,145,728 B)  [188 frames]
+  Saved frame_000188.bin  (3,145,728 B)  [189 frames]
+  Saved frame_000189.bin  (3,145,728 B)  [190 frames]
+[PROC] 9b. strict-object filter: 2 range bins in → 1 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=39, az=126, src=survived) CUT=116.8 dB  noise_thr=98.9 dB  margin_db=10.0  eff_thr=108.9 dB  margin=+7.9 dB  [DETECTED]
+[STREAM] frame=  16  RD-CFAR:7  RA-CFAR:2  cloud:2  proc=2703ms  avg=2708ms  dropped=172
+[PROC] C7 RD-CFAR margin | peak=(dop=29, range=12) CUT=91.0 dB  noise_thr=58.4 dB  margin_db=10.0  eff_thr=68.4 dB  margin=+22.6 dB  [DETECTED]
+[PROC] 8d. RD confirmation: RD=4, RA before=18, RA after=11 (7 RA detection(s) suppressed — no RD detection at same range bin)
+[PROC] 9b. strict-object filter: 2 range bins in → 0 kept, 2 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=12, az=133, src=map-peak (no survivors)) CUT=108.9 dB  noise_thr=94.2 dB  margin_db=10.0  eff_thr=104.2 dB  margin=+4.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  17  RD-CFAR:4  RA-CFAR:0  cloud:0  proc=2674ms  avg=2702ms  dropped=172
+[PROC] C7 RD-CFAR margin | peak=(dop=27, range=22) CUT=93.2 dB  noise_thr=68.8 dB  margin_db=10.0  eff_thr=78.8 dB  margin=+14.4 dB  [DETECTED]
+  [52s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+[PROC] 9b. strict-object filter: 1 range bins in → 0 kept, 1 dropped (elevation prominence < 2.0 dB), 0 dropped (no azimuth peak candidate)
+[PROC] C7 RA-CFAR margin | peak=(range=22, az=170, src=map-peak (no survivors)) CUT=113.6 dB  noise_thr=99.9 dB  margin_db=10.0  eff_thr=109.9 dB  margin=+3.7 dB  [GATED (cleared CFAR, suppressed by downstream gate)]
+[STREAM] frame=  18  RD-CFAR:11  RA-CFAR:0  cloud:0  proc=2580ms  avg=2689ms  dropped=172
+  [57s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  Init done (60s). Frames so far: 190
+
+=== Capturing frames (Ctrl-C or --stop to end) ===
+  [5s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [10s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [15s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [20s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [26s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [31s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [36s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [41s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [46s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [51s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [56s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [61s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  [66s] frames=190  raw_stream=599,986,176 B  split_payload=597,688,320 B  overhead+partial=2,297,856 B
+  Saved frame_000190.bin  (3,145,728 B)  [191 frames]
+[PROC] C7 RD-CFAR margin | peak=(dop=40, range=8) CUT=90.2 dB  noise_thr=62.6 dB  margin_db=10.0  eff_thr=72.6 dB  margin=+17.6 dB  [DETECTED]
+[PROC] C7 RA-CFAR margin | peak=(range=8, az=134, src=survived) CUT=108.4 dB  noise_thr=96.5 dB  margin_db=10.0  eff_thr=106.5 dB  margin=+1.9 dB  [DETECTED]
+[STREAM] frame=  19  RD-CFAR:6  RA-CFAR:2  cloud:2  proc=2620ms  avg=2680ms  dropped=172
+  [71s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [77s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [82s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [87s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [92s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [97s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [102s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [107s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [112s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [118s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [123s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [128s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [133s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [138s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [143s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [148s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [153s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [158s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [163s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [168s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [174s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [179s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [184s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [189s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [194s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [199s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [204s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [209s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [215s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [220s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [225s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [230s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [235s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [240s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+  [245s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+Traceback (most recent call last):
+  File "C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\processing\streaming.py", line 458, in _update
+    def _update(self):
+KeyboardInterrupt
+  [250s] frames=191  raw_stream=602,243,824 B  split_payload=600,834,048 B  overhead+partial=1,409,776 B
+Traceback (most recent call last):
+  File "C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\processing\streaming.py", line 458, in _update
+    def _update(self):
+KeyboardInterrupt

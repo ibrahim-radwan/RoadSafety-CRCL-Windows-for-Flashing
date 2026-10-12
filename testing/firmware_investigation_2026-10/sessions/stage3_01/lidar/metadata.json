@@ -1,0 +1,49 @@
+{
+  "sensor": "RoboSense RS-Fairy",
+  "lidar_ip": "192.168.34.200",
+  "host_ip": "192.168.34.30",
+  "ports": {
+    "msop": 6699,
+    "difop": 7788,
+    "imu": 6688
+  },
+  "pcap_timestamp_clock": "CLOCK_MONOTONIC (time.monotonic_ns) at host receipt",
+  "lidar_timestamp": "in MSOP/IMU payloads (LiDAR clock); decoded by rs_driver",
+  "rcvbuf_requested": 33554432,
+  "rcvbuf_granted": {
+    "msop": 67108864,
+    "difop": 67108864,
+    "imu": 67108864
+  },
+  "start_monotonic_ns": 5219162333544,
+  "start_realtime_ns": 1791537572876091409,
+  "start_local": "2026-10-09T20:19:32.876097+11:00",
+  "complete": true,
+  "error": null,
+  "stop_monotonic_ns": 5298188644945,
+  "stop_realtime_ns": 1791537651902403610,
+  "duration_s": 79.026,
+  "packets": {
+    "msop": 283262,
+    "difop": 79,
+    "imu": 15804
+  },
+  "msop_lost": 0,
+  "msop_loss_ratio": 0.0,
+  "msop_duplicates": 0,
+  "queue_drops": 0,
+  "kernel_udp_drops": {
+    "6688": 0,
+    "6699": 0,
+    "7788": 0
+  },
+  "first_msop": {
+    "monotonic_ns": 5219163288161,
+    "lidar_s": 5248.232228
+  },
+  "last_msop": {
+    "monotonic_ns": 5298186899569,
+    "lidar_s": 5327.255979
+  },
+  "pcap_bytes": 371765982
+}

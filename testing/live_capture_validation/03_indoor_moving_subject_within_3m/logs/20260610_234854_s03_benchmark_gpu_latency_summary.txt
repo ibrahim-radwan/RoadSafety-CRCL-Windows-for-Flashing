@@ -1,0 +1,62 @@
+======================================================================
+  PIPELINE LATENCY BENCHMARK — AWR2243-2X (post-Mod1–4)
+  58 frames  |  GPU: YES  |  cfar_margin=5.0 dB
+======================================================================
+
+  Stage                         mean ms    median       p90       p99   % total
+  ------------------------------------------------------------------
+  S1  Calibration                  2.31      2.23      2.46      3.14      3.4%
+  S2  Range FFT                    4.57      4.14      7.78      9.21      6.7%
+  S3  Virtual array                3.09      3.05      3.26      3.53      4.5%
+  S4  Doppler FFT + MTI           13.22     11.40     17.53     28.49     19.3%
+  S5  RD power (sum)               2.00      1.72      2.76      4.85      2.9%
+  S6  RD CFAR                      1.62      1.54      2.04      3.00      2.4%
+  S6b Consistency mask             0.01      0.01      0.01      0.02      0.0%
+  S7  Az FFT full-cube            26.13     23.12     28.74     55.73     38.2%
+  S8  Per-target az FFT            0.19      0.19      0.21      0.24      0.3%
+  S9  Elevation FFT                4.09      2.69     13.48     14.50      6.0%
+  S10 Extract xyz                  0.20      0.19      0.22      0.24      0.3%
+  ------------------------------------------------------------------
+  TOTAL                           68.44     59.43     87.80    148.17    100.0%
+
+──────────────────────────────────────────────────────────────────────
+  MOD 4 SAVING — per-target az FFT vs full-cube (baseline)
+──────────────────────────────────────────────────────────────────────
+  Avg confirmed range bins per frame   :    0.0  (out of 256 total = 0.0%)
+  Baseline full-cube az FFT cost        :  10.98 ms avg
+  Per-target az FFT cost (Mod4)         :   0.19 ms avg
+  Saving per frame                      :  10.79 ms avg  (98% reduction)
+  Saving at p90                         :  15.98 ms
+  Effective az FFT speedup factor       : 58.1x
+
+──────────────────────────────────────────────────────────────────────
+  TOTAL LATENCY DISTRIBUTION
+──────────────────────────────────────────────────────────────────────
+  Mean   :   68.44 ms
+  Median :   59.43 ms
+  p10    :   58.12 ms   (fastest 10% of frames)
+  p90    :   87.80 ms   (slowest 10% of frames)
+  p99    :  148.17 ms   (slowest 1%)
+  Min    :   57.75 ms
+  Max    :  149.81 ms
+  StdDev :   23.02 ms
+  Throughput (mean): 14.61 fps  (frame period = 68.4 ms vs hardware period = 256 ms)
+
+──────────────────────────────────────────────────────────────────────
+  TOP 3 BOTTLENECK STAGES
+──────────────────────────────────────────────────────────────────────
+  #1  S7  Az FFT full-cube            26.13 ms  (38.2% of total)
+  #2  S4  Doppler FFT + MTI           13.22 ms  (19.3% of total)
+  #3  S2  Range FFT                    4.57 ms  (6.7% of total)
+
+──────────────────────────────────────────────────────────────────────
+  REFERENCE — BASELINE (pre-Mod1, cfar_margin=10)
+──────────────────────────────────────────────────────────────────────
+  Avg frame latency (Windows/RTX 3080 Ti, from session logs):
+    Full pipeline (CFAR)  : ~270 ms/frame
+    --no-cfar mode        : ~200 ms/frame
+    WDDM period-3 pattern : ~380 / 280 / 185 ms cycle
+  Current avg            : 68.4 ms/frame
+  Change vs ~270 ms ref  : -201.6 ms
+
+======================================================================

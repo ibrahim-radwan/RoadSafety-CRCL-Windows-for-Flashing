@@ -1,0 +1,247 @@
+ python test.py --uart COM20 --frames 30 --warmup-frames 60 --frame-stats --sync-wait 90
+Note: --raw-iq-order='i-first'  (iq_swap=False; adcbufCfg SampleSwap overridden).
+--- CascadeFrameGeometry ---
+  ADC samples / chirp / RX : 256
+  Bytes / sample           : 4  (complex int16)
+  IQ swap (SampleSwap)     : False  (I,Q raw order)
+  Chan interleaved         : False
+  RX per device            : 4
+  TX per device            : 3
+  Devices                  : 2
+  Total RX                 : 8
+  Total TX (TDM)           : 6
+  Virtual antennas (TX*RX) : 48
+  Chirps / loop            : 6
+  Loops / frame            : 64
+  Bytes / chirp block      : 8,192
+  Bytes / frame            : 3,145,728
+  Output shape [NTX,NL,NRX,N]: (6,64,8,256)
+  Chirp -> TX map (loop-major time order):
+    chirp 0 -> Dev0 TX1  (global TX1,  txEnable=1)
+    chirp 1 -> Dev0 TX2  (global TX2,  txEnable=2)
+    chirp 2 -> Dev0 TX3  (global TX3,  txEnable=4)
+    chirp 3 -> Dev1 TX1  (global TX4,  txEnable=1)
+    chirp 4 -> Dev1 TX2  (global TX5,  txEnable=2)
+    chirp 5 -> Dev1 TX3  (global TX6,  txEnable=4)
+  Linear chirp index: loop*6 + chirp_in_loop  (0 .. 383)
+-----------------------------------------------------
+Config   : cascade_csirx.h (header)
+Firmware : am273x_cascade_mss.xer5f
+Frame split: 3,145,728 B  (each frame_*.bin payload; FileMonitor uses this)
+  From firmware header: 8 RX x 256 samp x 384 chirps x 4 B => 3,145,728 B
+           6 chirps/loop x 64 loops x 2 device(s)
+FW frames: infinite
+Output   : C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture\frames
+Capture  : 30
+UART     : COM20 (for stop command)
+
+Cleaning up...
+  Removing: am273x_capture_Raw_0.bin
+  Removing: am273x_capture_Raw_1.bin
+  Removing: am273x_capture_Raw_LogFile.csv
+
+=== Loading firmware: am273x_cascade_mss.xer5f ===
+Connecting to Cortex_R5_0...
+Cortex_R5_0: AM273x
+
+Issuing System Reset...
+Issuing CPU Reset...
+Loading Cortex_R5_0: C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\config\build_shortrange_inf\am273x_cascade_mss.xer5f
+Running Cortex_R5_0...
+*********************************************
+Debug: Launching mmwave Cascade Application.
+*********************************************
+OK: reset/load/run completed
+
+=== Configuring DCA1000 ===
+  CLI reset_fpga: Reset FPGA command : Success
+  CLI fpga: FPGA Configuration command : Success
+  CLI query_sys_status: System is connected.
+  CLI record: Configure Record command : Success
+  CLI query_sys_status: System is connected.
+
+=== Starting DCA1000 record ===
+  CLI start_record: Success
+File monitor watching C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture\data
+  Warm-up: discarding first 60 frame(s) after sensorStart (firmware front-end calibration not yet steady-state).
+  Per-frame ADC stats enabled (mean|x|, std, max, I_dc, Q_dc). Large frame-to-frame variation indicates non-stationary firmware state.
+  Split: each frame_*.bin = exactly one radar frame (3,145,728 B payload). Raw DCA .bin bytes include FPGA/packet headers.
+
+=== Waiting up to 90s for firmware init + streaming ===
+  (firmware: MMWave_open -> config -> calibrate -> start)
+  Discarded warm-up frame 1/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 2/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 3/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 4/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 5/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 6/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 7/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 8/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 9/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 10/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 11/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 12/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 13/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 14/60 (3,145,728 B; not saved)
+  [4s] >> Data arriving! <<
+  Discarded warm-up frame 15/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 16/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 17/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 18/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 19/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 20/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 21/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 22/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 23/60 (3,145,728 B; not saved)
+  [5s] frames=0  raw_stream=74,997,760 B  split_payload=0 B  overhead+partial=74,997,760 B
+  [10s] frames=0  raw_stream=74,997,760 B  split_payload=0 B  overhead+partial=74,997,760 B
+  Discarded warm-up frame 24/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 25/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 26/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 27/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 28/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 29/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 30/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 31/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 32/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 33/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 34/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 35/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 36/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 37/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 38/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 39/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 40/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 41/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 42/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 43/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 44/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 45/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 46/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 47/60 (3,145,728 B; not saved)
+  [15s] frames=0  raw_stream=149,995,520 B  split_payload=0 B  overhead+partial=149,995,520 B
+  Discarded warm-up frame 48/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 49/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 50/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 51/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 52/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 53/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 54/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 55/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 56/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 57/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 58/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 59/60 (3,145,728 B; not saved)
+  Discarded warm-up frame 60/60 (3,145,728 B; not saved)
+  Saved frame_000000.bin  (3,145,728 B)  [1 frames]  stat=[mean|x|= 901.2 std= 448.3 max= 2604 I_dc=+3.31 Q_dc=-2.60]
+  Saved frame_000001.bin  (3,145,728 B)  [2 frames]  stat=[mean|x|= 901.1 std= 448.4 max= 2613 I_dc=+3.22 Q_dc=-2.67]
+  Saved frame_000002.bin  (3,145,728 B)  [3 frames]  stat=[mean|x|= 901.0 std= 448.3 max= 2620 I_dc=+3.40 Q_dc=-2.65]
+  Saved frame_000003.bin  (3,145,728 B)  [4 frames]  stat=[mean|x|= 900.7 std= 448.0 max= 2613 I_dc=+3.38 Q_dc=-2.50]
+  Saved frame_000004.bin  (3,145,728 B)  [5 frames]  stat=[mean|x|= 900.5 std= 448.1 max= 2608 I_dc=+3.13 Q_dc=-2.56]
+  Saved frame_000005.bin  (3,145,728 B)  [6 frames]  stat=[mean|x|= 900.5 std= 448.1 max= 2621 I_dc=+3.39 Q_dc=-2.63]
+  Saved frame_000006.bin  (3,145,728 B)  [7 frames]  stat=[mean|x|= 900.3 std= 447.9 max= 2623 I_dc=+3.16 Q_dc=-2.70]
+  Saved frame_000007.bin  (3,145,728 B)  [8 frames]  stat=[mean|x|= 900.1 std= 447.9 max= 2622 I_dc=+3.25 Q_dc=-2.73]
+  Saved frame_000008.bin  (3,145,728 B)  [9 frames]  stat=[mean|x|= 900.1 std= 448.0 max= 2631 I_dc=+3.34 Q_dc=-2.74]
+  Saved frame_000009.bin  (3,145,728 B)  [10 frames]  stat=[mean|x|= 900.0 std= 447.7 max= 2616 I_dc=+3.68 Q_dc=-2.59]
+  Saved frame_000010.bin  (3,145,728 B)  [11 frames]  stat=[mean|x|= 899.8 std= 447.7 max= 2611 I_dc=+3.38 Q_dc=-2.87]
+  [20s] frames=11  raw_stream=224,993,280 B  split_payload=34,603,008 B  overhead+partial=190,390,272 B
+  Saved frame_000011.bin  (3,145,728 B)  [12 frames]  stat=[mean|x|= 899.7 std= 447.8 max= 2620 I_dc=+3.25 Q_dc=-2.66]
+  Saved frame_000012.bin  (3,145,728 B)  [13 frames]  stat=[mean|x|= 899.6 std= 447.6 max= 2612 I_dc=+3.38 Q_dc=-2.68]
+  Saved frame_000013.bin  (3,145,728 B)  [14 frames]  stat=[mean|x|= 899.5 std= 447.4 max= 2620 I_dc=+3.55 Q_dc=-2.51]
+  Saved frame_000014.bin  (3,145,728 B)  [15 frames]  stat=[mean|x|= 899.2 std= 447.5 max= 2611 I_dc=+3.01 Q_dc=-2.69]
+  Saved frame_000015.bin  (3,145,728 B)  [16 frames]  stat=[mean|x|= 899.2 std= 447.4 max= 2608 I_dc=+3.18 Q_dc=-2.91]
+  Saved frame_000016.bin  (3,145,728 B)  [17 frames]  stat=[mean|x|= 899.1 std= 447.3 max= 2605 I_dc=+3.56 Q_dc=-2.63]
+  Saved frame_000017.bin  (3,145,728 B)  [18 frames]  stat=[mean|x|= 899.1 std= 447.4 max= 2607 I_dc=+3.54 Q_dc=-2.63]
+  Saved frame_000018.bin  (3,145,728 B)  [19 frames]  stat=[mean|x|= 898.6 std= 447.2 max= 2610 I_dc=+3.32 Q_dc=-2.65]
+  Saved frame_000019.bin  (3,145,728 B)  [20 frames]  stat=[mean|x|= 898.6 std= 447.1 max= 2616 I_dc=+3.37 Q_dc=-2.71]
+  Saved frame_000020.bin  (3,145,728 B)  [21 frames]  stat=[mean|x|= 898.8 std= 447.2 max= 2629 I_dc=+3.64 Q_dc=-2.57]
+  Saved frame_000021.bin  (3,145,728 B)  [22 frames]  stat=[mean|x|= 898.7 std= 447.3 max= 2613 I_dc=+3.27 Q_dc=-2.69]
+  Saved frame_000022.bin  (3,145,728 B)  [23 frames]  stat=[mean|x|= 898.2 std= 446.9 max= 2609 I_dc=+3.15 Q_dc=-2.65]
+  Saved frame_000023.bin  (3,145,728 B)  [24 frames]  stat=[mean|x|= 898.1 std= 446.8 max= 2609 I_dc=+3.29 Q_dc=-2.59]
+  Saved frame_000024.bin  (3,145,728 B)  [25 frames]  stat=[mean|x|= 898.2 std= 447.0 max= 2603 I_dc=+3.52 Q_dc=-2.51]
+  Saved frame_000025.bin  (3,145,728 B)  [26 frames]  stat=[mean|x|= 898.0 std= 446.8 max= 2602 I_dc=+3.54 Q_dc=-2.75]
+  Saved frame_000026.bin  (3,145,728 B)  [27 frames]  stat=[mean|x|= 897.9 std= 446.5 max= 2609 I_dc=+3.44 Q_dc=-2.74]
+  Saved frame_000027.bin  (3,145,728 B)  [28 frames]  stat=[mean|x|= 897.8 std= 446.7 max= 2604 I_dc=+3.38 Q_dc=-2.68]
+  Saved frame_000028.bin  (3,145,728 B)  [29 frames]  stat=[mean|x|= 897.6 std= 446.7 max= 2596 I_dc=+3.26 Q_dc=-2.77]
+  Saved frame_000029.bin  (3,145,728 B)  [30 frames]  stat=[mean|x|= 897.4 std= 446.4 max= 2611 I_dc=+3.31 Q_dc=-2.68]
+  [25s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [30s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [35s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [41s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [46s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [51s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [56s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [61s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [66s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [71s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [76s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [81s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  [86s] frames=30  raw_stream=299,991,040 B  split_payload=94,371,840 B  overhead+partial=205,619,200 B
+  Init done (90s). Frames so far: 30
+
+=== Capturing frames (Ctrl-C or --stop to end) ===
+
+  Reached 30 frames.
+
+=== Sending stop to firmware ===
+  Sent stop command (s) to firmware
+
+=== Done: 30 frames  raw_stream=299,991,040 B  split_payload=94,371,840 B ===
+  Warm-up frames discarded: 60/60
+  CLI stop_record: Stop Record command : Success
+
+=== Frame validation (DCA -> per-frame split) ===
+  frame_idx saved       : 30
+  Expected frame size  : 3,145,728 B
+  Expected saved bytes : 94,371,840 B
+  Monitor read bytes   : 299,991,040 B
+    (raw DCA record stream includes packet/FPGA framing, so it is larger than frame payload bytes)
+  vs payload (N x frame): +205,619,200 B  (overhead + any partial tail in buffer)
+  Saved files found    : 30
+  Saved total (sum)   : 94,371,840 B
+  All checked frame sizes match expected size.
+PS C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\capture> cd ..
+PS C:\Users\RadarDemo\Documents\cascaded_radar_win_dev> python processing\diag_frame_stationarity.py --folder capture\frames --cfg config\build_shortrange_inf\cascade_shortrange.cfg
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[diag] cfg: N=256  loops=64  TX=6  RX=8  iq_swap=True
+[diag] frame_bytes = 3,145,728
+
+frame  raw_mean  static_dB  slow_var_dB  static-slow  dc_frac
+000000    901.15     125.03       187.45       -62.41   0.0001
+000001    901.05     125.03       187.56       -62.53   0.0001
+000002    900.98     125.03       187.66       -62.63   0.0001
+000003    900.72     125.03       187.54       -62.51   0.0001
+000004    900.51     125.03       187.50       -62.47   0.0001
+000005    900.50     125.03       187.52       -62.50   0.0001
+000006    900.27     125.02       187.46       -62.43   0.0001
+000007    900.12     125.02       187.46       -62.44   0.0001
+000008    900.05     125.02       187.53       -62.51   0.0001
+000009    899.96     125.02       187.54       -62.51   0.0001
+000010    899.83     125.02       187.54       -62.52   0.0001
+000011    899.71     125.02       187.46       -62.43   0.0001
+000012    899.55     125.02       187.59       -62.58   0.0001
+000013    899.48     125.02       187.54       -62.52   0.0001
+000014    899.20     125.01       187.41       -62.40   0.0001
+000015    899.18     125.01       187.51       -62.50   0.0001
+000016    899.06     125.01       187.49       -62.48   0.0001
+000017    899.10     125.01       187.53       -62.51   0.0001
+000018    898.61     125.01       187.51       -62.50   0.0001
+000019    898.65     125.01       187.60       -62.59   0.0001
+000020    898.81     125.01       187.43       -62.42   0.0001
+000021    898.71     125.01       187.45       -62.44   0.0001
+000022    898.18     125.00       187.56       -62.56   0.0001
+000023    898.15     125.00       187.40       -62.40   0.0001
+000024    898.23     125.01       187.44       -62.44   0.0001
+000025    898.04     125.00       187.49       -62.49   0.0001
+000026    897.87     125.00       187.56       -62.56   0.0001
+000027    897.79     125.00       187.50       -62.50   0.0001
+000028    897.61     125.00       187.38       -62.38   0.0001
+000029    897.42     125.00       187.47       -62.47   0.0001
+
+[diag] summary (over saved frames)
+  raw_mean    : min=  897.42  max=  901.15  max/min= 1.00
+  static_dB   : min=  125.00  max=  125.03  span= 0.04 dB
+  slow_var_dB : min=  187.38  max=  187.66  span= 0.28 dB
+
+[diag] verdict heuristic:
+  STABLE  -> input is stationary; CFAR=0 in static scene is meaningful.

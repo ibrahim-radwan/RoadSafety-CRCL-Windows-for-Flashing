@@ -1,0 +1,105 @@
+{
+  "session": "sessions/ipad_test_01",
+  "offsets": {
+    "radar_ms": 0.0,
+    "camera_ms": 0.0,
+    "lidar_ms": 0.0
+  },
+  "offsets_calibrated": false,
+  "lidar_split_angle_deg": 180.0,
+  "lidar_rpy_deg": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "boresight_deg": 5.0,
+  "envelope_percentile": 5.0,
+  "radar": {
+    "frames": 120,
+    "period_ms": 250.005755,
+    "fps": 3.9999,
+    "residual_ms": {
+      "median": 0.308,
+      "p01": -0.146,
+      "p99": 0.351,
+      "min": -0.203,
+      "max": 0.366
+    },
+    "outliers": 0,
+    "frames_with_loss": 0
+  },
+  "camera": {
+    "frames": 1264,
+    "fps": 29.7298,
+    "sdk_to_receipt_latency_ms": {
+      "median": 40.713,
+      "p01": 40.004,
+      "p99": 42.4,
+      "min": 39.829,
+      "max": 262.64
+    },
+    "wall_clock_steps": 0,
+    "wall_minus_mono_drift_ms": -0.001,
+    "gap_events": 2,
+    "dropped_frames_estimated": 7
+  },
+  "lidar": {
+    "packets": 173789,
+    "span_lidar_s": 48.481,
+    "drift_ppm": 28.2,
+    "receipt_delay_above_envelope_ms": {
+      "median": 0.025,
+      "p01": -0.007,
+      "p99": 0.759,
+      "min": -0.017,
+      "max": 6.337
+    },
+    "outliers": 0,
+    "sweeps": 478,
+    "sweeps_expected_10hz": 484.8,
+    "seq_gaps": 0,
+    "points_per_sweep": {
+      "min": 132288,
+      "median": 138240,
+      "max": 138240
+    },
+    "sweeps_partial": 0,
+    "sweeps_without_boresight": 0,
+    "fov_span_ms": {
+      "median": 47.505,
+      "p01": 47.498,
+      "p99": 47.514,
+      "min": 47.495,
+      "max": 47.515
+    },
+    "sweep_period_ms": {
+      "median": 100.002,
+      "p01": 99.499,
+      "p99": 100.51,
+      "min": 99.442,
+      "max": 100.544
+    }
+  },
+  "pairing": {
+    "pairs": 120,
+    "camera_error_ms": {
+      "median": -0.406,
+      "p01": -16.366,
+      "p99": 15.652,
+      "min": -16.376,
+      "max": 36.501
+    },
+    "camera_period_ms": 33.493,
+    "lidar_error_ms": {
+      "median": 14.131,
+      "p01": -10.984,
+      "p99": 39.233,
+      "min": -10.992,
+      "max": 39.254
+    },
+    "lidar_period_ms": 100.002,
+    "flagged": 1,
+    "camera_gap_pairs": 1,
+    "lidar_gap_pairs": 0
+  }
+}

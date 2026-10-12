@@ -1,0 +1,46 @@
+here is the logs from latest run on benchmark: python .\test_gpu_offload_benchmark.py
+[GPU] CuPy available — device 0: NVIDIA GeForce RTX 3080 Ti Laptop GPU
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[CFG-PARSE] cfarCfg:
+  range  : method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=15.0 dB
+  doppler: method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=18.0 dB
+  pipeline: method='os'  guard=[4, 6]  train=[8, 16]  fa_rate=3e-05  margin_db=10.0
+  NOTE: firmware uses fixed threshold_dB; pipeline uses FA-rate thresholding + margin_db — semantics differ, no auto-override applied
+[CFG-PARSE] compressionCfg:
+  disabled (enabled=0)  — ADC data is uncompressed  [OK]
+[CFG-PARSE] channelCfg:
+  rxEn=0b1111(15)  txEn=0b111(7)  cascade=1
+  → 4 RX/device × 2 device(s) = 8 RX total
+  → 3 TX/device × 2 device(s) = 6 TX total
+  TX count consistent with frameCfg num_tx=6  [OK]
+[CFG-PARSE] chirpCfg: 6 chirp definition(s) found
+  chirp count matches num_tx=6  [OK]
+[CFG-PARSE] 3 pipeline/firmware mismatch(es):
+  [1] cfarCfg range method=caso but pipeline cfar_method='os' — pass --cfar caso to match firmware
+  [2] cfarCfg guardLen: range=0, doppler=0 but pipeline cfar_guard=[4, 6] — pass --cfar-guard 0 0 to match firmware
+  [3] cfarCfg noiseWin: range=16, doppler=16 but pipeline cfar_train=[8, 16] — pass --cfar-train 16 16 to match firmware
+============================================================
+GPU Benchmark — NVIDIA GeForce RTX 3080 Ti Laptop GPU
+  Trials: 10  |  GPU_PROFILE: False
+============================================================
+GPU path:
+  range_fft_gpu                            median=    3.2ms  min=    2.9ms
+  doppler_fft_gpu                          median=    3.3ms  min=    3.2ms
+  az_fft_gpu                               median=   11.1ms  min=   10.6ms
+  power_db_reduce_gpu                      median=    1.2ms  min=    1.0ms
+  elevation_fft_gpu                        median=    3.3ms  min=    3.1ms
+  cfar_2d_gpu (OS, RD map)                 median=   26.5ms  min=   26.3ms
+  cfar_2d_gpu (CASO, RA map)               median=    1.1ms  min=    1.1ms
+  ra_focus_mask_gpu                        median=    1.0ms  min=    1.0ms
+  collapse_ra_from_fft_gpu                 median=    2.2ms  min=    2.1ms
+CPU path:
+  range_fft_cpu                            median=   11.8ms  min=   11.3ms
+  doppler_fft_cpu                          median=   17.3ms  min=   17.3ms
+  az_fft_cpu                               median=   60.8ms  min=   51.9ms
+  power_db_reduce_cpu                      median=    1.9ms  min=    1.8ms
+  elevation_fft_cpu                        median=   59.1ms  min=   59.0ms
+  cfar_2d_cpu (OS, RD map)                 median=  138.9ms  min=  138.0ms
+  cfar_2d_cpu (CA, RA map)                 median=  561.7ms  min=  556.5ms
+  ra_focus_mask_cpu                        median=    1.3ms  min=    1.3ms
+  collapse_ra_from_fft_cpu                 median=    5.7ms  min=    5.5ms
+============================================================

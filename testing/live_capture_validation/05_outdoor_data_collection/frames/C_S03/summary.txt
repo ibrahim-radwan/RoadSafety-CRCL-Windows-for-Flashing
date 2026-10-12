@@ -1,0 +1,64 @@
+================================================================
+  PHASE 0/1/2 AUDIT SUMMARY
+================================================================
+  INPUT  folder   : C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\testing\live_capture_validation\05_outdoor_data_collection\frames\C_S03
+  INPUT  .bin files: 421   [frame_000000.bin … frame_000420.bin]
+  OUTPUT folder   : C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\testing\live_capture_validation\05_outdoor_data_collection\frames\C_S03
+----------------------------------------------------------------
+  Phase 1 emit_all_cluster_bins : ON
+  Phase 2 temporal_accum        : ON (window=16)
+  CFAR margin                   : 10.0 dB
+  Stage 2.2 az FFT              : FOCUSED
+  P0-6 subject gate             : ON
+  Stage 4.2 limb mode           : adaptive  (k=1.75)
+  Frames total         : 421
+  Frames with cloud>0  : 330  (78.4%)
+  Frames cloud==0      : 91
+  Total cloud points   : 630
+  Elapsed              : 47.6s  (113ms/frame)
+
+  STAGE ATTRIBUTION (totals over 421 frames):
+    RD-CFAR survivors  : 896
+    grating_rej total  : 993
+    fov_rej total      : 24
+    cc_rej total       : 147
+    sg_rej total       : 53  (P0-6 off-range contamination removed)
+    sg_bypass total    : 0  (frames passed ungated — track stale)
+
+  CLOUD DENSITY (detected frames only):
+    avg pts/frame      : 1.91
+    max pts/frame      : 5
+    avg accum_pts  /all frames : 13.0  (Phase 2)
+    avg accum_pts  /detected   : 16.5  (Phase 2)
+    avg cluster_pts/detected   : 13.3  (Phase 3)
+    avg cluster_pts/has-cluster: 16.7  (Phase 3)
+    NOTE: compare like-for-like. cluster_pts <= accum_pts on every frame.
+    wide_cluster_rej   : 21  (frames dropped: rx > max_cluster_radius)
+    comp_step_x        : median=0.113 m  p90=1.512 m  max=2.049 m  (vs eps=0.80)
+    comp_residual_x    : median=0.278 m  max=4.487 m  (merged-cloud x-extent)
+    n_subjects         : max=2  frames with >1: 7 of 421
+    separation_m       : median=1.697 m  min=1.586  max=1.735  (n=7)
+    compensated        : 293 of 421 frames (70%) - suppressed while multi-subject
+    multi_used         : 16 frames used the multi-subject path (1-frame lag vs n_subjects - see accumulate.py)
+    n_raw_clusters     : max=2  frames with >1 RAW cluster: 10 of 421  (before age>=2 confirmation)
+      rx kept     n= 263  median=0.142 m  max=0.530 m
+      rx REJECTED n=  21  median=0.809 m  max=0.835 m   <-- censored above 0.65 m
+
+  CENTROID (detected frames):
+    x mean ± std       : +0.006 ± 0.322 m
+    y mean ± std       : 5.822 ± 2.004 m
+
+  DOPPLER QUALITY (Phase 1 step 3):
+    Frames all-dop-zero: 0  (subject walking tangentially)
+    (dop=0 is physical for tangential motion; not a pipeline bug)
+
+  ACCEPTANCE CRITERIA:
+  [PASS]  frames.csv rows == input .bin files (421 rows / 421 files)
+  [PASS]  points.csv row count = 630
+  [CHECK] stage drops (grating=993 fov=24 cc=147)
+  [CHECK] emit_all ON: avg pts/frame = 1.91
+
+  Output files:
+    testing\live_capture_validation\05_outdoor_data_collection\frames\C_S03\frames.csv
+    testing\live_capture_validation\05_outdoor_data_collection\frames\C_S03\points.csv
+================================================================

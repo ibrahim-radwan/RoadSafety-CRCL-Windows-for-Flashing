@@ -1,0 +1,112 @@
+Context (do NOT re-derive, use as ground truth):
+
+I am working on a cascaded mmWave radar system (AWR2243-class) with a real-time processing pipeline. 
+Recent outdoor testing has been conducted with a moving human subject, and logs have already been analyzed.
+
+The goal is to audit and refine the signal processing pipeline using literature-backed principles.
+
+Two recent reference papers have been reviewed:
+
+1) AE‑CFAR cascaded radar paper:
+   - Detection is performed strictly in the Range-Doppler Map (RDM)
+   - Uses AE-CFAR for robust thresholding
+   - Adds cross-channel / cross-slot consistency fusion
+   - Outputs candidate detections BEFORE angle processing
+
+2) Hybrid TDMA-DDMA cascaded radar paper:
+   - Pipeline: Range FFT → Doppler FFT → Integration → Peak detection
+   - Detection happens in RDM BEFORE beamforming
+   - Beamforming (azimuth/elevation FFT) is applied AFTER target detection
+   - Processing becomes per-target (Ni × az × el), not full-map
+   - Final output is a point cloud
+
+Key literature consensus (important constraints):
+
+- Detection should occur in RDM domain (range + Doppler)
+- Beamforming / angle estimation should happen AFTER detection
+- Detection should NOT be repeated in angle space
+- Heavy processing should be applied per detected target, not full cube
+- SNR enhancement can be achieved via:
+  (a) statistical CFAR (AE-CFAR)
+  OR
+  (b) coherent / non-coherent integration
+
+------------------------------------------------------------
+
+Current pipeline (to audit):
+
+1. Calibration
+2. Range FFT
+3. MTI clutter removal
+4. Virtual array formation
+5. Doppler FFT
+6. Range-Doppler map (power)
+7. RD-CFAR detection
+8. Azimuth FFT (full cube)
+9. RA map
+10. RA-CFAR detection
+11. Elevation FFT
+12. arrDREA construction
+13. xyz point cloud generation
+
+------------------------------------------------------------
+
+Audit Tasks:
+
+1) STRUCTURAL VALIDATION
+- Compare the current pipeline against literature-backed pipelines
+- Identify any stages that violate the principle:
+    "Detection must occur in RDM before angle processing"
+- Identify if any stage performs redundant or non-standard detection
+
+2) DETECTION CORE ASSESSMENT
+- Evaluate whether the detection core (Stages 1–7) is:
+    - complete
+    - missing any key elements (e.g., integration, AE-CFAR, consistency fusion)
+- Identify opportunities to improve detection robustness without increasing complexity too much
+
+3) PERCEPTION LAYER ASSESSMENT
+- Evaluate Stages 8–13:
+    - Is beamforming applied too early or globally?
+    - Should it be conditional per detected target instead?
+- Evaluate whether RA-CFAR is justified or should be removed based on literature
+
+4) COMPUTATIONAL STRUCTURE
+- Identify which stages operate on the full cube vs detected targets
+- Highlight inefficiencies due to full-map processing where sparse processing would suffice
+- Propose restructuring toward:
+    Detection Core (global) + Per-target Perception
+
+5) ALIGNMENT VERDICT
+- Clearly state:
+    - Is the pipeline aligned with literature (YES / PARTIAL / NO)
+    - Where exactly it diverges
+    - Whether those divergences are justified (or harmful)
+
+6) RECOMMENDED MODIFICATIONS
+- Provide concrete, minimal structural changes (NOT parameter tuning)
+- Focus on:
+    - removing redundant stages
+    - reordering stages
+    - converting global steps into per-target steps
+
+IMPORTANT CONSTRAINTS:
+- Do NOT suggest arbitrary tuning (CFAR parameters, window sizes, etc.)
+- Do NOT re-analyze logs or capture pipeline
+- Focus strictly on signal processing structure
+- Use reasoning backed by the described papers and principles
+
+------------------------------------------------------------
+
+Goal:
+
+Refine the pipeline to:
+- maximize detection robustness in RDM
+- reduce unnecessary computation
+- enable scalable 3D perception
+- support future extension toward human pose representation
+
+Provide a clear, structured answer with:
+- identified issues
+- justification
+- recommended architecture changes

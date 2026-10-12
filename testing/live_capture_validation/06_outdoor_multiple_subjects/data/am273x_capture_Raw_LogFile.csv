@@ -1,0 +1,8 @@
+Start record configuration : 
+,
+Log mode : Raw
+LVDS lane mode : 4 lane
+Record stop mode : Infinite
+Max file size (MB) : 1024,
+,*DT 1,
+,2659672288,17472,

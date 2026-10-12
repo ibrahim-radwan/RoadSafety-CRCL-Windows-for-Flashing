@@ -1,0 +1,86 @@
+{
+  "started_local": "2026-10-09T13:43:32+1100",
+  "host": "jetson-desktop",
+  "note": "iPad sanity test",
+  "sensors": [
+    "lidar",
+    "camera",
+    "radar"
+  ],
+  "stop_reason": "radar finished",
+  "exit_codes": {
+    "radar": 0,
+    "lidar": 0,
+    "camera": 0
+  },
+  "clocks": {
+    "start": {
+      "monotonic_ns": 58327723142247,
+      "realtime_ns": 1791513812774756204
+    },
+    "stop": {
+      "monotonic_ns": 58376297845106,
+      "realtime_ns": 1791513861349464199
+    },
+    "radar_start": {
+      "monotonic_ns": 58336840155343,
+      "realtime_ns": 1791513821891771652
+    }
+  },
+  "clock": "CLOCK_MONOTONIC is the session reference; each pair is (monotonic, realtime) sampled back-to-back",
+  "args": {
+    "out": "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01",
+    "secs": "30.0",
+    "lead": "3.0",
+    "delay": "0.0",
+    "note": "iPad sanity test",
+    "log": "None",
+    "sensor_python": "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+    "radar_python": "/usr/bin/python3",
+    "no_radar": "False",
+    "no_camera": "False",
+    "no_lidar": "False",
+    "ready_timeout": "45.0",
+    "min_free_gb": "5.0"
+  },
+  "commands": {
+    "lidar": [
+      "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+      "-u",
+      "record_lidar_raw.py",
+      "--session-dir",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01/lidar"
+    ],
+    "camera": [
+      "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+      "-u",
+      "recorder.py",
+      "--session-dir",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01/camera"
+    ],
+    "radar": [
+      "/usr/bin/python3",
+      "-u",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/dca_capture_radar_sync.py",
+      "--secs",
+      "30.0",
+      "--out",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01/radar"
+    ]
+  },
+  "dirs": {
+    "lidar": "lidar",
+    "camera": "camera",
+    "radar": "radar"
+  },
+  "net_core_rmem_max": 33554432,
+  "tool_sha256": {
+    "capture_session.py": "73145bef5b766e99278c1010b8db884fae287bf30ec64a6197647f34d89a8189",
+    "dca_capture_radar_sync.py": "ef7ebedef5f6498c93a9d52812e616023e9f01d8682aece13778a6fab8661556",
+    "zed/recorder.py": "bc8e4c9e2968501a08b7e4fb6f2d2c590ea28bd60ffb5253d584925e2d3598c7",
+    "zed/config.yaml": "13dbecd0d41f1ad81b899acb01de2dfcfc403571a66889c949f7e41b2e068235",
+    "lidar/record_lidar_raw.py": "6f86ef8603529ccac5498cdc7e122c976187e6ba186629d81d2815362e037664",
+    "lidar/config.yaml": "43a712504de273463f100e0e04d8d09dfb9530367c37d9f47059d54d9a18b2a8"
+  },
+  "pairing": "NOT applied. Offsets must be measured (Stage 3) before association."
+}

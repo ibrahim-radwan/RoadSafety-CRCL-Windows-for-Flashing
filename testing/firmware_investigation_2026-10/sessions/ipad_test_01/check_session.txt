@@ -1,0 +1,45 @@
+============================================================================
+  SESSION: /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01
+============================================================================
+
+[1 Session]
+    started     : 2026-10-09T13:43:32+1100   note: iPad sanity test
+    sensors     : lidar, camera, radar
+    stop reason : radar finished
+    exit codes  : {'radar': 0, 'lidar': 0, 'camera': 0}
+
+[2 Radar]
+    frames      : 120 in manifest, 120 .bin on disk
+    wrong size  : 0   (expected 3,145,728 B each)   manifest rows without file: 0
+    loss        : 0 frames with lost bytes (0 B zero-filled)
+    alignment   : 0 frames whose burst is > 1 packet from a frame boundary
+    cadence     : 4.000 fps, worst interval 1.00x median
+
+[3 Camera (ZED 2i)]
+    status      : complete=True  phase=complete  error=None
+    SVO2        : 34.4 MB, frame count verified=True, timestamps verified=True
+    frames      : 1264 recorded, 1264 in frames.csv, 29.73 fps observed
+    dropped     : 7 frames (0.55%)
+    warn: 7 camera frames dropped (0.55%) - see capture/timing/camera_gaps.csv
+    wall clock  : 0 steps > 1 ms during the session
+
+[4 LiDAR (RS-Fairy)]
+    recorder    : complete=True  error=None  duration 48.482 s
+    PCAP        : 228.1 MB, packets {'msop': 173789, 'difop': 48, 'imu': 9697}
+    loss        : 0 MSOP packets (0.0000%), queue drops 0, kernel drops {'6688': 0, '6699': 0, '7788': 0}
+
+[5 Coverage (CLOCK_MONOTONIC)]
+    radar       : 58342.709 .. 58372.460  (29.8 s)
+    camera      : leads radar by +8.92 s, trails by +3.81 s
+    lidar       : leads radar by +14.89 s, trails by +3.84 s
+
+    session size: 0.64 GB
+
+============================================================================
+  VERDICT
+============================================================================
+  PASS - data is complete and the sensors cover the radar recording.
+  Warnings:
+    - 7 camera frames dropped (0.55%) - see capture/timing/camera_gaps.csv
+
+  Next: python align_session.py --session /home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/ipad_test_01 [--offsets <Stage 3 offsets.json>]

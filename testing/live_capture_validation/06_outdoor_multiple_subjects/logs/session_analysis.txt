@@ -1,0 +1,84 @@
+========================================================================
+  AWR2243-2X  CROSS-SESSION ANALYSIS REPORT
+========================================================================
+  Sessions: 1
+  Subjects: no subjects.csv provided
+
+────────────────────────────────────────────────────────────────────────
+  SESSION OVERVIEW  (from summary.txt)
+────────────────────────────────────────────────────────────────────────
+  Session        frames    det%   pts/fr    accum    clust    grat      cc   proc_ms
+  ----------------------------------------------------------------------
+                   1447   88.9%      2.4     36.5     40.2    5255     772       156
+
+────────────────────────────────────────────────────────────────────────
+  PER-POINT DOPPLER DISTRIBUTION  (from points.csv)
+────────────────────────────────────────────────────────────────────────
+  Session         n_pts   dop_mean    dop_std   dop_min   dop_max  n_unique
+  --------------------------------------------------------------------
+                   3045     -0.020      1.134    -2.498     2.420        59
+
+  Unique Doppler values by session (quantisation check — all sessions):
+              : -2.498  -2.420  -2.341  -2.263  -2.185  -2.107  -2.029  -1.951  -1.873  -1.795  -1.717  -1.639  -1.561  -1.483  -1.405  -1.327  -1.249  -1.171  -1.093  -1.015  [+39 more]
+
+────────────────────────────────────────────────────────────────────────
+  PHASE 3 — CLUSTER GEOMETRY  (from frames.csv)
+────────────────────────────────────────────────────────────────────────
+  rx = cluster_radius_x (lateral half-width, body + drift)
+  ry = cluster_radius_y (range half-depth)
+  Session         rx_med   rx_std    ry_med   noise_med   jumps   full_win_fr
+  --------------------------------------------------------------------
+                   0.257    0.098     0.292         2.0       0           900
+
+  Total centroid jumps across all sessions: 0  (target = 0)
+
+────────────────────────────────────────────────────────────────────────
+  PHASE 4 — SUBJECT-CENTRIC SPREAD  M5  (from frames.csv)
+────────────────────────────────────────────────────────────────────────
+  dx_std = subject_spread_x  (target 0.10–0.25 m, range-independent)
+  Session        dx_std_med   dx_std_std   r_vs_range  n_frames
+  ----------------------------------------------------------
+
+────────────────────────────────────────────────────────────────────────
+  PHASE 6 — DOPPLER DIRECTION VALIDATION  (Scenarios A and D)
+────────────────────────────────────────────────────────────────────────
+  dop_fwd > 0 = walking away  |  dop_ret < 0 = walking toward
+  Session         dop_fwd    dop_ret   sign_ok
+  --------------------------------------------
+
+────────────────────────────────────────────────────────────────────────
+  PHASE 6 — GAIT FEATURES BY SESSION  (from frames.csv)
+────────────────────────────────────────────────────────────────────────
+  Session         limb%   dop_spr   dop_max   gait_fr
+  ----------------------------------------------------
+                  77.5%     1.056     1.327       908
+
+  limb% by scenario (expected A/D high, B low):
+
+────────────────────────────────────────────────────────────────────────
+  ELEVATION CHECK  (from points.csv)  — z_mean should be near 0
+────────────────────────────────────────────────────────────────────────
+  Session        z_mean (m)   z_std (m)
+  --------------------------------------
+                     -0.588       2.091  ← check radar height
+
+────────────────────────────────────────────────────────────────────────
+  FILTER STAGE ATTRIBUTION  (totals across all sessions)
+────────────────────────────────────────────────────────────────────────
+  RD-CFAR survivors : 4335
+  grating_rej       : 5255
+  cc_rej            : 772
+  fov_rej           : 139
+  pass-through rate : -42.2%
+
+────────────────────────────────────────────────────────────────────────
+  PHASE 7 READINESS CHECKLIST
+────────────────────────────────────────────────────────────────────────
+
+  ✓ Centroid stability: 0 total jumps (target = 0)
+  ✓ Min detection rate: 88.9% (target >= 75%)
+
+  2/2 checks passed
+  All checks passed — pipeline ready to proceed to Phase 7.
+
+========================================================================

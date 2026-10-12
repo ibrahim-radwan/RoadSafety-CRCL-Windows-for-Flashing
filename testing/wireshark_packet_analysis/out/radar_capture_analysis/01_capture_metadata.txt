@@ -1,0 +1,14 @@
+Capture filename: radar_full_capture_2026-08-31.pcapng
+Capture file size: 835131964 bytes
+Capture format: PCAPNG
+SHA-256: 757788292e1b51f412bdb740330ac20f4161d0bae8d6ae6338388fa2f02cf324
+Total captured packets: 542313
+First packet timestamp (epoch): 1788165702.0525794
+First packet timestamp (ISO-8601 UTC): 2026-08-31T08:41:42.052579Z
+Last packet timestamp (epoch): 1788165773.884204
+Last packet timestamp (ISO-8601 UTC): 2026-08-31T08:42:53.884204Z
+Capture duration (seconds): 71.831625
+Total captured bytes: 817777490
+Capture interfaces: Interface metadata not available from capinfos/tshark in this environment.
+Packets truncated by snap length: No (frame.captured_length not available in this tshark build) (0 packets with captured length != frame length)
+Max frame length observed: 1508 bytes

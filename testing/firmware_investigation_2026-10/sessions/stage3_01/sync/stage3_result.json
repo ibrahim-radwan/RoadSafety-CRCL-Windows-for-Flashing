@@ -1,0 +1,28 @@
+{
+  "session": "sessions/stage3_01",
+  "radar": {
+    "iq_order": "I,Q",
+    "halves_foreground_energy_ratio": 3.97,
+    "frames": 239,
+    "frames_with_target": 0,
+    "range_res_m": 0.2929
+  },
+  "lidar": {
+    "sweeps": 787,
+    "sweeps_with_target": 787,
+    "median_points_on_target": 217,
+    "clock_drift_ppm": 20.828
+  },
+  "camera": {
+    "frames_decoded": 2100,
+    "frames_with_target": 3,
+    "foreground_threshold": 20.0,
+    "image_width": 480
+  },
+  "checks": [
+    "radar offset: too few frames with the target seen by both radar and LiDAR",
+    "camera offset: too few frames with the target seen by both camera and LiDAR"
+  ],
+  "radar_ms": null,
+  "camera_ms": null
+}

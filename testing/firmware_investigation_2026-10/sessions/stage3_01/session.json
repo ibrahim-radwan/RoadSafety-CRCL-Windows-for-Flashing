@@ -1,0 +1,109 @@
+{
+  "started_local": "2026-10-09T20:19:32+1100",
+  "host": "jetson-desktop",
+  "note": "",
+  "sensors": [
+    "lidar",
+    "camera",
+    "radar"
+  ],
+  "stop_reason": "radar finished",
+  "exit_codes": {
+    "radar": 0,
+    "lidar": 0,
+    "camera": 0
+  },
+  "clocks": {
+    "start": {
+      "monotonic_ns": 5219064841873,
+      "realtime_ns": 1791537572778602826
+    },
+    "stop": {
+      "monotonic_ns": 5298185140785,
+      "realtime_ns": 1791537651898910843
+    },
+    "radar_start": {
+      "monotonic_ns": 5228557429990,
+      "realtime_ns": 1791537582271190559
+    }
+  },
+  "clock": "CLOCK_MONOTONIC is the session reference; each pair is (monotonic, realtime) sampled back-to-back",
+  "args": {
+    "out": "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01",
+    "secs": "60.0",
+    "lead": "3.0",
+    "delay": "20.0",
+    "note": "",
+    "log": "None",
+    "sensor_python": "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+    "radar_python": "/usr/bin/python3",
+    "no_radar": "False",
+    "no_camera": "False",
+    "no_lidar": "False",
+    "ready_timeout": "45.0",
+    "min_free_gb": "5.0"
+  },
+  "commands": {
+    "lidar": [
+      "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+      "-u",
+      "record_lidar_raw.py",
+      "--session-dir",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/lidar"
+    ],
+    "camera": [
+      "/home/jetson/miniconda3/envs/rel_1_py_3_8/bin/python",
+      "-u",
+      "recorder.py",
+      "--session-dir",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/camera"
+    ],
+    "radar": [
+      "/usr/bin/python3",
+      "-u",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/dca_capture_radar_sync.py",
+      "--secs",
+      "60.0",
+      "--out",
+      "/home/jetson/dev/CascadedRadarRoadSafetyOnTwoWheelers/sync_capture_pipeline/sessions/stage3_01/radar"
+    ]
+  },
+  "dirs": {
+    "lidar": "lidar",
+    "camera": "camera",
+    "radar": "radar"
+  },
+  "net_core_rmem_max": 33554432,
+  "thermal": {
+    "samples": 14,
+    "tj_max_c": 40.281,
+    "fan_max_pct": 21,
+    "start": {
+      "tj_c": 39.375,
+      "cpu_c": 39.375,
+      "gpu_c": 33.375,
+      "board_c": 28.0,
+      "fan_pct": 21,
+      "level": "ok"
+    },
+    "end": {
+      "tj_c": 40.0,
+      "cpu_c": 40.187,
+      "gpu_c": 34.5,
+      "board_c": 28.0,
+      "fan_pct": 21,
+      "level": "ok"
+    },
+    "warn_c": 80.0,
+    "hot_c": 90.0
+  },
+  "tool_sha256": {
+    "capture_session.py": "f27c2ab0b3a15e97a3b2222e51f3d93e9c65ac3b06e14dc8a5dc59793a34fe96",
+    "dca_capture_radar_sync.py": "ef7ebedef5f6498c93a9d52812e616023e9f01d8682aece13778a6fab8661556",
+    "zed/recorder.py": "bc8e4c9e2968501a08b7e4fb6f2d2c590ea28bd60ffb5253d584925e2d3598c7",
+    "zed/config.yaml": "13dbecd0d41f1ad81b899acb01de2dfcfc403571a66889c949f7e41b2e068235",
+    "lidar/record_lidar_raw.py": "6f86ef8603529ccac5498cdc7e122c976187e6ba186629d81d2815362e037664",
+    "lidar/config.yaml": "43a712504de273463f100e0e04d8d09dfb9530367c37d9f47059d54d9a18b2a8"
+  },
+  "pairing": "NOT applied. Offsets must be measured (Stage 3) before association."
+}

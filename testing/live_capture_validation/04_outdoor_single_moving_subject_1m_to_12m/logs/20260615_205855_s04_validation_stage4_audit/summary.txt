@@ -1,0 +1,32 @@
+================================================================
+  PHASE 0 AUDIT SUMMARY
+================================================================
+  Frames total         : 400
+  Frames with cloud>0  : 342  (85.5%)
+  Frames cloud==0      : 58
+  Total cloud points   : 640
+  Elapsed              : 54.5s  (136ms/frame)
+
+  STAGE ATTRIBUTION (totals over 400 frames):
+    RD-CFAR survivors  : 1437
+    grating_rej total  : 330
+    fov_rej total      : 10
+    cc_rej total       : 423
+
+  CLOUD DENSITY (detected frames only):
+    avg pts/frame      : 1.87
+    max pts/frame      : 5
+
+  CENTROID (detected frames):
+    x mean ± std       : +0.187 ± 0.844 m
+    y mean ± std       : 5.876 ± 2.640 m
+
+  ACCEPTANCE CRITERIA:
+  [PASS]  frames.csv has 400 rows (400 found)
+  [PASS]  points.csv row count = 640
+  [CHECK] stage drops visible in CSV (grating=330 fov=10 cc=423)
+
+  Output files:
+    debug_context\stage4_audit\frames.csv
+    debug_context\stage4_audit\points.csv
+================================================================

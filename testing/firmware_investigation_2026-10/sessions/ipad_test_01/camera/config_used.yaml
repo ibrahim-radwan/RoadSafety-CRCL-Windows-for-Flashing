@@ -1,0 +1,60 @@
+camera:
+  model: zed2i
+  serial_number: null
+  resolution: HD1080
+  fps: 30
+  width: 1920
+  height: 1080
+  coordinate_system: RIGHT_HANDED_Z_UP_X_FWD
+  units: METER
+  disable_self_calibration: true
+synchronization:
+  clock_domain: SYSTEM_CLOCK
+  timestamp_tolerance_sec: 5.0
+depth:
+  mode: PERFORMANCE
+  confidence_threshold: 50
+  texture_confidence_threshold: 100
+  stabilization: 1
+  min_distance_m: 0.0
+  max_distance_m: 20.0
+tracking:
+  enabled: false
+  imu_fusion: true
+  area_memory: true
+  pose_smoothing: false
+sensors:
+  poll_rate_hz: 200.0
+  poll_window_fraction: 0.4
+  magnetometer: false
+  barometer: false
+  temperature: false
+recording:
+  dataset_root: ./dataset
+  session_prefix: zed2i_sdk_session
+  compression: H264_LOSSLESS
+  auto_export: false
+  min_free_space_gb: 2.0
+  csv_queue_records: 10000
+export:
+  include_depth: false
+  point_cloud: false
+  png_compression: 1
+images:
+  enabled: false
+  streams:
+  - left
+  - right
+  - left_raw
+  - right_raw
+  format: PNG
+  writer_backend: auto
+  workers: 4
+  queue_frames: 8
+  png_compression: 1
+  jpeg_quality: 95
+runtime:
+  open_timeout_sec: 30.0
+  warmup_sec: 2.0
+  status_interval_sec: 1.0
+  grab_failure_timeout_sec: 5.0

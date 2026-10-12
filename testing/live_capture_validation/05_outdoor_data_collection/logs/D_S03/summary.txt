@@ -1,0 +1,42 @@
+================================================================
+  PHASE 0/1/2 AUDIT SUMMARY
+================================================================
+  Phase 1 emit_all_cluster_bins : ON
+  Phase 2 temporal_accum        : ON (window=16)
+  CFAR margin                   : 10.0 dB
+  Frames total         : 391
+  Frames with cloud>0  : 391  (100.0%)
+  Frames cloud==0      : 0
+  Total cloud points   : 868
+  Elapsed              : 57.7s  (148ms/frame)
+
+  STAGE ATTRIBUTION (totals over 400 frames):
+    RD-CFAR survivors  : 1093
+    grating_rej total  : 1222
+    fov_rej total      : 31
+    cc_rej total       : 146
+
+  CLOUD DENSITY (detected frames only):
+    avg pts/frame      : 2.22
+    max pts/frame      : 7
+    avg accum_pts/frame: 10.0  (Phase 2)
+    avg cluster_pts    : 10.0  (Phase 3)
+
+  CENTROID (detected frames):
+    x mean ± std       : +0.134 ± 0.637 m
+    y mean ± std       : 5.976 ± 2.155 m
+
+  DOPPLER QUALITY (Phase 1 step 3):
+    Frames all-dop-zero: 0  (subject walking tangentially)
+    (dop=0 is physical for tangential motion; not a pipeline bug)
+
+  ACCEPTANCE CRITERIA:
+  [FAIL]  frames.csv has 400 rows (391 found)
+  [PASS]  points.csv row count = 868
+  [CHECK] stage drops (grating=1222 fov=31 cc=146)
+  [CHECK] emit_all ON: avg pts/frame = 2.22
+
+  Output files:
+    testing\live_capture_validation\05_outdoor_data_collection\logs\D_S03\frames.csv
+    testing\live_capture_validation\05_outdoor_data_collection\logs\D_S03\points.csv
+================================================================

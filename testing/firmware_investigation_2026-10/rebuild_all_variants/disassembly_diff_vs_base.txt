@@ -1,0 +1,247 @@
+################ r017m -> r017m_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r017m -> r017m_v2_8fps
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -2 +2
+      - 1x movw r0, #0xf080
+      - 1x movt r0, #0x2fa
+      + 1x movw r0, #0x7840
+      + 1x movt r0, #0x17d
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r017m_calib -> r017m_calib_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -8 +2
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r050m -> r050m_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -8 +2
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r050m -> r050m_v2_8fps
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -10 +4
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      - 1x movw r0, #0xf080
+      - 1x movt r0, #0x2fa
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+      + 1x movw r0, #0x7840
+      + 1x movt r0, #0x17d
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r100m -> r100m_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -8 +2
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r100m -> r100m_v2_8fps
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -10 +4
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      - 1x movw r0, #0xf080
+      - 1x movt r0, #0x2fa
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+      + 1x movw r0, #0x7840
+      + 1x movt r0, #0x17d
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r142m -> r142m_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -8 +2
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r142m -> r142m_v2_8fps
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -10 +4
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      - 1x movw r0, #0xf080
+      - 1x movt r0, #0x2fa
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+      + 1x movw r0, #0x7840
+      + 1x movt r0, #0x17d
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r168m -> r168m_v2
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -8 +2
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf
+################ r168m -> r168m_v2_8fps
+functions only in base : []
+functions only in new  : ['SOC_rcmStartMemInitDSSL3', 'SOC_rcmWaitMemInitDSSL3']
+  ~ $Ven$TA$L$PI$$__aeabi_memcpy: -0 +1
+      + 1x .word 0x0
+  ~ CacheP_enable: -1 +1
+      - 1x blxmi 0x1029e740
+      + 1x blxmi 0x1029e800
+  ~ MMWave_waitIRQStatus: -0 +1
+      + 1x movs r0, r0
+  ~ Mmwave_populateDefaultChirpControlCfg: -10 +4
+      - 1x add r1, sp, #0x4c
+      - 1x movw r0, #0x202
+      - 1x add.w r9, r1, #0x4
+      - 1x strh.w r0, [sp, #0x84]
+      - 4x nop
+      - 1x movw r0, #0xf080
+      - 1x movt r0, #0x2fa
+      + 1x add r2, sp, #0x4c
+      + 1x add.w r9, r2, #0x4
+      + 1x movw r0, #0x7840
+      + 1x movt r0, #0x17d
+  ~ main: -2 +5
+      - 1x movs r0, r0
+      + 2x bl T
+      + 2x movs r0, #0xf

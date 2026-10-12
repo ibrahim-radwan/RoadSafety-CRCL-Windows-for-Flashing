@@ -1,0 +1,29 @@
+===================================================================
+Protocol Hierarchy Statistics
+Filter: 
+
+frame                                    frames:542313 bytes:817777490
+  eth                                    frames:542313 bytes:817777490
+    ip                                   frames:542308 bytes:817777228
+      udp                                frames:542308 bytes:817777228
+        data                             frames:65504 bytes:98756796
+        wg                               frames:1 bytes:1508
+        pathport                         frames:1 bytes:1508
+          _ws.malformed                  frames:1 bytes:1508
+        thrift                           frames:4 bytes:6032
+          thrift                         frames:3 bytes:4524
+            thrift                       frames:2 bytes:3016
+              thrift                     frames:1 bytes:1508
+        quic                             frames:476798 bytes:719011384
+          quic                           frames:49000 bytes:73892000
+            _ws.malformed                frames:2089 bytes:3150212
+            quic                         frames:2104 bytes:3172832
+              quic                       frames:86 bytes:129688
+                quic                     frames:6 bytes:9048
+                  _ws.malformed          frames:3 bytes:4524
+                _ws.malformed            frames:14 bytes:21112
+              _ws.malformed              frames:130 bytes:196040
+          _ws.malformed                  frames:40810 bytes:61541480
+    arp                                  frames:4 bytes:204
+    lldp                                 frames:1 bytes:58
+===================================================================

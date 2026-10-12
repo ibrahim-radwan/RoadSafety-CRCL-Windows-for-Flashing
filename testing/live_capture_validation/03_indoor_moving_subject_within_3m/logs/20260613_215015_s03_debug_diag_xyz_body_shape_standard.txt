@@ -1,0 +1,80 @@
+python .\diag_xyz.py
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[CFG-PARSE] cfarCfg:
+  range  : method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=15.0 dB
+  doppler: method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=18.0 dB
+  pipeline: method='os'  guard=[4, 6]  train=[8, 16]  fa_rate=3e-05  margin_db=10.0
+  NOTE: firmware uses fixed threshold_dB; pipeline uses FA-rate thresholding + margin_db — semantics differ, no auto-override applied
+[CFG-PARSE] compressionCfg:
+  disabled (enabled=0)  — ADC data is uncompressed  [OK]
+[CFG-PARSE] channelCfg:
+  rxEn=0b1111(15)  txEn=0b111(7)  cascade=1
+  → 4 RX/device × 2 device(s) = 8 RX total
+  → 3 TX/device × 2 device(s) = 6 TX total
+  TX count consistent with frameCfg num_tx=6  [OK]
+[CFG-PARSE] chirpCfg: 6 chirp definition(s) found
+  chirp count matches num_tx=6  [OK]
+[CFG-PARSE] 3 pipeline/firmware mismatch(es):
+  [1] cfarCfg range method=caso but pipeline cfar_method='os' — pass --cfar caso to match firmware
+  [2] cfarCfg guardLen: range=0, doppler=0 but pipeline cfar_guard=[4, 6] — pass --cfar-guard 0 0 to match firmware
+  [3] cfarCfg noiseWin: range=16, doppler=16 but pipeline cfar_train=[8, 16] — pass --cfar-train 16 16 to match firmware
+[CALIB] Loaded from: cascade_shortrange.cfg  (3/3 antennaCalibParams blocks found)
+[CALIB] Format: [Re, Im] rectangular complex  (confirmed — negative Re values rule out [magnitude, phase_deg])
+[CALIB] Channels: 48  Re=[-0.5174, 1.0000]  Im=[-0.5101, 0.3851]  |corr|=[0.3382, 1.0000]
+[CALIB] Component bounds check: OK  (all Re and Im values in [-5.0, 5.0])
+[CALIB] Correction magnitude check: OK  (all 48 channels |corr| in [0.05, 5.0])
+========================================================================
+  BODY-SHAPE GEOMETRY DIAGNOSTIC
+  17 frames  |  radar_height offset = 0.00 m
+========================================================================
+
+     fr   pts    RD    x_min    x_max   x_span    y_min    y_max   y_span   z_mean   dop_max   az/RD
+  ----------------------------------------------------------------------
+[GPU] CuPy available — device 0: NVIDIA GeForce RTX 3080 Ti Laptop GPU
+      0     2     2   -1.277   +0.019    1.296    2.079    2.440    0.361   +0.048     0.234    1.00
+      9     2     1   -1.198   +0.057    1.255    2.118    2.433    0.314   -0.191     0.234    2.00
+     24     2     1   -1.231   +0.019    1.250    2.088    2.424    0.336   -0.286     0.234    2.00
+     33     6     3   -1.026   +0.098    1.124    2.423    3.135    0.712   +0.371     0.468    2.00
+     48     2     1   -1.874   +0.059    1.933    3.247    3.748    0.502   -0.294     0.234    2.00
+     49     2     1   -1.703   +0.202    1.904    3.278    3.688    0.410   -0.072     0.234    2.00
+     50     2     1   -1.726   +0.201    1.928    3.253    3.677    0.424   -0.289     0.234    2.00
+     54     2     1   -0.776   +0.030    0.806    3.740    3.820    0.080   +0.224     0.234    2.00
+     55     5     3   +0.100   +5.398    5.298    3.818    7.979    4.161   +0.378     0.234    1.67
+    104     4     4   +0.114   +0.561    0.447    7.119    7.963    0.843   +0.000     0.468    1.00
+    126     4     3   -0.151   +4.999    5.151    7.980    9.694    1.714   +0.185     0.234    1.33
+    182     4     4   -3.665   +0.667    4.332    6.907    8.510    1.603   -1.278     0.780    1.00
+    253     3     5   -0.020   +2.731    2.751    1.274    2.555    1.281   +0.309     0.546    0.60
+    261     4     2   -1.436   +3.086    4.523    1.836    3.013    1.176   +0.796     0.234    2.00
+    284     4     2   -1.379   +3.533    4.912    4.235    5.340    1.105   -1.268     0.234    2.00
+    293     4     2   -2.230   +4.981    7.211    4.115    5.874    1.759   +0.225     0.234    2.00
+    301    10     4   -2.383   +2.749    5.132    4.303    6.766    2.463   -2.564     0.546    2.50
+
+────────────────────────────────────────────────────────────────────────
+  AGGREGATE STATISTICS
+────────────────────────────────────────────────────────────────────────
+  Frames with detections : 17
+  Total cloud points     : 62
+
+  X lateral  : mean=+0.427m  std=1.887m  range=[-3.665, +5.398]m
+  Y forward  : mean=4.789m   std=2.171m  range=[1.274, 9.694]m
+  Z elevation: mean=-0.446m  std=1.083m  range=[-2.886, +0.866]m
+  Doppler    : mean=+0.1662  std=0.2962  range=[-0.7805, +0.5463]m/s
+
+────────────────────────────────────────────────────────────────────────
+  PER-FRAME DISTRIBUTION SUMMARY
+────────────────────────────────────────────────────────────────────────
+  X span per frame : mean=3.015m  median=1.933m  max=7.211m
+  Y span per frame : mean=1.132m  median=0.843m  max=4.161m
+  az/RD ratio      : mean=1.71  max=2.50  (>1.5 = multi-peak firing)
+  Shoulder width   : 0.45m  | frames with x_span > 0.30m: 17 / 17
+  Body depth       : 0.30m  | frames with y_span < 0.40m: 4 / 17
+
+────────────────────────────────────────────────────────────────────────
+  BODY-SHAPE VERDICT
+────────────────────────────────────────────────────────────────────────
+  ✓ LATERAL SPREAD: 100% of frames have x_span > 20cm
+    Body-width information IS present in the cloud
+  ✓ AZ MULTI-PEAK:  71% of frames have az/RD ratio > 1.5
+  ✗ ELEVATION: 42% of points have z < -0.1m
+    Radar is mounted elevated. Use --radar-height to correct.
+    Suggested: --radar-height 0.45

@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "error": null,
+  "phase": "complete",
+  "recording_wall_sec": 72.63632985699951,
+  "finalization_sec": 32.96070777800014,
+  "recorded_frames": 2101,
+  "valid_pose_frames": 0,
+  "first_timestamp_ns": 1791537579229701686,
+  "last_timestamp_ns": 1791537651851218686,
+  "observed_fps": 28.917049474469117,
+  "estimated_missing_camera_frames": 71,
+  "encoder_status_unconfirmed_frames": 3,
+  "finalized_svo_frame_count_verified": true,
+  "finalized_svo_timestamps_verified": true,
+  "svo_decode_recoveries_during_verification": 1,
+  "direct_images": null,
+  "streams": {
+    "imu/imu.csv": {
+      "count": 7220,
+      "first_timestamp_ns": 1791537579183574039,
+      "last_timestamp_ns": 1791537651902504814,
+      "observed_rate_hz": 99.27263675446966
+    },
+    "imu/imu_raw.csv": {
+      "count": 7220,
+      "first_timestamp_ns": 1791537579183574039,
+      "last_timestamp_ns": 1791537651902504814,
+      "observed_rate_hz": 99.27263675446966
+    },
+    "frames.csv": {
+      "count": 2101,
+      "first_timestamp_ns": 1791537579229701686,
+      "last_timestamp_ns": 1791537651851218686,
+      "observed_rate_hz": 28.917049474469117
+    },
+    "timing/camera_gaps.csv": {
+      "count": 12,
+      "first_timestamp_ns": 1791537588696274686,
+      "last_timestamp_ns": 1791537651014941686,
+      "observed_rate_hz": 0.1765121195548037
+    }
+  },
+  "stopped_local": "2026-10-09T20:21:24.865706+11:00"
+}

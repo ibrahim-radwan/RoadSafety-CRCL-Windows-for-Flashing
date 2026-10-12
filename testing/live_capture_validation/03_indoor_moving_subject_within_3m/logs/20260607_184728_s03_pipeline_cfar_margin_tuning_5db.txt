@@ -1,0 +1,839 @@
+python -m processing.main --folder capture\frames --cfg config\build_shortrange_inf\cascade_shortrange.cfg --cfar-margin 5 --quiet
+[CFG] cascade_shortrange.cfg: slope=44.410 MHz/µs  fs=5000 ksps  N=256  loops=64  dop_max=±2.498 m/s
+[CFG-PARSE] cfarCfg:
+  range  : method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=15.0 dB
+  doppler: method=caso(mode=3)  noiseWin=16  guardLen=0  threshold=18.0 dB
+  pipeline: method='os'  guard=[4, 6]  train=[8, 16]  fa_rate=3e-05  margin_db=10.0
+  NOTE: firmware uses fixed threshold_dB; pipeline uses FA-rate thresholding + margin_db — semantics differ, no auto-override applied
+[CFG-PARSE] compressionCfg:
+  disabled (enabled=0)  — ADC data is uncompressed  [OK]
+[CFG-PARSE] channelCfg:
+  rxEn=0b1111(15)  txEn=0b111(7)  cascade=1
+  → 4 RX/device × 2 device(s) = 8 RX total
+  → 3 TX/device × 2 device(s) = 6 TX total
+  TX count consistent with frameCfg num_tx=6  [OK]
+[CFG-PARSE] chirpCfg: 6 chirp definition(s) found
+  chirp count matches num_tx=6  [OK]
+[CFG-PARSE] 3 pipeline/firmware mismatch(es):
+  [1] cfarCfg range method=caso but pipeline cfar_method='os' — pass --cfar caso to match firmware
+  [2] cfarCfg guardLen: range=0, doppler=0 but pipeline cfar_guard=[4, 6] — pass --cfar-guard 0 0 to match firmware
+  [3] cfarCfg noiseWin: range=16, doppler=16 but pipeline cfar_train=[8, 16] — pass --cfar-train 16 16 to match firmware
+[CALIB] Loaded from: cascade_shortrange.cfg  (3/3 antennaCalibParams blocks found)
+[CALIB] Format: [Re, Im] rectangular complex  (confirmed — negative Re values rule out [magnitude, phase_deg])
+[CALIB] Channels: 48  Re=[-0.5174, 1.0000]  Im=[-0.5101, 0.3851]  |corr|=[0.3382, 1.0000]
+[CALIB] Component bounds check: OK  (all Re and Im values in [-5.0, 5.0])
+[CALIB] Correction magnitude check: OK  (all 48 channels |corr| in [0.05, 5.0])
+[MAIN] raw IQ override -> I,Q
+  CFAR cfg    : guard=[4, 6] train=[8, 16]  fa=3e-05 margin=5 dB  nms=[3, 3]  fw_threshold=15.0 dB
+  Filters     : clutter=ON  zeroDC=±2  sidelobes=ON
+==============================================================
+  AWR2243-2X  |  6TX / 8RX  |  384 chirps/frame
+  Range res   : 6.60 cm   Max range : 16.8 m
+  Doppler max : ±2.498 m/s  (calc. from waveform)
+  Doppler res : 0.0780 m/s
+  dB scale    : adaptive  (span=24 dB)
+  AoA method  : FFT  CFAR: OS  Moving gate: OFF
+==============================================================
+[MAIN] auto-save: arrDREA=disabled  xyz=disabled
+[GPU] CuPy available — device 0: NVIDIA GeForce RTX 3080 Ti Laptop GPU
+[GPU] Memory pool warmed up: 408 MB reserved  (peak during warmup: 408 MB, before: 0 MB)  — period-3 GC spikes eliminated
+[VIEWER] frame_000000.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000000.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000001.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000001.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000002.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000002.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000003.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000003.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000004.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000004.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000005.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000005.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000006.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000006.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000007.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000007.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000008.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000008.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000009.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000009.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000010.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000010.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000011.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000011.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000012.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000012.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000013.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000013.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000014.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000014.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000015.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000015.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000016.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000016.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000017.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000017.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000018.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000018.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000019.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000019.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000020.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000020.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000021.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000021.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000022.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000022.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000023.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000023.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  38–62 dB
+[VIEWER] frame_000024.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000024.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000025.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000025.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000026.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000026.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000027.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000027.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  39–63 dB
+[VIEWER] frame_000028.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000028.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000029.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000029.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000030.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000030.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000031.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000031.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  40–64 dB
+[VIEWER] frame_000032.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000032.bin  |  RD-CFAR:3  RA-CFAR:2  cloud:2  |  40–64 dB
+[VIEWER] frame_000033.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000033.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  43–67 dB
+[VIEWER] frame_000034.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000034.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  55–79 dB
+[VIEWER] frame_000035.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000035.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000036.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000036.bin  |  RD-CFAR:5  RA-CFAR:5  cloud:5  |  76–100 dB
+[VIEWER] frame_000037.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000037.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  78–102 dB
+[VIEWER] frame_000038.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000038.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  79–103 dB
+[VIEWER] frame_000039.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000039.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  80–104 dB
+[VIEWER] frame_000040.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000040.bin  |  RD-CFAR:7  RA-CFAR:8  cloud:8  |  80–104 dB
+[VIEWER] frame_000041.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000041.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  79–103 dB
+[VIEWER] frame_000042.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000042.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  78–102 dB
+[VIEWER] frame_000043.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000043.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  78–102 dB
+[VIEWER] frame_000044.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000044.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  78–102 dB
+[VIEWER] frame_000045.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000045.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  78–102 dB
+[VIEWER] frame_000046.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000046.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  77–101 dB
+[VIEWER] frame_000047.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000047.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  76–100 dB
+[VIEWER] frame_000048.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000048.bin  |  RD-CFAR:1  RA-CFAR:3  cloud:3  |  74–98 dB
+[VIEWER] frame_000049.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000049.bin  |  RD-CFAR:1  RA-CFAR:2  cloud:2  |  71–95 dB
+[VIEWER] frame_000050.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000050.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000051.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000051.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  60–84 dB
+[VIEWER] frame_000052.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000052.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  50–74 dB
+[VIEWER] frame_000053.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000053.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  45–69 dB
+[VIEWER] frame_000054.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000054.bin  |  RD-CFAR:1  RA-CFAR:2  cloud:2  |  45–69 dB
+[VIEWER] frame_000055.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000055.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  45–69 dB
+[VIEWER] frame_000056.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000056.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  45–69 dB
+[VIEWER] frame_000057.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000057.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  56–80 dB
+[VIEWER] frame_000058.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000058.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  69–93 dB
+[VIEWER] frame_000059.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000059.bin  |  RD-CFAR:5  RA-CFAR:7  cloud:7  |  74–98 dB
+[VIEWER] frame_000060.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000060.bin  |  RD-CFAR:11  RA-CFAR:6  cloud:6  |  76–100 dB
+[VIEWER] frame_000061.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000061.bin  |  RD-CFAR:13  RA-CFAR:4  cloud:4  |  77–101 dB
+[VIEWER] frame_000062.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000062.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  77–101 dB
+[VIEWER] frame_000063.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000063.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  77–101 dB
+[VIEWER] frame_000064.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000064.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  77–101 dB
+[VIEWER] frame_000065.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000065.bin  |  RD-CFAR:4  RA-CFAR:10  cloud:10  |  76–100 dB
+[VIEWER] frame_000066.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000066.bin  |  RD-CFAR:9  RA-CFAR:0  cloud:0  |  76–100 dB
+[VIEWER] frame_000067.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000067.bin  |  RD-CFAR:10  RA-CFAR:4  cloud:4  |  75–99 dB
+[VIEWER] frame_000068.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000068.bin  |  RD-CFAR:4  RA-CFAR:8  cloud:8  |  75–99 dB
+[VIEWER] frame_000069.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000069.bin  |  RD-CFAR:5  RA-CFAR:6  cloud:6  |  74–98 dB
+[VIEWER] frame_000070.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000070.bin  |  RD-CFAR:8  RA-CFAR:5  cloud:5  |  74–98 dB
+[VIEWER] frame_000071.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000071.bin  |  RD-CFAR:5  RA-CFAR:2  cloud:2  |  73–97 dB
+[VIEWER] frame_000072.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000072.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000073.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000073.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000074.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000074.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  70–94 dB
+[VIEWER] frame_000075.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000075.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  58–82 dB
+[VIEWER] frame_000076.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000076.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  44–68 dB
+[VIEWER] frame_000077.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000077.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000078.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000078.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000079.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000079.bin  |  RD-CFAR:4  RA-CFAR:5  cloud:5  |  39–63 dB
+[VIEWER] frame_000080.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000080.bin  |  RD-CFAR:9  RA-CFAR:3  cloud:3  |  39–63 dB
+[VIEWER] frame_000081.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000081.bin  |  RD-CFAR:9  RA-CFAR:2  cloud:2  |  55–79 dB
+[VIEWER] frame_000082.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000082.bin  |  RD-CFAR:6  RA-CFAR:6  cloud:6  |  70–94 dB
+[VIEWER] frame_000083.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000083.bin  |  RD-CFAR:11  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000084.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000084.bin  |  RD-CFAR:9  RA-CFAR:3  cloud:3  |  71–95 dB
+[VIEWER] frame_000085.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000085.bin  |  RD-CFAR:5  RA-CFAR:6  cloud:6  |  71–95 dB
+[VIEWER] frame_000086.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000086.bin  |  RD-CFAR:9  RA-CFAR:5  cloud:5  |  72–96 dB
+[VIEWER] frame_000087.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000087.bin  |  RD-CFAR:9  RA-CFAR:6  cloud:6  |  72–96 dB
+[VIEWER] frame_000088.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000088.bin  |  RD-CFAR:10  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000089.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000089.bin  |  RD-CFAR:7  RA-CFAR:8  cloud:8  |  71–95 dB
+[VIEWER] frame_000090.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000090.bin  |  RD-CFAR:15  RA-CFAR:6  cloud:6  |  72–96 dB
+[VIEWER] frame_000091.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000091.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  72–96 dB
+[VIEWER] frame_000092.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000092.bin  |  RD-CFAR:8  RA-CFAR:5  cloud:5  |  71–95 dB
+[VIEWER] frame_000093.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000093.bin  |  RD-CFAR:6  RA-CFAR:7  cloud:7  |  71–95 dB
+[VIEWER] frame_000094.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000094.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000095.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000095.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000096.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000096.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000097.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000097.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  66–90 dB
+[VIEWER] frame_000098.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000098.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  64–88 dB
+[VIEWER] frame_000099.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000099.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  52–76 dB
+[VIEWER] frame_000100.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000100.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000101.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000101.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  39–63 dB
+[VIEWER] frame_000102.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000102.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  39–63 dB
+[VIEWER] frame_000103.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000103.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  39–63 dB
+[VIEWER] frame_000104.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000104.bin  |  RD-CFAR:9  RA-CFAR:3  cloud:3  |  39–63 dB
+[VIEWER] frame_000105.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000105.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  52–76 dB
+[VIEWER] frame_000106.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000106.bin  |  RD-CFAR:8  RA-CFAR:2  cloud:2  |  65–89 dB
+[VIEWER] frame_000107.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000107.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  67–91 dB
+[VIEWER] frame_000108.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000108.bin  |  RD-CFAR:12  RA-CFAR:6  cloud:6  |  68–92 dB
+[VIEWER] frame_000109.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000109.bin  |  RD-CFAR:6  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000110.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000110.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000111.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000111.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  69–93 dB
+[VIEWER] frame_000112.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000112.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000113.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000113.bin  |  RD-CFAR:9  RA-CFAR:5  cloud:5  |  67–91 dB
+[VIEWER] frame_000114.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000114.bin  |  RD-CFAR:10  RA-CFAR:5  cloud:5  |  67–91 dB
+[VIEWER] frame_000115.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000115.bin  |  RD-CFAR:10  RA-CFAR:8  cloud:8  |  67–91 dB
+[VIEWER] frame_000116.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000116.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  66–90 dB
+[VIEWER] frame_000117.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000117.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  66–90 dB
+[VIEWER] frame_000118.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000118.bin  |  RD-CFAR:1  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000119.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000119.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  63–87 dB
+[VIEWER] frame_000120.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000120.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  61–85 dB
+[VIEWER] frame_000121.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000121.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  57–81 dB
+[VIEWER] frame_000122.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000122.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  47–71 dB
+[VIEWER] frame_000123.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000123.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000124.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000124.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000125.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000125.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000126.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000126.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  38–62 dB
+[VIEWER] frame_000127.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000127.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  38–62 dB
+[VIEWER] frame_000128.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000128.bin  |  RD-CFAR:9  RA-CFAR:6  cloud:6  |  38–62 dB
+[VIEWER] frame_000129.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000129.bin  |  RD-CFAR:9  RA-CFAR:2  cloud:2  |  51–75 dB
+[VIEWER] frame_000130.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000130.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  65–89 dB
+[VIEWER] frame_000131.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000131.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  65–89 dB
+[VIEWER] frame_000132.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000132.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  65–89 dB
+[VIEWER] frame_000133.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000133.bin  |  RD-CFAR:7  RA-CFAR:1  cloud:1  |  66–90 dB
+[VIEWER] frame_000134.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000134.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000135.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000135.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000136.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000136.bin  |  RD-CFAR:10  RA-CFAR:3  cloud:3  |  64–88 dB
+[VIEWER] frame_000137.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000137.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000138.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000138.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000139.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000139.bin  |  RD-CFAR:5  RA-CFAR:1  cloud:1  |  64–88 dB
+[VIEWER] frame_000140.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000140.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000141.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000141.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  63–87 dB
+[VIEWER] frame_000142.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000142.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  62–86 dB
+[VIEWER] frame_000143.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000143.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  62–86 dB
+[VIEWER] frame_000144.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000144.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  62–86 dB
+[VIEWER] frame_000145.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000145.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  62–86 dB
+[VIEWER] frame_000146.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000146.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  61–85 dB
+[VIEWER] frame_000147.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000147.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  60–84 dB
+[VIEWER] frame_000148.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000148.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  56–80 dB
+[VIEWER] frame_000149.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000149.bin  |  RD-CFAR:5  RA-CFAR:2  cloud:2  |  55–79 dB
+[VIEWER] frame_000150.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000150.bin  |  RD-CFAR:6  RA-CFAR:1  cloud:1  |  55–79 dB
+[VIEWER] frame_000151.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000151.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  55–79 dB
+[VIEWER] frame_000152.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000152.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  55–79 dB
+[VIEWER] frame_000153.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000153.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  59–83 dB
+[VIEWER] frame_000154.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000154.bin  |  RD-CFAR:6  RA-CFAR:1  cloud:1  |  61–85 dB
+[VIEWER] frame_000155.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000155.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  62–86 dB
+[VIEWER] frame_000156.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000156.bin  |  RD-CFAR:9  RA-CFAR:5  cloud:5  |  63–87 dB
+[VIEWER] frame_000157.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000157.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  63–87 dB
+[VIEWER] frame_000158.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000158.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  63–87 dB
+[VIEWER] frame_000159.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000159.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  64–88 dB
+[VIEWER] frame_000160.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000160.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000161.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000161.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  64–88 dB
+[VIEWER] frame_000162.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000162.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000163.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000163.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000164.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000164.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000165.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000165.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000166.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000166.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  66–90 dB
+[VIEWER] frame_000167.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000167.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  66–90 dB
+[VIEWER] frame_000168.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000168.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  65–89 dB
+[VIEWER] frame_000169.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000169.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  65–89 dB
+[VIEWER] frame_000170.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000170.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  62–86 dB
+[VIEWER] frame_000171.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000171.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  52–76 dB
+[VIEWER] frame_000172.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000172.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  42–66 dB
+[VIEWER] frame_000173.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000173.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  38–62 dB
+[VIEWER] frame_000174.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000174.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  38–62 dB
+[VIEWER] frame_000175.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000175.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  38–62 dB
+[VIEWER] frame_000176.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000176.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  38–62 dB
+[VIEWER] frame_000177.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000177.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  48–72 dB
+[VIEWER] frame_000178.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000178.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  60–84 dB
+[VIEWER] frame_000179.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000179.bin  |  RD-CFAR:8  RA-CFAR:5  cloud:5  |  64–88 dB
+[VIEWER] frame_000180.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000180.bin  |  RD-CFAR:10  RA-CFAR:5  cloud:5  |  65–89 dB
+[VIEWER] frame_000181.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000181.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  66–90 dB
+[VIEWER] frame_000182.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000182.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  67–91 dB
+[VIEWER] frame_000183.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000183.bin  |  RD-CFAR:14  RA-CFAR:3  cloud:3  |  68–92 dB
+[VIEWER] frame_000184.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000184.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000185.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000185.bin  |  RD-CFAR:9  RA-CFAR:6  cloud:6  |  69–93 dB
+[VIEWER] frame_000186.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000186.bin  |  RD-CFAR:12  RA-CFAR:3  cloud:3  |  69–93 dB
+[VIEWER] frame_000187.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000187.bin  |  RD-CFAR:5  RA-CFAR:2  cloud:2  |  69–93 dB
+[VIEWER] frame_000188.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000188.bin  |  RD-CFAR:11  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000189.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000189.bin  |  RD-CFAR:10  RA-CFAR:3  cloud:3  |  70–94 dB
+[VIEWER] frame_000190.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000190.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000191.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000191.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  71–95 dB
+[VIEWER] frame_000192.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000192.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  71–95 dB
+[VIEWER] frame_000193.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000193.bin  |  RD-CFAR:4  RA-CFAR:6  cloud:6  |  71–95 dB
+[VIEWER] frame_000194.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000194.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  71–95 dB
+[VIEWER] frame_000195.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000195.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  71–95 dB
+[VIEWER] frame_000196.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000196.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  70–94 dB
+[VIEWER] frame_000197.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000197.bin  |  RD-CFAR:6  RA-CFAR:2  cloud:2  |  64–88 dB
+[VIEWER] frame_000198.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000198.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  64–88 dB
+[VIEWER] frame_000199.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000199.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  64–88 dB
+[VIEWER] frame_000200.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000200.bin  |  RD-CFAR:10  RA-CFAR:4  cloud:4  |  64–88 dB
+[VIEWER] frame_000201.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000201.bin  |  RD-CFAR:10  RA-CFAR:6  cloud:6  |  64–88 dB
+[VIEWER] frame_000202.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000202.bin  |  RD-CFAR:16  RA-CFAR:3  cloud:3  |  70–94 dB
+[VIEWER] frame_000203.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000203.bin  |  RD-CFAR:11  RA-CFAR:5  cloud:5  |  71–95 dB
+[VIEWER] frame_000204.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000204.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000205.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000205.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000206.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000206.bin  |  RD-CFAR:10  RA-CFAR:10  cloud:10  |  73–97 dB
+[VIEWER] frame_000207.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000207.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000208.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000208.bin  |  RD-CFAR:13  RA-CFAR:6  cloud:6  |  73–97 dB
+[VIEWER] frame_000209.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000209.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000210.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000210.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  74–98 dB
+[VIEWER] frame_000211.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000211.bin  |  RD-CFAR:12  RA-CFAR:7  cloud:7  |  75–99 dB
+[VIEWER] frame_000212.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000212.bin  |  RD-CFAR:11  RA-CFAR:4  cloud:4  |  75–99 dB
+[VIEWER] frame_000213.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000213.bin  |  RD-CFAR:11  RA-CFAR:4  cloud:4  |  76–100 dB
+[VIEWER] frame_000214.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000214.bin  |  RD-CFAR:6  RA-CFAR:6  cloud:6  |  77–101 dB
+[VIEWER] frame_000215.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000215.bin  |  RD-CFAR:3  RA-CFAR:3  cloud:3  |  77–101 dB
+[VIEWER] frame_000216.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000216.bin  |  RD-CFAR:4  RA-CFAR:5  cloud:5  |  77–101 dB
+[VIEWER] frame_000217.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000217.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  76–100 dB
+[VIEWER] frame_000218.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000218.bin  |  RD-CFAR:1  RA-CFAR:4  cloud:4  |  75–99 dB
+[VIEWER] frame_000219.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000219.bin  |  RD-CFAR:1  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000220.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000220.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000221.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000221.bin  |  RD-CFAR:8  RA-CFAR:10  cloud:10  |  74–98 dB
+[VIEWER] frame_000222.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000222.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  74–98 dB
+[VIEWER] frame_000223.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000223.bin  |  RD-CFAR:7  RA-CFAR:7  cloud:7  |  74–98 dB
+[VIEWER] frame_000224.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000224.bin  |  RD-CFAR:9  RA-CFAR:7  cloud:7  |  76–100 dB
+[VIEWER] frame_000225.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000225.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  78–102 dB
+[VIEWER] frame_000226.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000226.bin  |  RD-CFAR:9  RA-CFAR:5  cloud:5  |  80–104 dB
+[VIEWER] frame_000227.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000227.bin  |  RD-CFAR:6  RA-CFAR:8  cloud:8  |  80–104 dB
+[VIEWER] frame_000228.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000228.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  81–105 dB
+[VIEWER] frame_000229.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000229.bin  |  RD-CFAR:7  RA-CFAR:2  cloud:2  |  81–105 dB
+[VIEWER] frame_000230.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000230.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  81–105 dB
+[VIEWER] frame_000231.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000231.bin  |  RD-CFAR:8  RA-CFAR:9  cloud:9  |  82–106 dB
+[VIEWER] frame_000232.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000232.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  83–107 dB
+[VIEWER] frame_000233.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000233.bin  |  RD-CFAR:5  RA-CFAR:5  cloud:5  |  83–107 dB
+[VIEWER] frame_000234.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000234.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  83–107 dB
+[VIEWER] frame_000235.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000235.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  83–107 dB
+[VIEWER] frame_000236.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000236.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  81–105 dB
+[VIEWER] frame_000237.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000237.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  75–99 dB
+[VIEWER] frame_000238.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000238.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  65–89 dB
+[VIEWER] frame_000239.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000239.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  56–80 dB
+[VIEWER] frame_000240.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000240.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  53–77 dB
+[VIEWER] frame_000241.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000241.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  51–75 dB
+[VIEWER] frame_000242.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000242.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  50–74 dB
+[VIEWER] frame_000243.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000243.bin  |  RD-CFAR:2  RA-CFAR:0  cloud:0  |  50–74 dB
+[VIEWER] frame_000244.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000244.bin  |  RD-CFAR:3  RA-CFAR:7  cloud:7  |  50–74 dB
+[VIEWER] frame_000245.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000245.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  51–75 dB
+[VIEWER] frame_000246.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000246.bin  |  RD-CFAR:4  RA-CFAR:6  cloud:6  |  51–75 dB
+[VIEWER] frame_000247.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000247.bin  |  RD-CFAR:4  RA-CFAR:0  cloud:0  |  52–76 dB
+[VIEWER] frame_000248.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000248.bin  |  RD-CFAR:4  RA-CFAR:0  cloud:0  |  64–88 dB
+[VIEWER] frame_000249.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000249.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  78–102 dB
+[VIEWER] frame_000250.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000250.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  82–106 dB
+[VIEWER] frame_000251.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000251.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  84–108 dB
+[VIEWER] frame_000252.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000252.bin  |  RD-CFAR:10  RA-CFAR:4  cloud:4  |  84–108 dB
+[VIEWER] frame_000253.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000253.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  84–108 dB
+[VIEWER] frame_000254.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000254.bin  |  RD-CFAR:6  RA-CFAR:1  cloud:1  |  84–108 dB
+[VIEWER] frame_000255.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000255.bin  |  RD-CFAR:8  RA-CFAR:3  cloud:3  |  84–108 dB
+[VIEWER] frame_000256.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000256.bin  |  RD-CFAR:8  RA-CFAR:6  cloud:6  |  83–107 dB
+[VIEWER] frame_000257.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000257.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  83–107 dB
+[VIEWER] frame_000258.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000258.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  82–106 dB
+[VIEWER] frame_000259.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000259.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  81–105 dB
+[VIEWER] frame_000260.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000260.bin  |  RD-CFAR:2  RA-CFAR:6  cloud:6  |  80–104 dB
+[VIEWER] frame_000261.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000261.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  80–104 dB
+[VIEWER] frame_000262.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000262.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  80–104 dB
+[VIEWER] frame_000263.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000263.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  78–102 dB
+[VIEWER] frame_000264.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000264.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  75–99 dB
+[VIEWER] frame_000265.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000265.bin  |  RD-CFAR:2  RA-CFAR:3  cloud:3  |  72–96 dB
+[VIEWER] frame_000266.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000266.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  60–84 dB
+[VIEWER] frame_000267.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000267.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  48–72 dB
+[VIEWER] frame_000268.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000268.bin  |  RD-CFAR:5  RA-CFAR:7  cloud:7  |  48–72 dB
+[VIEWER] frame_000269.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000269.bin  |  RD-CFAR:4  RA-CFAR:1  cloud:1  |  48–72 dB
+[VIEWER] frame_000270.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000270.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  48–72 dB
+[VIEWER] frame_000271.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000271.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  61–85 dB
+[VIEWER] frame_000272.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000272.bin  |  RD-CFAR:6  RA-CFAR:5  cloud:5  |  76–100 dB
+[VIEWER] frame_000273.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000273.bin  |  RD-CFAR:8  RA-CFAR:6  cloud:6  |  78–102 dB
+[VIEWER] frame_000274.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000274.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  79–103 dB
+[VIEWER] frame_000275.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000275.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  79–103 dB
+[VIEWER] frame_000276.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000276.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  79–103 dB
+[VIEWER] frame_000277.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000277.bin  |  RD-CFAR:14  RA-CFAR:2  cloud:2  |  79–103 dB
+[VIEWER] frame_000278.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000278.bin  |  RD-CFAR:4  RA-CFAR:8  cloud:8  |  77–101 dB
+[VIEWER] frame_000279.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000279.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  77–101 dB
+[VIEWER] frame_000280.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000280.bin  |  RD-CFAR:5  RA-CFAR:0  cloud:0  |  76–100 dB
+[VIEWER] frame_000281.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000281.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  76–100 dB
+[VIEWER] frame_000282.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000282.bin  |  RD-CFAR:9  RA-CFAR:3  cloud:3  |  76–100 dB
+[VIEWER] frame_000283.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000283.bin  |  RD-CFAR:3  RA-CFAR:8  cloud:8  |  76–100 dB
+[VIEWER] frame_000284.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000284.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  76–100 dB
+[VIEWER] frame_000285.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000285.bin  |  RD-CFAR:2  RA-CFAR:8  cloud:8  |  74–98 dB
+[VIEWER] frame_000286.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000286.bin  |  RD-CFAR:4  RA-CFAR:3  cloud:3  |  72–96 dB
+[VIEWER] frame_000287.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000287.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  72–96 dB
+[VIEWER] frame_000288.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000288.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  70–94 dB
+[VIEWER] frame_000289.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000289.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  62–86 dB
+[VIEWER] frame_000290.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000290.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  49–73 dB
+[VIEWER] frame_000291.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000291.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000292.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000292.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  40–64 dB
+[VIEWER] frame_000293.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000293.bin  |  RD-CFAR:2  RA-CFAR:4  cloud:4  |  40–64 dB
+[VIEWER] frame_000294.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000294.bin  |  RD-CFAR:4  RA-CFAR:7  cloud:7  |  40–64 dB
+[VIEWER] frame_000295.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000295.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  40–64 dB
+[VIEWER] frame_000296.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000296.bin  |  RD-CFAR:7  RA-CFAR:8  cloud:8  |  46–70 dB
+[VIEWER] frame_000297.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000297.bin  |  RD-CFAR:7  RA-CFAR:7  cloud:7  |  57–81 dB
+[VIEWER] frame_000298.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000298.bin  |  RD-CFAR:5  RA-CFAR:3  cloud:3  |  65–89 dB
+[VIEWER] frame_000299.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000299.bin  |  RD-CFAR:10  RA-CFAR:2  cloud:2  |  70–94 dB
+[VIEWER] frame_000300.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000300.bin  |  RD-CFAR:11  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000301.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000301.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  74–98 dB
+[VIEWER] frame_000302.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000302.bin  |  RD-CFAR:9  RA-CFAR:5  cloud:5  |  74–98 dB
+[VIEWER] frame_000303.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000303.bin  |  RD-CFAR:9  RA-CFAR:0  cloud:0  |  74–98 dB
+[VIEWER] frame_000304.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000304.bin  |  RD-CFAR:6  RA-CFAR:6  cloud:6  |  74–98 dB
+[VIEWER] frame_000305.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000305.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  74–98 dB
+[VIEWER] frame_000306.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000306.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000307.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000307.bin  |  RD-CFAR:7  RA-CFAR:3  cloud:3  |  73–97 dB
+[VIEWER] frame_000308.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000308.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000309.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000309.bin  |  RD-CFAR:8  RA-CFAR:5  cloud:5  |  72–96 dB
+[VIEWER] frame_000310.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000310.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000311.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000311.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000312.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000312.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000313.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000313.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  72–96 dB
+[VIEWER] frame_000314.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000314.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  72–96 dB
+[VIEWER] frame_000315.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000315.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000316.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000316.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  59–83 dB
+[VIEWER] frame_000317.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000317.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  59–83 dB
+[VIEWER] frame_000318.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000318.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  59–83 dB
+[VIEWER] frame_000319.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000319.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  59–83 dB
+[VIEWER] frame_000320.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000320.bin  |  RD-CFAR:5  RA-CFAR:6  cloud:6  |  61–85 dB
+[VIEWER] frame_000321.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000321.bin  |  RD-CFAR:6  RA-CFAR:8  cloud:8  |  69–93 dB
+[VIEWER] frame_000322.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000322.bin  |  RD-CFAR:12  RA-CFAR:4  cloud:4  |  70–94 dB
+[VIEWER] frame_000323.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000323.bin  |  RD-CFAR:13  RA-CFAR:5  cloud:5  |  70–94 dB
+[VIEWER] frame_000324.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000324.bin  |  RD-CFAR:9  RA-CFAR:3  cloud:3  |  70–94 dB
+[VIEWER] frame_000325.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000325.bin  |  RD-CFAR:9  RA-CFAR:6  cloud:6  |  69–93 dB
+[VIEWER] frame_000326.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000326.bin  |  RD-CFAR:8  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000327.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000327.bin  |  RD-CFAR:7  RA-CFAR:1  cloud:1  |  68–92 dB
+[VIEWER] frame_000328.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000328.bin  |  RD-CFAR:10  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000329.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000329.bin  |  RD-CFAR:11  RA-CFAR:3  cloud:3  |  68–92 dB
+[VIEWER] frame_000330.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000330.bin  |  RD-CFAR:12  RA-CFAR:5  cloud:5  |  68–92 dB
+[VIEWER] frame_000331.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000331.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000332.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000332.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000333.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000333.bin  |  RD-CFAR:6  RA-CFAR:6  cloud:6  |  68–92 dB
+[VIEWER] frame_000334.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000334.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000335.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000335.bin  |  RD-CFAR:8  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000336.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000336.bin  |  RD-CFAR:1  RA-CFAR:0  cloud:0  |  67–91 dB
+[VIEWER] frame_000337.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000337.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  66–90 dB
+[VIEWER] frame_000338.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000338.bin  |  RD-CFAR:0  RA-CFAR:0  cloud:0  |  62–86 dB
+[VIEWER] frame_000339.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000339.bin  |  RD-CFAR:4  RA-CFAR:2  cloud:2  |  59–83 dB
+[VIEWER] frame_000340.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000340.bin  |  RD-CFAR:10  RA-CFAR:3  cloud:3  |  59–83 dB
+[VIEWER] frame_000341.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000341.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  59–83 dB
+[VIEWER] frame_000342.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000342.bin  |  RD-CFAR:4  RA-CFAR:5  cloud:5  |  59–83 dB
+[VIEWER] frame_000343.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000343.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  62–86 dB
+[VIEWER] frame_000344.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000344.bin  |  RD-CFAR:11  RA-CFAR:5  cloud:5  |  66–90 dB
+[VIEWER] frame_000345.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000345.bin  |  RD-CFAR:10  RA-CFAR:1  cloud:1  |  67–91 dB
+[VIEWER] frame_000346.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000346.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000347.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000347.bin  |  RD-CFAR:4  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000348.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000348.bin  |  RD-CFAR:7  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000349.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000349.bin  |  RD-CFAR:9  RA-CFAR:1  cloud:1  |  68–92 dB
+[VIEWER] frame_000350.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000350.bin  |  RD-CFAR:9  RA-CFAR:0  cloud:0  |  68–92 dB
+[VIEWER] frame_000351.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000351.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000352.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000352.bin  |  RD-CFAR:6  RA-CFAR:7  cloud:7  |  68–92 dB
+[VIEWER] frame_000353.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000353.bin  |  RD-CFAR:7  RA-CFAR:5  cloud:5  |  68–92 dB
+[VIEWER] frame_000354.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000354.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  68–92 dB
+[VIEWER] frame_000355.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000355.bin  |  RD-CFAR:4  RA-CFAR:2  cloud:2  |  68–92 dB
+[VIEWER] frame_000356.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000356.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000357.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000357.bin  |  RD-CFAR:2  RA-CFAR:3  cloud:3  |  69–93 dB
+[VIEWER] frame_000358.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000358.bin  |  RD-CFAR:5  RA-CFAR:6  cloud:6  |  68–92 dB
+[VIEWER] frame_000359.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000359.bin  |  RD-CFAR:6  RA-CFAR:8  cloud:8  |  68–92 dB
+[VIEWER] frame_000360.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000360.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  68–92 dB
+[VIEWER] frame_000361.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000361.bin  |  RD-CFAR:6  RA-CFAR:9  cloud:9  |  68–92 dB
+[VIEWER] frame_000362.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000362.bin  |  RD-CFAR:9  RA-CFAR:6  cloud:6  |  67–91 dB
+[VIEWER] frame_000363.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000363.bin  |  RD-CFAR:9  RA-CFAR:10  cloud:10  |  68–92 dB
+[VIEWER] frame_000364.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000364.bin  |  RD-CFAR:10  RA-CFAR:3  cloud:3  |  68–92 dB
+[VIEWER] frame_000365.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000365.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  68–92 dB
+[VIEWER] frame_000366.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000366.bin  |  RD-CFAR:12  RA-CFAR:5  cloud:5  |  69–93 dB
+[VIEWER] frame_000367.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000367.bin  |  RD-CFAR:14  RA-CFAR:8  cloud:8  |  70–94 dB
+[VIEWER] frame_000368.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000368.bin  |  RD-CFAR:12  RA-CFAR:4  cloud:4  |  71–95 dB
+[VIEWER] frame_000369.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000369.bin  |  RD-CFAR:7  RA-CFAR:6  cloud:6  |  71–95 dB
+[VIEWER] frame_000370.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000370.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  71–95 dB
+[VIEWER] frame_000371.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000371.bin  |  RD-CFAR:10  RA-CFAR:6  cloud:6  |  71–95 dB
+[VIEWER] frame_000372.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000372.bin  |  RD-CFAR:5  RA-CFAR:4  cloud:4  |  71–95 dB
+[VIEWER] frame_000373.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000373.bin  |  RD-CFAR:11  RA-CFAR:10  cloud:10  |  71–95 dB
+[VIEWER] frame_000374.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000374.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  72–96 dB
+[VIEWER] frame_000375.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000375.bin  |  RD-CFAR:3  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000376.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000376.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  72–96 dB
+[VIEWER] frame_000377.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000377.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000378.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000378.bin  |  RD-CFAR:5  RA-CFAR:2  cloud:2  |  74–98 dB
+[VIEWER] frame_000379.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000379.bin  |  RD-CFAR:9  RA-CFAR:8  cloud:8  |  74–98 dB
+[VIEWER] frame_000380.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000380.bin  |  RD-CFAR:6  RA-CFAR:3  cloud:3  |  73–97 dB
+[VIEWER] frame_000381.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000381.bin  |  RD-CFAR:7  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000382.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000382.bin  |  RD-CFAR:9  RA-CFAR:4  cloud:4  |  74–98 dB
+[VIEWER] frame_000383.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000383.bin  |  RD-CFAR:11  RA-CFAR:2  cloud:2  |  73–97 dB
+[VIEWER] frame_000384.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000384.bin  |  RD-CFAR:13  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000385.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000385.bin  |  RD-CFAR:6  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000386.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000386.bin  |  RD-CFAR:7  RA-CFAR:0  cloud:0  |  72–96 dB
+[VIEWER] frame_000387.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000387.bin  |  RD-CFAR:6  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000388.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000388.bin  |  RD-CFAR:10  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000389.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000389.bin  |  RD-CFAR:3  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000390.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000390.bin  |  RD-CFAR:4  RA-CFAR:2  cloud:2  |  73–97 dB
+[VIEWER] frame_000391.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000391.bin  |  RD-CFAR:7  RA-CFAR:0  cloud:0  |  73–97 dB
+[VIEWER] frame_000392.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000392.bin  |  RD-CFAR:7  RA-CFAR:7  cloud:7  |  74–98 dB
+[VIEWER] frame_000393.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000393.bin  |  RD-CFAR:5  RA-CFAR:0  cloud:0  |  74–98 dB
+[VIEWER] frame_000394.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000394.bin  |  RD-CFAR:7  RA-CFAR:4  cloud:4  |  74–98 dB
+[VIEWER] frame_000395.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000395.bin  |  RD-CFAR:8  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000396.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000396.bin  |  RD-CFAR:6  RA-CFAR:6  cloud:6  |  73–97 dB
+[VIEWER] frame_000397.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000397.bin  |  RD-CFAR:4  RA-CFAR:4  cloud:4  |  73–97 dB
+[VIEWER] frame_000398.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000398.bin  |  RD-CFAR:10  RA-CFAR:0  cloud:0  |  72–96 dB
+[VIEWER] frame_000399.bin → 1 frame(s)
+  frame 0/0 — Frame 0  |  frame_000399.bin  |  RD-CFAR:10  RA-CFAR:3  cloud:3  |  72–96 dB

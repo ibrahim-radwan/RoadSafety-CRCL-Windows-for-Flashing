@@ -1,0 +1,15 @@
+{
+  "clock_domain": "SYSTEM_CLOCK",
+  "timestamp_units": "integer nanoseconds",
+  "alignment_timestamp": "Original SDK acquisition timestamps, not host_receipt_ns or file write time",
+  "monotonic_conversion": "timestamp_ns - (host_receipt_ns - host_receipt_mono_ns) gives CLOCK_MONOTONIC; both host stamps are taken back-to-back",
+  "coordinate_system": "RIGHT_HANDED_Z_UP_X_FWD",
+  "orientation_quaternion_order": "x,y,z,w; original SDK IMU reference",
+  "angles": "roll_rad,pitch_rad,yaw_rad; intrinsic ZYX convention, SDK reference; yaw is not absolute heading; yaw=0 at gimbal lock, quaternion is authoritative",
+  "gyroscope": "rad/s; angular velocity about sensor axes, not Euler angle derivatives",
+  "accelerometer": "m/s^2; includes gravity",
+  "imu_csv_sampling": "Latest CURRENT samples observed by Python; SVO2 also retains native SDK sensor archive",
+  "camera_calibration": "calibration/camera.json and factory SN*.conf; raw/rectified parameters must match chosen images",
+  "image_files": "export/<stream>/<original_timestamp_ns>_<frame_index>.png",
+  "world_pose": "Available only with optional live tracking enabled; otherwise derive offline"
+}
