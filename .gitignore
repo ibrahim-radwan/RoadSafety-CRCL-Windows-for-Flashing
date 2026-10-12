@@ -40,3 +40,6 @@ testing/wireshark_packet_analysis/out/radar_capture_analysis/06_udp_packet_index
 # Third-party paper under IEEE copyright (redistribution needs permission);
 # kept locally, cited in DATA_INDEX.md §4
 testing/live_capture_validation/03_indoor_moving_subject_within_3m/logs/A_Hybrid_TDMA_DDMA_Approach_for_High_Resolution_Cascaded_Automotive_Radar_Systems_04-2025.pdf
+
+# Raw IMU logs of the Jetson sessions (sensor data, catalogued in DATA_INDEX.md §2)
+testing/firmware_investigation_2026-10/sessions/*/camera/capture/imu/

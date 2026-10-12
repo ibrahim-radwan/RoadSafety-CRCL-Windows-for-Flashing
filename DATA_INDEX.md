@@ -2,19 +2,22 @@
 
 Raw recordings are excluded from this repository (`.gitignore`: `*.bin`, `*.pcap*`, `*.svo2`, `*.mp4`, `*.npz`, `*.npy`). They are too large for GitHub, and the camera and LiDAR recordings show people. Their documentation (logs, summaries, CSV results, plots) **is** in git, next to where the data would be.
 
-**Current storage: the Windows build station only** (`RadarDemo` user, this machine), as of 2026-10-12. The team has not yet chosen a shared data store. When the data moves, update the "Location" column below and verify the copy with the md5 manifests.
+**Current storage: the Windows build station only**, as of 2026-10-12. All raw data sits inside this repository's working tree, git-ignored, at the paths below (`C:\Users\RadarDemo\Documents\cascaded_radar_win_dev\`). The team has not yet chosen a shared data store. When the data moves, update this section and verify the copy with the md5 manifests.
 
 ## Verifying a copy
 
 Every excluded file is listed with its md5 in `data_manifests/`. The format is `<md5>  <path>`, the same as `firmware/releases/*.MANIFEST.txt`.
 
 ```bash
-# from the repository root (paths are relative to it)
-md5sum -c data_manifests/repo_testing_excluded.md5
-# from the handover folder root
-cd /c/Users/RadarDemo/Documents/Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation
-md5sum -c /path/to/repo/data_manifests/handover_sessions_raw.md5
+# from the repository root
+md5sum -c data_manifests/repo_testing_excluded.md5        # §1  (5,729 files)
+md5sum -c data_manifests/legacy_capture_5d9982b.md5       # §1b (32 files)
+# from testing/firmware_investigation_2026-10/ (paths start with sessions/)
+cd testing/firmware_investigation_2026-10
+md5sum -c ../../data_manifests/handover_sessions_raw.md5  # §2  (368 files)
 ```
+
+All 6,129 files were verified at these locations on 2026-10-12.
 
 ## 1. Capture validation recordings (in this repo's working tree, git-ignored)
 
@@ -46,9 +49,9 @@ Location: `testing/legacy_capture_5d9982b/capture/` (git-ignored). Manifest: `da
 
 This capture existed only inside the old repository history. It was extracted byte-exact (git blob ids verified) on 2026-10-12, before that history was deleted. Its capture log CSV and the code that recorded it are on the `archive/history-before-2026-10-12` branch (`old_repo_snapshot_5d9982b/capture/`). Like §1, it was recorded with CCS-loaded shortrange firmware.
 
-## 2. Jetson sessions from the firmware investigation (handover folder)
+## 2. Jetson sessions from the firmware investigation
 
-Location: `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\sessions\`. Manifest: `data_manifests/handover_sessions_raw.md5` (368 files, 1.90 GB). Metadata for both sessions is in git under `testing/firmware_investigation_2026-10/sessions/`.
+Location: `testing/firmware_investigation_2026-10/sessions/` (git-ignored raw files, next to the session metadata that **is** in git). Manifest: `data_manifests/handover_sessions_raw.md5` (368 files, 1.90 GB; paths relative to `testing/firmware_investigation_2026-10/`). Moved on 2026-10-12 from the handover folder `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\sessions\`, keeping the same layout, and verified identical. The raw IMU logs (`camera/capture/imu/`) are git-ignored too.
 
 | Session | Raw files | Size | Content | Firmware |
 |---|---|---|---|---|
@@ -74,11 +77,11 @@ Its `README.md` describes each folder. All 104 files were verified byte-identica
 
 What they held beyond the branch was reproducible build output only: object files and old `.xer5f`/`.map`.
 
-**Still on this machine:**
+**The handover folder** `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\` holds nothing unique any more:
 
-| Location | What it is | Why kept |
-|---|---|---|
-| `C:\Users\RadarDemo\Documents\Jetson_Radar_Sync_Capture_Handover_Firmware_Investigation\` | The original handover folder from the Jetson. Its documents, code and firmware are in git (`testing/firmware_investigation_2026-10/`, `firmware/releases/`, the archive branch); only `sessions/` raw data is unique | Raw sessions in §2 |
+- **Documents, code and firmware** are in git: `testing/firmware_investigation_2026-10/`, `firmware/releases/` and the archive branch.
+- **Raw sessions** are in §2.
+- **Superseded files** are its own pre-edit copies of three files that git has in updated form, plus Python bytecode.
 
 ## 4. Third-party documents kept locally (copyright)
 

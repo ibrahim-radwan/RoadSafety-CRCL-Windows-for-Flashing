@@ -44,7 +44,7 @@ About **50% of every radar frame was stale data**: bit-identical across frames, 
 | `FW/` = `C:\ti\…\ti\utils\test\cascade - Copy\am273x\` (REPORT.md) | `firmware/am273x_cascade/am273x/`. Same files. Line numbers still match for `main_mss.c`, `common.c`, `cascade_csirx.c` and `cascade_lvds_stream.c`. In `cascade_config.h` they moved ~45 lines down when the `_V2` table was added at the top, so search for the block name instead. In the SDK the folder is reached through the `cascade_radar` junction (`firmware/README.md` §1). |
 | `firmware/` (the first r075m_v2 delivery) | superseded by the release; identical images |
 | `jetson_firmware_current/` | identical subset of the release; only its manifest is kept, in `jetson_baseline_20261010/` |
-| `sessions/*/radar/frame_*.bin`, `lidar/*.pcap`, `camera/*.svo2` | not in git; see `DATA_INDEX.md` |
+| `sessions/*/radar/frame_*.bin`, `lidar/*.pcap`, `camera/*.svo2` | same paths under this folder's `sessions/`, on the build station only (git-ignored); see `DATA_INDEX.md` §2 |
 | `processing/`, `capture/`, `dca_capture_radar_sync.py` (handover root) | `jetson_snapshot_20261009/` |
 
 ## Still open (from REPORT §8 and REBUILD_SUMMARY)
