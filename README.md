@@ -58,6 +58,7 @@ consistently.
 | `testing/live_capture_validation/`, `testing/wireshark_packet_analysis/` | May–August 2026 capture validation and DCA1000 protocol analysis (logs, summaries; raw recordings excluded) |
 | `capture/`, `processing/`, `analysis_utils/`, `live_capture.py`, `config/` | Frozen Windows capture and processing pipeline |
 | `DATA_INDEX.md`, `data_manifests/` | Where every excluded recording lives, with md5 manifests |
+| `THIRD_PARTY_NOTICES.md` | Licences of the TI and other components in the source and firmware images (BSD-3-Clause, MIT, TI Text File License for the AWR2243 patch) |
 | branch `archive/history-before-2026-10-12` | Not part of `main`. History that existed only on this machine before 2026-10-12: the original local repository snapshot, the TI SDK cascade folders' source history, and the Jetson's pre-rebuild firmware files |
 
 ---
